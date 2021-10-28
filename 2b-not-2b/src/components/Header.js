@@ -1,5 +1,6 @@
 import React from 'react';
 
-const HeaderBar = (props) => {
-    
+const Header = (props) => {
+    return <p>Header</p>;
 }
+export default Header;
