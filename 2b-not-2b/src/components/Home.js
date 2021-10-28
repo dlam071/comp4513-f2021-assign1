@@ -8,7 +8,7 @@ const Home = (props) => {
                 <label>Title</label>
                 <input type="text" name="title" />
                  <button > Show Matching Plays</button> {/* add event listener */}
-                <button > Show All Playes</button> {/* add event listener */}
+                <button > Show All Plays</button> {/* add event listener */}
                 
             </form> 
 
