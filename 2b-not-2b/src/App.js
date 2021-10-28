@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header.js";
+import Home from "./components/Home.js";
+import PlayBrowser from "./components/PlayBrowser.js";
+import PlayDetails from "./components/PlayDetails.js";
 
 function App() {
   return (
@@ -9,6 +13,12 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        
+        <Header />
+        <Home />
+        <PlayBrowser />
+        <PlayDetails />
+
         <a
           className="App-link"
           href="https://reactjs.org"
