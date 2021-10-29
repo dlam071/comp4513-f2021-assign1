@@ -5,7 +5,7 @@ const Home = (props) => {
     return (
         <div  className="homeDiv">
             <form className="homeForm">
-                <legend>Play Browser</legend>
+                <legend id="legend">Play Browser</legend>
                 <label id="label">Title</label>
                 <input type="text" name="title" className="inputText"/>
                 <button className="button"> Show Matching Plays</button> {/* add event listener */}
@@ -13,7 +13,7 @@ const Home = (props) => {
                 
             </form> 
 
-            <p>Hero Image Credit</p>
+            <p id="heroImg">Hero Image Credit</p>
         </div>
 
 

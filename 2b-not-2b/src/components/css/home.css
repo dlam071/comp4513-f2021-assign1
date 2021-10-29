@@ -25,3 +25,13 @@
     margin: 15px;
 }
 
+#legend {
+    font-weight: bolder;
+    font-size: 30;
+    margin-bottom: 30px;
+}
+
+#heroImg {
+    font-size: 10px;
+    font-weight: light; 
+}
