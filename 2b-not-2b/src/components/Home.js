@@ -1,18 +1,19 @@
 import React from "react";
+import "./css/home.css"
 
 const Home = (props) => {
     return (
-        <div>
-            <form className="home">
+        <div  className="homeDiv">
+            <form className="homeForm">
                 <legend>Play Browser</legend>
-                <label>Title</label>
-                <input type="text" name="title" />
-                 <button > Show Matching Plays</button> {/* add event listener */}
-                <button > Show All Plays</button> {/* add event listener */}
+                <label id="label">Title</label>
+                <input type="text" name="title" className="inputText"/>
+                <button className="button"> Show Matching Plays</button> {/* add event listener */}
+                <button className="button"> Show All Plays</button> {/* add event listener */}
                 
             </form> 
 
-            <h3>Hero Image Credit</h3>
+            <p>Hero Image Credit</p>
         </div>
 
 
