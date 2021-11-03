@@ -1,6 +1,16 @@
 @import "./template.css";
 @import "./general.css";
 
+.Home {
+  text-align: center;
+  background-image: url("../images/hero-image.jpg");
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 100vh; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
 .homeContainer {
   background-color: var(--platinum);
   box-shadow: 1px 1px 5px var(--black-shadow);
@@ -38,8 +48,12 @@
   font-size: 20px;
 }
 
-.showAllBtn {
+.showAllLink {
   grid-column: 2/3;
+}
+
+.searchLink {
+  grid-column: 3/4;
 }
 
 #label {

@@ -1,14 +1,5 @@
 @import "./reset.css";
 @import "./template.css";
-.App {
-  text-align: center;
-  background-image: url("../images/hero-image.jpg");
-  background-color: #cccccc; /* Used if the image is unavailable */
-  height: 100vh; /* You must set a specified height */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-}
 
 @media (prefers-reduced-motion: no-preference) {
   /* will need to add this to our animation */

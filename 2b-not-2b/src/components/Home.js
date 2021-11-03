@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/Home.css";
 import "../styles/general.css";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
 const Home = (props) => {
   return (
     <section className="Home">
@@ -10,14 +12,20 @@ const Home = (props) => {
         <form className="homeForm">
           <label id="label">Title</label>
           <input type="text" name="title" className="inputText" />
-          <button className="button showAllBtn">
-            {/* <Link to="/Browse">Show Matching Plays</Link> */}
-            Show Matching Plays
-          </button>
-          <button className="button searchBtn">
-            {/* <Link to="/Browse">Show All Plays</Link> */}
-            Show All Plays
-          </button>
+          <Link
+            className="showAllLink"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+            to="/browse"
+          >
+            <button className="button showAllBtn">Show Matching Plays</button>
+          </Link>
+          <Link
+            className="searchLink"
+            style={{ color: "inherit", textDecoration: "inherit" }}
+            to="/browse"
+          >
+            <button className="button searchBtn">Show All Plays</button>
+          </Link>
         </form>
       </div>
       <p id="heroImg">Hero Image Credit</p>
