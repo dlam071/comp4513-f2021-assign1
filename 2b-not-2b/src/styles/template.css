@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Hahmlet");
 :root {
   /* CSS Colors from https://coolors.co/121212-14213d-2e4b8a-fca311-e5e5e5-ffffff*/
   --black-shadow: #121212ff;
@@ -6,4 +7,5 @@
   --orange-accent: #fca311ff;
   --platinum: #e5e5e5ff;
   --white: #ffffffff;
+  font-family: Hahmlet;
 }
