@@ -1,11 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import "../styles/playbrowser.css"
 const PlayFilters = (props) => {
+    const [clicked, setClicked] = useState(false);
+    const handleClick = () => {
+        clicked ? setClicked(false) : setClicked(true);
+    }
+
     const moreFilters = () => {
-        console.log("here")
-        if (true) {
+        if (clicked) {
+
             return (
-                <form>
+                <div>
                     <label>Year</label>
                     <label>
                         <input type="radio" name="year" value="before" />
@@ -26,23 +32,33 @@ const PlayFilters = (props) => {
                     </select>
                     <button type="submit">Filter</button>
                     <button type="reset">Clear</button>
-                </form>
+                </div>
+
             )
         } else {
+
+            return null;
         }
+        console.log("here")
+
+
     }
 
 
     return (
-
         <section className="playFilters">
-            <h2>Play List </h2>
+            <div><h2>Play List </h2></div>
+
+
             <form className="filter">
-                <label>Title</label>
-                <input type="text" name="title" />
-                <div className="moreFilters" onClick={moreFilters}>
+                <div className="titleDiv">
+                    <label>Title</label>
+                    <input type="text" name="title" />
+                </div>
+                <div className="moreFilters" onClick={handleClick}>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
                 </div>
+                {moreFilters()}
             </form>
         </section>
 
