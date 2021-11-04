@@ -1,4 +1,5 @@
 import React from "react";
+import styled, { css } from "styled-components";
 
 const SinglePlay = (props) => {
   // This function is to change the heart logo depending on current favorite state

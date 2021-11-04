@@ -5,7 +5,7 @@ import About from "./About.js";
 const Header = (props) => {
   return (
     <nav className="header">
-      <p>Header</p>
+      <p>Play Browser</p>
       <button className="buttonThin buttonSolid">About</button>
     </nav>
   );

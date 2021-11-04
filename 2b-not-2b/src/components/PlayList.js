@@ -8,9 +8,9 @@ const PlayList = (props) => {
     <section className="playList">
       <h2>List/Matches</h2>
       <table>
-        <tr>
-          <th>Title</th>
-          <th>year</th>
+        <tr className="listHeader">
+          <th className="listTitle">Title</th>
+          <th className="listYear">Year</th>
           <th className="viewbtn"> </th>
           <th className="favbtn"> </th>
         </tr>
