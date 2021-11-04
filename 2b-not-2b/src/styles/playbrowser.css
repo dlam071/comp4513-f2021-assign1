@@ -25,16 +25,34 @@
   font-weight: bolder;
 }
 
+.moreFilters {
+  width: 24px;
+  height: 24px;
+}
+
  .moreFilters:hover {   
   cursor: copy;
 } 
 
+.filter {
+  /* justify-content: space-around; */
+ 
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.clickedForm {
+ display: flex;
+ flex-direction: column;
+}
+
 .playFilters {
   grid-row: 2/3;
   grid-column: 1 / span 4;
-  display: flex;
   align-items: center;
+  
 }
+
 .playList {
   grid-column: 2/ span 4;
 }

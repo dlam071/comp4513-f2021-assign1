@@ -5,14 +5,12 @@ import PlayFilters from "./PlayFilters";
 import PlayList from "./PlayList";
 import "../styles/playbrowser.css";
 const PlayBrowser = (props) => {
-  const [clicked, setClicked] = useState([]);
-
   return (
     //css and html tags are not set for this im just using it as an example ty and goodbye
     <section className="playBrowser">
       <Header />
       <Favorites />
-      <PlayFilters clicked={clicked} />
+      <PlayFilters />
       <PlayList plays={props.plays} />
     </section>
   );
