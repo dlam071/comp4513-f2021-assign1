@@ -5,12 +5,22 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr 2fr;
-  grid-template-rows: 1fr 2fr auto;
+  grid-template-rows: 1fr 3fr auto;
 }
 
 .inputText {
   width: 90%;
   height: 20px;
+  font-size: 14px;
+}
+
+.inputYear {
+  background-color: var(--white);
+  grid-column: 2/4;
+  border-radius: 10px;
+  height: 20px;
+  margin: 5px;
+  width: 10%;
 }
 
 .header,
@@ -49,6 +59,10 @@
 .clickedForm {
   display: flex;
   flex-direction: column;
+}
+
+h2 {
+  margin-bottom: 10px;
 }
 
 .playFilters {
