@@ -12,18 +12,10 @@ const Home = (props) => {
         <form className="homeForm">
           <label id="label">Title</label>
           <input type="text" name="title" className="inputText" />
-          <Link
-            className="showAllLink"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-            to="/browse"
-          >
+          <Link to="/browse">
             <button className="button showAllBtn">Show Matching Plays</button>
           </Link>
-          <Link
-            className="searchLink"
-            style={{ color: "inherit", textDecoration: "inherit" }}
-            to="/browse"
-          >
+          <Link to="/browse">
             <button className="button searchBtn">Show All Plays</button>
           </Link>
         </form>
