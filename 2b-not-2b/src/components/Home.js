@@ -12,10 +12,10 @@ const Home = (props) => {
         <form className="homeForm">
           <label id="label">Title</label>
           <input type="text" name="title" className="inputText" />
-          <Link to="/browse">
+          <Link className="showAllLink" to="/browse">
             <button className="button showAllBtn">Show Matching Plays</button>
           </Link>
-          <Link to="/browse">
+          <Link className="searchLink" to="/browse">
             <button className="button searchBtn">Show All Plays</button>
           </Link>
         </form>
