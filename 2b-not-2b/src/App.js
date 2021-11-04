@@ -21,7 +21,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/browse" element={<PlayBrowser />} />
+      <Route path="/browse" element={<PlayBrowser plays={plays} />} />
     </Routes>
   );
 }

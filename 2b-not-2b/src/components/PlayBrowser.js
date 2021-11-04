@@ -12,9 +12,8 @@ const PlayBrowser = (props) => {
     <section className="playBrowser">
       <Header />
       <Favorites />
-      <PlayFilters clicked={clicked}/>
-      <PlayList />
-
+      <PlayFilters clicked={clicked} />
+      <PlayList plays={props.plays} />
     </section>
   );
 };
