@@ -35,31 +35,30 @@
   height: 24px;
 }
 
- .moreFilters:hover {   
+.moreFilters:hover {
   cursor: copy;
-} 
+}
 
 .filter {
   /* justify-content: space-around; */
- 
+
   /* display: flex;
   justify-content: space-between; */
 }
 
 .clickedForm {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .playFilters {
   grid-row: 2/3;
   grid-column: 1 / span 4;
   align-items: center;
-  
 }
 
 .playList {
-  grid-column: 2/ span 4;
+  grid-column: 2 / span 4;
 }
 
 .favorites {
@@ -83,6 +82,13 @@
 td > * {
   vertical-align: middle;
 }
+td {
+  padding: 5px;
+}
+
+.playItem {
+  border-top: 1px solid white;
+}
 
 table {
   width: 100%;
@@ -99,12 +105,11 @@ table {
   padding-bottom: 5px;
 }
 
-.listHeader {
+.listTitle {
   text-align: left;
 }
 
 .listItemYear {
-  border-left: 1px solid white;
   text-align: center;
 }
 

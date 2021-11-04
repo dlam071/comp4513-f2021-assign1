@@ -40,7 +40,7 @@ const SinglePlay = (props) => {
   // This function is to change the heart logo depending on current favorite state
 
   return (
-    <tr>
+    <tr className="playItem">
       <td>{props.play.title}</td>
       <td className="listItemYear">{props.play.likelyDate}</td>
       <td>
