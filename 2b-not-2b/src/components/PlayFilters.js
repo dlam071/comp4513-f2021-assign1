@@ -16,12 +16,12 @@ const PlayFilters = (props) => {
                     <label id="label">
                         <input type="radio" name="year" value="before" />
                         Before
-                        <input type="text" name="before" />
+                        <input type="text" name="before" className="inputYear"/>
                     </label>
                     <label id="label">
                         <input type="radio" name="year" value="after" />
-                        After
-                        <input type="text" name="after" />
+                        After   
+                        <input type="text" name="after" className="inputYear"/>
                     </label>
                     <label id="label">Genre</label>
                     <select name="genre">
@@ -47,7 +47,7 @@ const PlayFilters = (props) => {
 
     return (
         <section className="playFilters">
-            <div><h2>Play List </h2></div>
+            <h2>Play List </h2>
 
 
             <form className="filter">
