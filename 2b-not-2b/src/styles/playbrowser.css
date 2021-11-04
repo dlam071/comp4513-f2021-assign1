@@ -25,6 +25,9 @@
   font-weight: bolder;
 }
 
+ .moreFilters:hover {   
+  cursor: copy;
+} 
 
 .playFilters {
   grid-row: 2/3;
