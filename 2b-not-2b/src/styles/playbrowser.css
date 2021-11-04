@@ -2,26 +2,45 @@
 @import "./general.css";
 
 .playBrowser {
-    display: grid;
-    grid-gap: 10px;
-    background-color: var(--platinum);
-    grid-template-columns: 1fr 1fr 2fr;
-    grid-template-rows: 1fr auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr auto;
 }
 
-.header, .favorites, .playFilters, .playList {
-    background-color: var(--blue-2);
-    padding: 10px;
+.header,
+.favorites,
+.playFilters,
+.playList {
+  background-color: var(--platinum);
+  padding: 10px;
 }
 
 .header {
-    grid-column: 1/ span 4;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  grid-column: 1 / span 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .favorites {
-    grid-column-start: 1;
-    grid-column-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.button svg {
+  transform: scale(0.7);
+}
+
+td > * {
+  vertical-align: middle;
+}
+
+table {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.viewbtn {
+  width: 4em;
 }
