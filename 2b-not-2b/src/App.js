@@ -3,12 +3,12 @@ import "./styles/App.css";
 import Home from "./components/Home.js";
 import PlayBrowser from "./components/PlayBrowser.js";
 import PlayDetails from "./components/PlayDetails.js";
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [plays, setPlays] = useState([]);
-  
+
   useEffect(() => {
     const url =
       "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";

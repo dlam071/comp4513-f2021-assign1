@@ -60,6 +60,15 @@
   grid-column-end: 2;
 }
 
+.favoriteHeartOutline svg:hover {
+  fill: var(--orange-accent);
+  cursor: pointer;
+}
+.favoriteHeartSolid svg:hover {
+  fill: var(--blue-1);
+  cursor: pointer;
+}
+
 .button svg {
   transform: scale(0.7);
 }
