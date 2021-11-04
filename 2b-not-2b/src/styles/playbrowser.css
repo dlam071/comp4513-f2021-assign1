@@ -47,13 +47,22 @@ table {
 .listTitle,
 .listYear {
   font-weight: bold;
+  text-decoration: underline;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
 .listHeader {
-  border-bottom: 1px solid var(--black-shadow);
   text-align: left;
+}
+
+.listItemYear {
+  border-left: 1px solid white;
+  text-align: center;
+}
+
+.listYear {
+  text-align: center;
 }
 
 .viewbtn {

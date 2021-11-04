@@ -37,7 +37,7 @@ const SinglePlay = (props) => {
   return (
     <tr>
       <td>Hamlet</td>
-      <td>1970</td>
+      <td className="listItemYear">1970</td>
       <td>
         <button className="buttonThin">View</button>
       </td>
