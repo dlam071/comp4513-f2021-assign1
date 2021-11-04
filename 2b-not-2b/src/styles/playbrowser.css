@@ -1,0 +1,26 @@
+@import "./template.css";
+@import "./general.css";
+
+.playBrowser {
+    display: grid;
+    grid-gap: 10px;
+    background-color: var(--platinum);
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.header, .favorites, .playFilters, .playList {
+    background-color: var(--blue-2);
+    padding: 10px;
+}
+
+.header {
+    grid-column: 1/ span 4;
+    display: flex;
+    justify-content: space-between;
+}
+
+.favorites {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
