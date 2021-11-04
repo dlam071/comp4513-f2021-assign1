@@ -8,6 +8,11 @@
   grid-template-rows: 1fr 2fr auto;
 }
 
+.inputText {
+  width: 90%;
+  height: 20px;
+}
+
 .header,
 .favorites,
 .playFilters,
