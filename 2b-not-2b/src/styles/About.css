@@ -1,5 +1,8 @@
 #aboutBox {
     position: absolute;
+    background-color: #cccccc;
+    height: 60vh;
+    width: 80vh;
     top: 50%;
     left: 50%;
     right: auto;
