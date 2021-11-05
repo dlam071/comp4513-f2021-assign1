@@ -88,6 +88,10 @@ h2 {
   fill: var(--blue-1);
   cursor: pointer;
 }
+.favoriteHeartOutline svg,
+.favoriteHeartSolid svg {
+  vertical-align: middle;
+}
 
 .button svg {
   transform: scale(0.7);
