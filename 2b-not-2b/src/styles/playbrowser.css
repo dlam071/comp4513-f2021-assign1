@@ -47,10 +47,10 @@
   font-weight: bolder;
 }
 
-.moreFilters {
+/* .moreFilters {
   width: 24px;
   height: 24px;
-}
+} */
 
 .moreFilters:hover {
   cursor: pointer;
