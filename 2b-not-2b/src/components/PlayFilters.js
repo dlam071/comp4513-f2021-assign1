@@ -42,9 +42,9 @@ const PlayFilters = (props) => {
                 <div>
                     <label id="label">Year</label>
                     <label id="label">
-                        <input type="radio" name="year" value="before" />
+                        <input type="radio" name="year" defaultValue="before" />
                         Before
-                        <input type="text" name="before" className="inputYear" defaultValue={beforeInput} onChange={handleBeforeChange} />
+                        <input type="text" name="before" className="inputYear" value={beforeInput} onChange={handleBeforeChange} />
                     </label>
                     <label id="label">
                         <input type="radio" name="year" value="after" />
