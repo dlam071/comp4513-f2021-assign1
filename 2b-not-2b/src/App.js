@@ -62,6 +62,7 @@ function App() {
   };
 
   return (
+    <main>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
@@ -76,6 +77,7 @@ function App() {
         }
       />
     </Routes>
+    </main>
   );
 }
 
