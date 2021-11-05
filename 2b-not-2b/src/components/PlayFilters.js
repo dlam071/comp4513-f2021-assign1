@@ -3,8 +3,35 @@ import { useState } from "react";
 import "../styles/playbrowser.css"
 const PlayFilters = (props) => {
     const [clicked, setClicked] = useState(false);
+    const [title, setTitle] = useState();
+    const [beforeInput, setBefore] = useState();
+    const [afterInput, setAfter] = useState();
+    const [genre, setGenre] = useState();
+
     const handleClick = () => {
         clicked ? setClicked(false) : setClicked(true);
+    }
+
+    const handleBeforeChange = (e) => {
+        setBefore(e.target.value);
+        
+    }
+
+    const handleAfterChange = (e) => {
+        setAfter(e.target.value);
+    }
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    }
+
+    const handleGenreChange = (e) => {
+        setGenre(e.target.value);
+    }
+
+
+    const passFilters = () => {
+        this.props.saveFilters(title, beforeInput, afterInput, genre);
     }
 
     const moreFilters = () => {
@@ -16,21 +43,21 @@ const PlayFilters = (props) => {
                     <label id="label">
                         <input type="radio" name="year" value="before" />
                         Before
-                        <input type="text" name="before" className="inputYear"/>
+                        <input type="text" name="before" className="inputYear" defaultValue={beforeInput} onChange={handleBeforeChange} />
                     </label>
                     <label id="label">
                         <input type="radio" name="year" value="after" />
                         After   
-                        <input type="text" name="after" className="inputYear"/>
+                        <input type="text" name="after" className="inputYear" defaultValue={afterInput} onChange={handleAfterChange} />
                     </label>
                     <label id="label">Genre</label>
-                    <select name="genre">
+                    <select name="genre" onClick={handleGenreChange}>
                         <option value="">Select a Genre</option>
-                        <option value="option1">option 1</option>
-                        <option value="option2">option 2</option>
-                        <option value="option3">option 3</option>
+                        {
+                            props.plays.map(p => <option defaultValue={genre} onClick={handleGenreChange}>{p.genre}</option>)
+                        }
                     </select>
-                    <button type="submit" className="buttonThin">Filter</button>
+                    <button type="submit" className="buttonThin" onClick={passFilters}>Filter</button>
                     <button type="reset"className="buttonThin">Clear</button>
                 </div>
 
@@ -39,7 +66,7 @@ const PlayFilters = (props) => {
 
             return null;
         }
-        console.log("here")
+        
 
 
     }
@@ -53,7 +80,7 @@ const PlayFilters = (props) => {
             <form className="filter">
                 <div className="titleDiv">
                     <label id="label">Title</label>
-                    <input type="text" name="title" className="inputText"/>
+                    <input type="text" name="title" className="inputText" defaultValue={title} onChange={handleTitleChange} />
                 </div>
                 <div className="clickedForm">
                     <div className="moreFilters" onClick={handleClick}>
@@ -67,5 +94,16 @@ const PlayFilters = (props) => {
 
     )
 }
+
+
+// const Genre = (props) => {
+    
+//     console.log(props.plays);
+//     // le   t set = [...new Set(props.play.genre)]
+//     return (
+//         props.plays.map(p => <option value={p.genre} onClick={handleGenreChange}>{p.genre}</option>)
+//     );
+// }
+
 
 export default PlayFilters;
