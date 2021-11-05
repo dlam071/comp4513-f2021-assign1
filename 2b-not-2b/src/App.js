@@ -18,10 +18,36 @@ function App() {
       .catch((err) => console.error(err));
   });
 
+  const saveFilters = (title, beforeInput, afterInput, genre) => {
+    const playsCopy = [...plays];
+    if (title) {
+      console.log("title");
+      let titlefiltered = playsCopy.filter(p => p.title == title);
+      playsCopy.push(titlefiltered);
+    }
+    if (beforeInput) {
+      console.log("before");
+      let beforefiltered = playsCopy.filter(p => p.likelyDate < beforeInput);
+      playsCopy.push(beforefiltered);
+    }
+    if (afterInput) {
+      console.log("");
+      let afterfiltered = playsCopy.filter(p => p.likelyDate > afterInput);
+      playsCopy.push(afterfiltered);
+    }
+    if (genre) {
+      console.log("");
+      let genrefiltered = playsCopy.filter(p => p.genre == genre);
+      playsCopy.push(genrefiltered);
+    }
+    setPlays(playsCopy);
+  }
+
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/browse" element={<PlayBrowser plays={plays} />} />
+      <Route path="/browse" element={<PlayBrowser plays={plays} saveFilters={saveFilters}/>} />
     </Routes>
   );
 }
