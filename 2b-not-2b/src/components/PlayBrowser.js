@@ -10,7 +10,7 @@ const PlayBrowser = (props) => {
     <section className="playBrowser">
       <Header />
       <Favorites />
-      <PlayFilters />
+      <PlayFilters plays={props.plays} saveFilters={props.saveFilters} />
       <PlayList plays={props.plays} />
     </section>
   );
