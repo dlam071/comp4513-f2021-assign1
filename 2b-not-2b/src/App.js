@@ -9,6 +9,21 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const [plays, setPlays] = useState([]);
   const [filteredPlays, setFilteredPlays] = useState(plays);
+  const [favorites, setFavorites] = useState([]);
+
+  const updateFavorites = (fav) => {
+    const copyFavs = [...favorites];
+    const favorite = copyFavs.find((f) => f.name === fav.name);
+    if (!favorite) {
+      copyFavs.push(favorite);
+      setFavorites(copyFavs);
+    } else {
+      const index = copyFavs.indexOf(favorite);
+      copyFavs.splice(index, 1);
+      setFavorites(copyFavs);
+    }
+    console.log(favorites);
+  };
 
   useEffect(() => {
     const url =
@@ -17,7 +32,7 @@ function App() {
       .then((resp) => resp.json())
       .then((data) => {
         setPlays(data);
-        setFilteredPlays(plays);
+        setFilteredPlays(data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -46,21 +61,18 @@ function App() {
     setFilteredPlays(playsCopy);
   };
 
-  const playBrowserCheckFilter = () => {
-    if (Object.keys(filteredPlays).length === 0) {
-      return <PlayBrowser plays={plays} saveFilters={saveFilters} />;
-    } else {
-      return <PlayBrowser plays={filteredPlays} saveFilters={saveFilters} />;
-    }
-  };
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
         path="/browse"
         element={
-          <PlayBrowser plays={filteredPlays} saveFilters={saveFilters} />
+          <PlayBrowser
+            plays={filteredPlays}
+            favorites={favorites}
+            saveFilters={saveFilters}
+            updateFavorites={updateFavorites}
+          />
         }
       />
     </Routes>
