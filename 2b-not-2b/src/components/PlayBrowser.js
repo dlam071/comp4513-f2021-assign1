@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Favorites from "./Favorites";
 import PlayFilters from "./PlayFilters";
@@ -11,8 +11,7 @@ const PlayBrowser = (props) => {
       <Header />
       <Favorites />
       <PlayFilters />
-      <PlayList />
-
+      <PlayList plays={props.plays} />
     </section>
   );
 };
