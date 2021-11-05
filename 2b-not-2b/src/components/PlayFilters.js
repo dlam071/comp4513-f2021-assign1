@@ -30,8 +30,9 @@ const PlayFilters = (props) => {
     }
 
 
-    const passFilters = () => {
-        this.props.saveFilters(title, beforeInput, afterInput, genre);
+    const passFilters = (e) => {
+        e.preventDefault();
+        props.saveFilters(title, beforeInput, afterInput, genre);
     }
 
     const moreFilters = () => {
@@ -57,7 +58,7 @@ const PlayFilters = (props) => {
                             props.plays.map(p => <option defaultValue={genre} onClick={handleGenreChange}>{p.genre}</option>)
                         }
                     </select>
-                    <button type="submit" className="buttonThin" onClick={passFilters}>Filter</button>
+                    <button type="submit" className="buttonThin" >Filter</button>
                     <button type="reset"className="buttonThin">Clear</button>
                 </div>
 
@@ -77,7 +78,7 @@ const PlayFilters = (props) => {
             <h2>Play List </h2>
 
 
-            <form className="filter">
+            <form className="filter" onSubmit={passFilters}>
                 <div className="titleDiv">
                     <label id="label">Title</label>
                     <input type="text" name="title" className="inputText" defaultValue={title} onChange={handleTitleChange} />
