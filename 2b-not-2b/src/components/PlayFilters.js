@@ -77,17 +77,7 @@ const PlayFilters = (props) => {
               </option>
             ))}
           </select>
-          <button type="submit" className="buttonThin">
-            Filter
-          </button>
-          <button
-            onClick={reseFilters}
-            value="Reset"
-            type="reset"
-            className="buttonThin"
-          >
-            Clear
-          </button>
+          
         </div>
       );
     }
@@ -95,7 +85,7 @@ const PlayFilters = (props) => {
 
   return (
     <section className="playFilters">
-      <h2>Play List </h2>
+      {/* <h2>Play List </h2> */}
 
       <form className="filter" onSubmit={passFilters}>
         <div className="titleDiv">
@@ -107,10 +97,18 @@ const PlayFilters = (props) => {
             defaultValue={title}
             onChange={handleTitleChange}
           />
-        </div>
-        <div className="clickedForm">
-          <div className="moreFilters" onClick={handleClick}>
-            <svg
+          <button type="submit" className="buttonThin">
+            Filter
+          </button>
+          <button
+            onClick={reseFilters}
+            value="Reset"
+            type="reset"
+            className="buttonThin"
+          >
+            Clear
+          </button>
+          <svg className="moreFilters" onClick={handleClick}
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
               viewBox="0 0 24 24"
@@ -120,7 +118,11 @@ const PlayFilters = (props) => {
               <path d="M0 0h24v24H0V0z" fill="none" />
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
             </svg>
-          </div>
+        </div>
+        <div className="clickedForm">
+          
+           
+          
 
           {moreFilters()}
         </div>
@@ -129,13 +131,6 @@ const PlayFilters = (props) => {
   );
 };
 
-// const Genre = (props) => {
 
-//     console.log(props.plays);
-//     // le   t set = [...new Set(props.play.genre)]
-//     return (
-//         props.plays.map(p => <option value={p.genre} onClick={handleGenreChange}>{p.genre}</option>)
-//     );
-// }
 
 export default PlayFilters;

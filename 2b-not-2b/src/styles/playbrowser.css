@@ -46,7 +46,7 @@
 }
 
 .moreFilters:hover {
-  cursor: copy;
+  cursor: pointer;
 }
 
 .filter {
