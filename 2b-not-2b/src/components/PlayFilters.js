@@ -7,7 +7,7 @@ const PlayFilters = (props) => {
     const [beforeInput, setBefore] = useState();
     const [afterInput, setAfter] = useState();
     const [genre, setGenre] = useState();
-    const [bText, setBText] = useState("More Filters");
+    const [bText, setBText] = useState("More Filters >");
 
     const handleClick = () => {
 
@@ -15,7 +15,7 @@ const PlayFilters = (props) => {
     };
 
     const changeButtonText = () => {
-        clicked ? setBText("More Filters") : setBText("Less Filters");
+        clicked ? setBText("More Filters >") : setBText("Less Filters <");
     }
 
     const handleBeforeChange = (e) => {
@@ -50,8 +50,8 @@ const PlayFilters = (props) => {
     const moreFilters = () => {
         if (clicked) {
             return (
-                <div>
-                    <label id="label">Year</label>
+                <div className="clickedForm">
+                     <label id="label">Year</label>
 
                     <div>
 
@@ -66,15 +66,16 @@ const PlayFilters = (props) => {
                                 onChange={handleBeforeChange}
                             />
                         </label>
-                       
+
                         <label id="label">Genre</label>
                         <select name="genre" onClick={handleGenreChange}>
                             <option value="">Select a Genre</option>
-                            {props.plays.map((p) => (
-                                <option defaultValue={genre} onClick={handleGenreChange}>
-                                    {p.genre}
-                                </option>
-                            ))}
+                            {
+                                props.plays.map((p) => (
+                                    <option defaultValue={genre} onClick={handleGenreChange}>
+                                        {p.genre}
+                                    </option>
+                                ))}
                         </select>
                         <label id="label" className="after">
                             <input type="radio" name="year" value="after" />
@@ -107,7 +108,8 @@ const PlayFilters = (props) => {
                         defaultValue={title}
                         onChange={handleTitleChange}
                     />
-                    <div className="groups">
+                    <div className="buttonGroup">
+                        <div>
                         <button type="submit" className="buttonThin">
                             Filter
                         </button>
@@ -119,19 +121,15 @@ const PlayFilters = (props) => {
                         >
                             Clear
                         </button>
-                       
-                       <button type="button" className="buttonThin moreFilters" onClick= {()=>{handleClick(); changeButtonText();}}
+</div>
+                        <button type="button" className="buttonThin moreFilters" onClick={() => { handleClick(); changeButtonText(); }}
                         >{bText}</button>
 
-                        </div>
+                    </div>
                 </div>
-                <div className="clickedForm">
-
-
-
-
+                
                     {moreFilters()}
-                </div>
+                
             </form>
         </section>
     );
