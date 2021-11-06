@@ -51,7 +51,7 @@ const PlayFilters = (props) => {
         if (clicked) {
             return (
                 <div className="clickedForm">
-                     <label id="label">Year</label>
+                    <label id="label">Year</label>
 
                     <div>
 
@@ -110,26 +110,26 @@ const PlayFilters = (props) => {
                     />
                     <div className="buttonGroup">
                         <div>
-                        <button type="submit" className="buttonThin">
-                            Filter
-                        </button>
-                        <button
-                            onClick={reseFilters}
-                            value="Reset"
-                            type="reset"
-                            className="buttonThin"
-                        >
-                            Clear
-                        </button>
-</div>
+                            <button type="submit" className="buttonThin">
+                                Filter
+                            </button>
+                            <button
+                                onClick={reseFilters}
+                                value="Reset"
+                                type="reset"
+                                className="buttonThin"
+                            >
+                                Clear
+                            </button>
+                        </div>
                         <button type="button" className="buttonThin moreFilters" onClick={() => { handleClick(); changeButtonText(); }}
                         >{bText}</button>
 
                     </div>
                 </div>
-                
-                    {moreFilters()}
-                
+
+                {moreFilters()}
+
             </form>
         </section>
     );

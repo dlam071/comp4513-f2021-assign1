@@ -45,19 +45,15 @@ function App() {
         p.title.toLowerCase().includes(title.toLowerCase())
       );
     }
-    if (beforeInput) {
-      console.log("before");
-      playsCopy = playsCopy.filter((p) => p.likelyDate < beforeInput);
-    }
-    if (afterInput) {
-      console.log("");
-      playsCopy = playsCopy.filter((p) => p.likelyDate > afterInput);
-    }
-    if (genre) {
-      console.log("");
+    if (beforeInput && afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
+    } else if (beforeInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate > beforeInput);
+    } else if (afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate < afterInput);
+    } else if (genre) {
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
-    console.log(playsCopy);
     setFilteredPlays(playsCopy);
   };
 
