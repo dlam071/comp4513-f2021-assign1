@@ -11,6 +11,7 @@ function App() {
   const [plays, setPlays] = useState([]);
   const [filteredPlays, setFilteredPlays] = useState(plays);
   const [favorites, setFavorites] = useState([]);
+  const [filterTitle, setFilterTitle] = useState();
 
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
@@ -43,7 +44,8 @@ function App() {
     if (title) {
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
-      );
+        );
+        setFilterTitle(title);
     }
     if (beforeInput && afterInput) {
       playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
@@ -75,6 +77,7 @@ function App() {
             favorites={favorites}
             saveFilters={saveFilters}
             updateFavorites={updateFavorites}
+            filterTitle={filterTitle}
           />
         }
       />
