@@ -40,24 +40,19 @@ function App() {
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
     if (title) {
-      console.log("title");
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
       );
     }
     if (beforeInput) {
-      console.log("before");
       playsCopy = playsCopy.filter((p) => p.likelyDate < beforeInput);
     }
     if (afterInput) {
-      console.log("");
       playsCopy = playsCopy.filter((p) => p.likelyDate > afterInput);
     }
     if (genre) {
-      console.log("");
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
-    console.log(playsCopy);
     setFilteredPlays(playsCopy);
   };
 
