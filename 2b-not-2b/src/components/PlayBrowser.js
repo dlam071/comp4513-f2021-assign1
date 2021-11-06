@@ -14,7 +14,11 @@ const PlayBrowser = (props) => {
         favorites={props.favorites}
         plays={props.plays}
       />
-      <PlayFilters plays={props.plays} saveFilters={props.saveFilters} />
+      <PlayFilters 
+        plays={props.plays}
+        saveFilters={props.saveFilters}
+        filterTitle={props.filterTitle} 
+        updateTitleFilter={props.updateTitleFilter}/>
       <PlayList
         plays={props.plays}
         updateFavorites={props.updateFavorites}

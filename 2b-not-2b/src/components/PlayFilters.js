@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { generatePath } from "react-router-dom";
 import "../styles/playbrowser.css";
 const PlayFilters = (props) => {
     const [clicked, setClicked] = useState(false);
-    const [title, setTitle] = useState();
     const [beforeInput, setBefore] = useState();
     const [afterInput, setAfter] = useState();
     const [genre, setGenre] = useState();
@@ -18,6 +18,16 @@ const PlayFilters = (props) => {
         clicked ? setBText("More Filters >") : setBText("Less Filters <");
     }
 
+    const filterGenres = () => {
+        let genres = props.plays.map(p => p.genre);
+        let filteredGenres = genres.filter((item, index) => genres.indexOf(item) === index);
+        return (
+            filteredGenres.map((p) => <option defaultValue={genre} onClick={handleGenreChange}>{p}</option>)
+        );
+
+
+    }
+
     const handleBeforeChange = (e) => {
         setBefore(e.target.value);
     };
@@ -27,21 +37,24 @@ const PlayFilters = (props) => {
     };
 
     const handleTitleChange = (e) => {
-        setTitle(e.target.value);
+        props.updateTitleFilter(e.target.value)
+        
     };
 
     const handleGenreChange = (e) => {
         setGenre(e.target.value);
     };
 
+
+
     const passFilters = (e) => {
         e.preventDefault();
-        props.saveFilters(title, beforeInput, afterInput, genre);
+        props.saveFilters(props.filterTitle, beforeInput, afterInput, genre);
     };
 
-    const reseFilters = () => {
-        props.saveFilters(undefined, undefined, undefined, undefined);
-        setTitle();
+    const reseFilters = () => { //broken
+        props.saveFilters("", "", "", "");
+        props.updateTitleFilter();
         setBefore();
         setAfter();
         setGenre();
@@ -71,11 +84,11 @@ const PlayFilters = (props) => {
                         <select name="genre" onClick={handleGenreChange}>
                             <option value="">Select a Genre</option>
                             {
-                                props.plays.map((p) => (
-                                    <option defaultValue={genre} onClick={handleGenreChange}>
-                                        {p.genre}
-                                    </option>
-                                ))}
+                                filterGenres()
+
+                            }
+
+
                         </select>
                         <label id="label" className="after">
                             {/* <input type="radio" name="year" value="after" /> */}
@@ -105,7 +118,7 @@ const PlayFilters = (props) => {
                         type="text"
                         name="title"
                         className="inputText"
-                        defaultValue={title}
+                        defaultValue={props.filterTitle}
                         onChange={handleTitleChange}
                     />
                     <div className="buttonGroup">
