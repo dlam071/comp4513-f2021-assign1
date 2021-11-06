@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-modal": "^3.14.3"
+    "react-modal": "^3.14.3",
+    "react-transition-group": "^4.4.2"
   }
 }
