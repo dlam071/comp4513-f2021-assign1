@@ -47,11 +47,14 @@ function App() {
     }
     if (beforeInput && afterInput) {
       playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
-    } else if (beforeInput) {
-      playsCopy = playsCopy.filter((p) => p.likelyDate > beforeInput);
-    } else if (afterInput) {
-      playsCopy = playsCopy.filter((p) => p.likelyDate < afterInput);
-    } else if (genre) {
+    } 
+    if (beforeInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput);
+    } 
+    if (afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate <= afterInput);
+    } 
+    if (genre) {
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
     setFilteredPlays(playsCopy);
