@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Heart from "./Heart";
 import Details from "./Details.js";
-import { Route, Routes, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const SinglePlay = (props) => {
   // This function is to change the heart logo depending on current favorite state
