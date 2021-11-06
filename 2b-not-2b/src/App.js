@@ -59,9 +59,10 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home plays={filteredPlays}
+      <Route path="/" element={<Home 
+        plays={filteredPlays}
         favorites={favorites}
-        SaveFilters={saveFilters}
+        saveFilters={saveFilters}
         updateFavorites={updateFavorites} />} />
       <Route
         path="/browse"
