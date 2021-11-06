@@ -15,6 +15,10 @@ const Home = (props) => {
     props.saveFilters(title, undefined, undefined, undefined);
   }
 
+  const passBlankFilter = () => {
+    props.saveFilters("", undefined, undefined, undefined);
+  }
+
   const handleTitleChange = (e) => setTitle(e.target.value);
 
 
@@ -33,7 +37,7 @@ const Home = (props) => {
             <button onClick={passFilter} className="button showFiltered">Show Matching Plays</button>
           </Link>
           <Link className="showAllLink" to="/browse">
-            <button className="button ShowAll">Show All Plays</button>
+            <button onClick={passBlankFilter} className="button ShowAll">Show All Plays</button>
           </Link>
         </form>
       </div>

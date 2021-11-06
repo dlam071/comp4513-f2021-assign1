@@ -13,6 +13,10 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [filterTitle, setFilterTitle] = useState();
 
+const updateTitleFilter = (value) => {
+  setFilteredPlays(value)
+}
+
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
     const favorite = copyFavs.find((p) => p.id === fav.id);
@@ -68,7 +72,8 @@ function App() {
         plays={filteredPlays}
         favorites={favorites}
         saveFilters={saveFilters}
-        updateFavorites={updateFavorites} />} />
+        updateFavorites={updateFavorites}
+        filterTitle={filterTitle} />} />
       <Route
         path="/browse"
         element={
@@ -78,6 +83,7 @@ function App() {
             saveFilters={saveFilters}
             updateFavorites={updateFavorites}
             filterTitle={filterTitle}
+            updateTitleFilter={updateTitleFilter}
           />
         }
       />
