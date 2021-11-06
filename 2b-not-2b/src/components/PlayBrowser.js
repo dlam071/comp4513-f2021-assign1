@@ -7,7 +7,7 @@ import "../styles/playbrowser.css";
 const PlayBrowser = (props) => {
   return (
     //css and html tags are not set for this im just using it as an example ty and goodbye
-    <section className="playBrowser">
+    <section className="playBrowser"> 
       <Header />
       <Favorites
         updateFavorites={props.updateFavorites}

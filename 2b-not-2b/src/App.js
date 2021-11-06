@@ -40,30 +40,28 @@ function App() {
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
     if (title) {
-      console.log("title");
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
       );
     }
-    if (beforeInput) {
-      console.log("before");
-      playsCopy = playsCopy.filter((p) => p.likelyDate < beforeInput);
-    }
-    if (afterInput) {
-      console.log("");
-      playsCopy = playsCopy.filter((p) => p.likelyDate > afterInput);
-    }
-    if (genre) {
-      console.log("");
+    if (beforeInput && afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
+    } else if (beforeInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate > beforeInput);
+    } else if (afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate < afterInput);
+    } else if (genre) {
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
-    console.log(playsCopy);
     setFilteredPlays(playsCopy);
   };
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home plays={filteredPlays}
+        favorites={favorites}
+        SaveFilters={saveFilters}
+        updateFavorites={updateFavorites} />} />
       <Route
         path="/browse"
         element={
@@ -76,6 +74,7 @@ function App() {
         }
       />
     </Routes>
+
   );
 }
 

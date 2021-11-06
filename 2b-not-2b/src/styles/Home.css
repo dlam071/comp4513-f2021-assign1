@@ -48,11 +48,11 @@
   font-size: 20px;
 }
 
-.showAllLink {
+.showFilteredLink {
   grid-column: 2/3;
 }
 
-.searchLink {
+.showAllLink {
   grid-column: 3/4;
 }
 
