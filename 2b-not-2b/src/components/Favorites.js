@@ -6,6 +6,7 @@ const Favorites = (props) => {
   return (
     //think about where to add the toggle button
     <aside className="favorites">
+      <p>Favorites</p>
       <table>
         {props.favorites.map((p) => (
           <FavoriteItem play={p} updateFavorites={props.updateFavorites} />
