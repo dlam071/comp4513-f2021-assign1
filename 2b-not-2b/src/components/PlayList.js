@@ -15,7 +15,11 @@ const PlayList = (props) => {
           <th className="favbtn"> </th>
         </tr>
         {props.plays.map((p) => (
-          <SinglePlay play={p} />
+          <SinglePlay
+            play={p}
+            updateFavorites={props.updateFavorites}
+            favorites={props.favorites}
+          />
         ))}
       </table>
     </section>

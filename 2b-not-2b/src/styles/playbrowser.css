@@ -99,7 +99,7 @@ h2 {
   cursor: pointer;
 }
 .favoriteHeartSolid svg:hover {
-  fill: var(--blue-1);
+  fill: var(--orange-accent);
   cursor: pointer;
 }
 .favoriteHeartOutline svg,
@@ -114,6 +114,7 @@ h2 {
 td > * {
   vertical-align: middle;
 }
+
 td {
   padding: 5px;
 }
@@ -155,4 +156,13 @@ table {
 
 .favbtn {
   width: 2em;
+}
+
+.favDelete svg {
+  vertical-align: middle;
+}
+
+.favDelete svg:hover {
+  fill: var(--orange-accent);
+  cursor: pointer;
 }

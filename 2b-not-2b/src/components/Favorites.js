@@ -1,15 +1,18 @@
 import React from "react";
-import "../styles/playbrowser.css"
-const Favorites = (props) => {
-    return (
-        //think about where to add the toggle button 
-        <aside className="favorites">
-            <h2>Favorites</h2>
-            {/* we vould make a table here or or or or just a title and a button ??? idk */}
+import "../styles/playbrowser.css";
+import FavoriteItem from "./FavoriteItem";
 
-        </aside>
-    
-        );
-}
+const Favorites = (props) => {
+  return (
+    //think about where to add the toggle button
+    <aside className="favorites">
+      <table>
+        {props.favorites.map((p) => (
+          <FavoriteItem play={p} updateFavorites={props.updateFavorites} />
+        ))}
+      </table>
+    </aside>
+  );
+};
 
 export default Favorites;
