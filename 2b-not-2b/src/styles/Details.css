@@ -1,0 +1,11 @@
+@import "./template.css";
+@import "./general.css";
+
+.playDetails {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 3fr auto;
+  margin: 3px 5%;
+}
+
