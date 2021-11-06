@@ -9,6 +9,14 @@
   margin: 3px 5%;
 }
 
+select {
+  background-color: var(--white);
+  border-radius: 10px;
+  height: 2em;
+}
+
+
+
 .titleDiv {
   width: 50%;
   display: flex;
