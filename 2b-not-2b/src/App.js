@@ -44,13 +44,13 @@ function App() {
         p.title.toLowerCase().includes(title.toLowerCase())
       );
     }
-    if (beforeInput) {
-      playsCopy = playsCopy.filter((p) => p.likelyDate < beforeInput);
-    }
-    if (afterInput) {
-      playsCopy = playsCopy.filter((p) => p.likelyDate > afterInput);
-    }
-    if (genre) {
+    if (beforeInput && afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
+    } else if (beforeInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate > beforeInput);
+    } else if (afterInput) {
+      playsCopy = playsCopy.filter((p) => p.likelyDate < afterInput);
+    } else if (genre) {
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
     setFilteredPlays(playsCopy);
@@ -59,9 +59,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home plays={filteredPlays}
-                                     favorites={favorites}
-                                     SaveFilters={saveFilters}
-                                     updateFavorites={updateFavorites} />} />
+        favorites={favorites}
+        SaveFilters={saveFilters}
+        updateFavorites={updateFavorites} />} />
       <Route
         path="/browse"
         element={
