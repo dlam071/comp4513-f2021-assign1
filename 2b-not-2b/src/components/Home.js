@@ -12,8 +12,7 @@ const Home = (props) => {
   const [title, setTitle] = useState();
 
   const passFilter = (e) => {
-    e.preventDefault();
-    props.saveFilters(title);
+    props.saveFilters(title, undefined, undefined, undefined);
   }
 
   const handleTitleChange = (e) => setTitle(e.target.value);
@@ -23,7 +22,7 @@ const Home = (props) => {
     <section className="Home">
       <div className="homeContainer">
         <legend id="legend">Play Browser</legend>
-        <form className="homeForm" onSubmit={passFilter}>
+        <form className="homeForm">
           <label id="label">Title</label>
           <input type="text" 
                  name="title"
@@ -31,8 +30,7 @@ const Home = (props) => {
                  defautValue={title}
                  onChange={handleTitleChange} />
           <Link className="showFilteredLink" to="/browse">
-            <button className="button showFiltered"
-                    type="submit">Show Matching Plays</button>
+            <button onClick={passFilter} className="button showFiltered">Show Matching Plays</button>
           </Link>
           <Link className="showAllLink" to="/browse">
             <button className="button ShowAll">Show All Plays</button>

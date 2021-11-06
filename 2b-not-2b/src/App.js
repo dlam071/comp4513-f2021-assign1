@@ -39,8 +39,8 @@ function App() {
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
+    console.log("title");
     if (title) {
-      console.log("title");
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
       );
@@ -65,8 +65,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home plays={filteredPlays}
                                      favorites={favorites}
-                                     SaveFilters={saveFilters}
-                                     updateFavorites={updateFavorites} />} />
+                                     saveFilters={saveFilters} />} />
       <Route
         path="/browse"
         element={
