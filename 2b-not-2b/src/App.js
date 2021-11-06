@@ -3,6 +3,7 @@ import "./styles/App.css";
 import Home from "./components/Home.js";
 import PlayBrowser from "./components/PlayBrowser.js";
 import PlayDetails from "./components/PlayDetails.js";
+import Details from "./components/Details.js";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
@@ -13,9 +14,9 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [filterTitle, setFilterTitle] = useState();
 
-const updateTitleFilter = (value) => {
-  setFilteredPlays(value)
-}
+  const updateTitleFilter = (value) => {
+    setFilteredPlays(value)
+  }
 
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
@@ -48,18 +49,18 @@ const updateTitleFilter = (value) => {
     if (title) {
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
-        );
-        setFilterTitle(title);
+      );
+      setFilterTitle(title);
     }
     if (beforeInput && afterInput) {
       playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
-    } 
+    }
     if (beforeInput) {
       playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput);
-    } 
+    }
     if (afterInput) {
       playsCopy = playsCopy.filter((p) => p.likelyDate <= afterInput);
-    } 
+    }
     if (genre) {
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
@@ -68,7 +69,7 @@ const updateTitleFilter = (value) => {
 
   return (
     <Routes>
-      <Route path="/" element={<Home 
+      <Route path="/" element={<Home
         plays={filteredPlays}
         favorites={favorites}
         saveFilters={saveFilters}
@@ -85,6 +86,12 @@ const updateTitleFilter = (value) => {
             filterTitle={filterTitle}
             updateTitleFilter={updateTitleFilter}
           />
+        }
+      />
+      <Route
+        path="/details"
+        element={
+          <Details />
         }
       />
     </Routes>
