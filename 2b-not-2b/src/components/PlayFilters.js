@@ -56,8 +56,8 @@ const PlayFilters = (props) => {
                     <div>
 
                         <label id="label" >
-                            <input type="radio" name="year" defaultValue="before" />
-                            Before
+                            {/* <input type="radio" name="year" defaultValue="before" /> */}
+                            From
                             <input
                                 type="text"
                                 name="before"
@@ -78,8 +78,8 @@ const PlayFilters = (props) => {
                                 ))}
                         </select>
                         <label id="label" className="after">
-                            <input type="radio" name="year" value="after" />
-                            After
+                            {/* <input type="radio" name="year" value="after" /> */}
+                            To
                             <input
                                 type="text"
                                 name="after"
