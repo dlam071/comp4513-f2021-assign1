@@ -62,9 +62,11 @@ function App() {
   };
 
   return (
-    <main>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home plays={filteredPlays}
+                                     favorites={favorites}
+                                     SaveFilters={saveFilters}
+                                     updateFavorites={updateFavorites} />} />
       <Route
         path="/browse"
         element={
@@ -77,7 +79,7 @@ function App() {
         }
       />
     </Routes>
-    </main>
+    
   );
 }
 
