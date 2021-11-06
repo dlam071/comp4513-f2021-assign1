@@ -9,9 +9,17 @@ const PlayBrowser = (props) => {
     //css and html tags are not set for this im just using it as an example ty and goodbye
     <section className="playBrowser">
       <Header />
-      <Favorites />
+      <Favorites
+        updateFavorites={props.updateFavorites}
+        favorites={props.favorites}
+        plays={props.plays}
+      />
       <PlayFilters plays={props.plays} saveFilters={props.saveFilters} />
-      <PlayList plays={props.plays} />
+      <PlayList
+        plays={props.plays}
+        updateFavorites={props.updateFavorites}
+        favorites={props.favorites}
+      />
     </section>
   );
 };
