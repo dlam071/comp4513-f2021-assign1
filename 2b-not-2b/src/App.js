@@ -91,7 +91,10 @@ function App() {
       <Route
         path="/details"
         element={
-          <Details />
+          <Details
+            plays={filteredPlays}
+            favorites={favorites}
+          />
         }
       />
     </Routes>
