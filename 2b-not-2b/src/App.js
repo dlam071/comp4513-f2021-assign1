@@ -60,14 +60,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home plays={filteredPlays}
-<<<<<<< HEAD
-                                     favorites={favorites}
-                                     saveFilters={saveFilters} />} />
-=======
         favorites={favorites}
         SaveFilters={saveFilters}
         updateFavorites={updateFavorites} />} />
->>>>>>> 3d9216ca76c048c9d476eb640e96e32686c4d3b7
       <Route
         path="/browse"
         element={
