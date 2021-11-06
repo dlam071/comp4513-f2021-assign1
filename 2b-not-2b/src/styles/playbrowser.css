@@ -37,6 +37,7 @@
 .playList {
   background-color: var(--platinum);
   padding: 15px 20px;
+  border-radius: 5px;
 }
 
 .header {
