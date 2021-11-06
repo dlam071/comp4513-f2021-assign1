@@ -6,7 +6,7 @@ const FavoriteItem = (props) => {
     props.updateFavorites(props.play);
   };
   return (
-    <tr>
+    <tr className={"favItem"}>
       <td>{props.play.title}</td>
       <td>
         <div onClick={handleDelete} className={"favDelete"}>

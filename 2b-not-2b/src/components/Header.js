@@ -28,7 +28,7 @@ const Header = (props) => {
   return (
     <nav className="header" id='appHeader'>
       <p>Play Browser</p>
-      <div className={setShadow()}></div>
+      <div className={setShadow()} onClick={handleClick}></div>
       <button className="buttonThin buttonSolid" onClick={handleClick}>About</button>
       {isOpen ? <About
              onRequestClose={setModal}

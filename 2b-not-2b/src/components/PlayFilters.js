@@ -4,7 +4,7 @@ import { generatePath } from "react-router-dom";
 import "../styles/playbrowser.css";
 const PlayFilters = (props) => {
     const [clicked, setClicked] = useState(false);
-    const [title, setTitle] = useState();
+    const [title, setTitle] = useState(props.filterTitle);
     const [beforeInput, setBefore] = useState();
     const [afterInput, setAfter] = useState();
     const [genre, setGenre] = useState();

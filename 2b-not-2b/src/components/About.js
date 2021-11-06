@@ -30,6 +30,7 @@ const About = (props) => {
             <a href="link">LINK</a>
           </li>
         </ul>
+        <button className="closeModal" onClick={props.onRequestClose}>Close</button>
       </div>
   );
 };
