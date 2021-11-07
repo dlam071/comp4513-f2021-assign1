@@ -103,6 +103,7 @@ function App() {
           <Details 
             plays={filteredPlays}
             favorites={favorites}
+            play={currentPlay}
           />
         } 
       />
