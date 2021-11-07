@@ -27,44 +27,47 @@ const Details = (props) => {
 
   }, [])
 
-  
-  console.log(chars);  
+
+  console.log(chars);
 
   return (
-    <section className="playDetails">
+    <div> 
       <Header />
-      <Favorites
+
+      <section className="playDetails">
+        {/* <Favorites
         favorites={props.favorites}
         plays={props.plays}
-      />
-      <div className="synopsis">
-        <h2>{info.title}</h2>
-        <p>Synopsis</p>
-      </div>
-      <div className="detailItems">
-        <div className="playDetails">
-          <p>Composition: {props.play.likelyDate}</p>
-          <p>Genre: {props.play.genre}</p>
-          <div className="webLinks">
-            <a href={props.play.wiki}><img src={wikipedia} title="Wiki" className="webIcon" /></a>
-            <a href={props.play.gutenberg}><img src={gutenberg} title="Gutenberg" className="webIcon" /></a>
-            <a href={props.play.shakespeareOrg}><img src={shakespeareOrg} title="Shakespeare Org" className="webIcon" /></a>
+      /> */}
+
+        <h2 className="title">{props.play.title}</h2>
+        <div className="synopsis">
+        Synopsis: 
+          <p> {props.play.synopsis}</p>
+        </div>
+        <div className="detailItems">
+          <div className="playDetails">
+            <p>Composition: {props.play.likelyDate}</p>
+            <p>Genre: {props.play.genre}</p>
+            <div className="webLinks">
+              <a href={props.play.wiki}><img src={wikipedia} title="Wiki" className="webIcon" /></a>
+              <a href={props.play.gutenberg}><img src={gutenberg} title="Gutenberg" className="webIcon" /></a>
+              <a href={props.play.shakespeareOrg}><img src={shakespeareOrg} title="Shakespeare Org" className="webIcon" /></a>
+            </div>
+            <p>Description: {props.play.desc}</p>
           </div>
-          <p>Description: {props.play.desc}</p>
+          <div className="playCharacters">
+            {/* <Characters chars={chars} /> */}
+           
+          </div>
+          <div className="closeButton">
+            <Link to="/browse">
+              <button className="button">Close</button>
+            </Link>
+          </div>
         </div>
-        <div className="playCharacters">
-          <Characters chars={chars} />
-          {/* {
-            chars.map(c=><h2> {c.player}</h2>)
-          } */}
-        </div>
-        <div className="closeButton">
-          <Link to="/browse">
-            <button className="button">Close</button>
-          </Link>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
