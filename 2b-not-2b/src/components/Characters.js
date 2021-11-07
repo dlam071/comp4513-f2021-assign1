@@ -3,7 +3,7 @@ import "../styles/Details.css";
 const Characters = (props) => {
     console.log(props.chars);
     return (
-        <div>
+        <div className="playCharacters">
             <table>
                 <tr>
                     <th>Character</th>
