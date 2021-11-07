@@ -92,6 +92,7 @@ h2 {
 
 .playList {
   grid-column: 2 / span 3;
+  position: relative;
 }
 
 .favorites {
@@ -176,7 +177,7 @@ table {
 }
 
 .playListTable {
-  height: calc(77vh - 180px);
+  height: calc(100% - 18px);
   overflow: auto;
   padding-right: 5px;
 }
@@ -188,12 +189,6 @@ table {
   top: 0px;
   z-index: 1;
   background: var(--platinum);
-}
-
-.favListTable {
-  height: calc(77vh - 180px);
-  overflow: auto;
-  padding-right: 5px;
 }
 
 /* from https://stackoverflow.com/questions/4709390/table-header-to-stay-fixed-at-the-top-when-user-scrolls-it-out-of-view-with-jque */
@@ -212,7 +207,6 @@ table {
 
 .collapseFavs {
   grid-template-columns: 50px 2fr;
-  grid-template-rows: 10vh 23vh 60vh;
 }
 
 .collapseFavs .favorites .hideFavs {
@@ -220,7 +214,14 @@ table {
 }
 
 .tableArea {
+  margin-right: 10px;
+  height: 100%;
+}
+
+.favListTable {
   padding-right: 8px;
+  height: calc(100% - 18px);
+  overflow: auto;
 }
 
 .favoriteCollapseButton {

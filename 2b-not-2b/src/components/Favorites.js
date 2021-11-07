@@ -4,10 +4,10 @@ import FavoriteItem from "./FavoriteItem";
 
 const Favorites = (props) => {
   const updateFavoriteCollapse = () => {
-    if (props.favoriteCollapse === "") {
+    if (props.favoriteCollapse === "expandFavs") {
       props.setFavoriteCollapse("collapseFavs");
     } else {
-      props.setFavoriteCollapse("");
+      props.setFavoriteCollapse("expandFavs");
     }
   };
 
