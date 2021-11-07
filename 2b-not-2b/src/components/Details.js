@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import Header from "./Header";
 import "../styles/Details.css";
-// import Favorites from "./Favorites";
+import Favorites from "./Favorites";
 // import wikipedia from "../images/wikipedia.jpg";
 // import gutenberg from "../images/gutenberg.jpg";
 // import shakespeareOrg from "../images/shakespeare.jpg";
@@ -41,10 +41,19 @@ const Details = (props) => {
     }
   }
 
+  const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
+
   return (
-    <section>
+    <section className={"playDetails" + favoriteCollapse}>
       <Header />
-      <DetailsMain play={props.play} chars={chars}/>
+      <Favorites
+        updateFavorites={props.updateFavorites}
+        favorites={props.favorites}
+        plays={props.plays}
+        favoriteCollapse={favoriteCollapse}
+        setFavoriteCollapse={setFavoriteCollapse} 
+      />
+      <DetailsMain play={props.play} chars={chars} />
 
     </section>
   );
