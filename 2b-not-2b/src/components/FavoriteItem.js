@@ -8,7 +8,7 @@ const FavoriteItem = (props) => {
   return (
     <tr className={"favItem"}>
       <td>{props.play.title}</td>
-      <td>
+      <td className="trashIcon">
         <div onClick={handleDelete} className={"favDelete"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

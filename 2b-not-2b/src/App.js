@@ -15,11 +15,7 @@ function App() {
   const [filterTitle, setFilterTitle] = useState("");
   const [currentPlay, setCurrentPlay] = useState();
 
-  const updateTitleFilter = (value) => {
-    setFilterTitle(value);
-  };
-
-  const updateCurrentPlay = play => setCurrentPlay(play);
+  const updateCurrentPlay = (play) => setCurrentPlay(play);
 
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
@@ -78,8 +74,7 @@ function App() {
             saveFilters={saveFilters}
             updateFavorites={updateFavorites}
             filterTitle={filterTitle}
-            updateTitleFilter={updateTitleFilter}
-            updateCurrentPlay={updateCurrentPlay}
+            updateTitleFilter={setFilterTitle}
           />
         }
       />
@@ -92,20 +87,20 @@ function App() {
             saveFilters={saveFilters}
             updateFavorites={updateFavorites}
             filterTitle={filterTitle}
-            updateTitleFilter={updateTitleFilter}
+            updateTitleFilter={setFilterTitle}
             updateCurrentPlay={updateCurrentPlay}
           />
         }
       />
-      <Route 
-        path="/details" 
+      <Route
+        path="/details"
         element={
-          <Details 
+          <Details
             plays={filteredPlays}
             favorites={favorites}
             play={currentPlay}
           />
-        } 
+        }
       />
     </Routes>
   );
