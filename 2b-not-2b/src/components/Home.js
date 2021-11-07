@@ -6,10 +6,8 @@ import { setState, useState } from "react";
 import styled from "styled-components";
 
 const Home = (props) => {
-  const [title, setTitle] = useState();
-
   const passFilter = (e) => {
-    props.saveFilters(title, undefined, undefined, undefined);
+    props.saveFilters(props.filterTitle, undefined, undefined, undefined);
   };
 
   const passBlankFilter = () => {
@@ -17,7 +15,7 @@ const Home = (props) => {
     props.updateTitleFilter("");
   };
 
-  const handleTitleChange = (e) => setTitle(e.target.value);
+  const handleTitleChange = (e) => props.updateTitleFilter(e.target.value);
 
   return (
     <section className="Home">
@@ -29,7 +27,7 @@ const Home = (props) => {
             type="text"
             name="title"
             className="inputText"
-            defautValue={title}
+            defaultValue={props.filterTitle}
             onChange={handleTitleChange}
           />
           <Link className="showFilteredLink" to="/browse">
