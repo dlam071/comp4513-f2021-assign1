@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 import "../styles/Details.css";
 import Favorites from "./Favorites";
+import wikipedia from "../images/wikipedia.jpg";
+import gutenberg from "../images/gutenberg.jpg";
+import shakespeareOrg from "../images/shakespeare.jpg";
 import Characters from "./Characters.js";
 
 const Details = (props) => {
@@ -21,7 +24,7 @@ const Details = (props) => {
       })
 
   }, [])
-console.log(props.play)
+  console.log(props.play)
 
 
   return (
@@ -39,19 +42,21 @@ console.log(props.play)
         <div className="playDetails">
           <p>Composition: {props.play.likelyDate}</p>
           <p>Genre: {props.play.genre}</p>
-          <a href={props.play.wiki}>Wiki</a>
-          <a href={props.play.gutenberg}>Gutenberg</a>
-          <a href={props.play.shakespeareOrg}>Shakespeare Org</a>
+          <div className="webLinks">
+            <a href={props.play.wiki}><img src={wikipedia} title="Wiki" className="webIcon" /></a>
+            <a href={props.play.gutenberg}><img src={gutenberg} title="Gutenberg" className="webIcon" /></a>
+            <a href={props.play.shakespeareOrg}><img src={shakespeareOrg} title="Shakespeare Org" className="webIcon" /></a>
+          </div>
           <p>Description: {props.play.desc}</p>
         </div>
         <div className="playCharacters">
-        {/* <Characters chars={info.persona} /> */}
+          {/* <Characters chars={info.persona} /> */}
         </div>
         <div className="closeButton">
-        <Link to="/browse">
-          <button className="button">Close</button>
-        </Link>
-      </div>
+          <Link to="/browse">
+            <button className="button">Close</button>
+          </Link>
+        </div>
       </div>
     </section>
   );
