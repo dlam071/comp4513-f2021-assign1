@@ -17,11 +17,13 @@ const SinglePlay = (props) => {
 
   return (
     <tr className="playItem">
-      <td>{props.play.title}</td>
+      <Link to="/details" className="titleLink">
+        <td>{props.play.title}</td>
+      </Link>
       <td className="listItemYear">{props.play.likelyDate}</td>
       <td>
         <Link to="/details">
-        <button className="buttonThin" onClick={props.updateCurrentPlay(props.play)}>View</button>
+          <button className="buttonThin" onClick={props.updateCurrentPlay(props.play)}>View</button>
         </Link>
       </td>
       <td>

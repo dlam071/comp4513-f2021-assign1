@@ -271,3 +271,8 @@ table {
   top: 25%;
   transform: scaleX(1);
 }
+
+.titleLink:link, .titleLink:visited, .titleLink:active{
+  color: black;
+  text-decoration: none;
+}
