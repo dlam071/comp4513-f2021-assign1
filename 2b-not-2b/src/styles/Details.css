@@ -17,7 +17,6 @@
   padding: 10px;
 }
 
-
 .title, .detailItems {
   display: flex;
   justify-content: center;
@@ -25,7 +24,6 @@
 }
 
 .synopsis {
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -33,10 +31,7 @@
 
 .title {
   grid-column: 1/ span 3;
- 
 }
-
-
 
 .webIcon {
   width: 35px;
@@ -47,7 +42,6 @@
 .webLinks {
   display: flex;
   flex-direction: row;
-
 }
 
 
