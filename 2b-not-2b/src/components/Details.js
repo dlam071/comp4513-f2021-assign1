@@ -9,7 +9,7 @@ import Favorites from "./Favorites";
 import Characters from "./Characters.js";
 import DisplayPosts from "./Tabs";
 import PlayDetails from "./PlayDetails";
-import DetailsMain from "./detailsMains";
+import DetailsMain from "./DetailsMains";
 
 const Details = (props) => {
   const [info, setInfo] = useState([]);
