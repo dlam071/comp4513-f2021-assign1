@@ -74,6 +74,7 @@ const PlayList = (props) => {
               {title.map((p) => (
                 <SinglePlay
                   play={p}
+                  updateCurrentPlay={props.updateCurrentPlay}
                   updateFavorites={props.updateFavorites}
                   favorites={props.favorites}
                 />
@@ -114,6 +115,7 @@ const PlayList = (props) => {
               </tr>
               {date.map((p) => (
                 <SinglePlay
+                  updateCurrentPlay={props.updateCurrentPlay}
                   play={p}
                   updateFavorites={props.updateFavorites}
                   favorites={props.favorites}
@@ -156,6 +158,7 @@ const PlayList = (props) => {
             {props.plays.map((p) => (
               <SinglePlay
                 play={p}
+                updateCurrentPlay={props.updateCurrentPlay}
                 updateFavorites={props.updateFavorites}
                 favorites={props.favorites}
               />

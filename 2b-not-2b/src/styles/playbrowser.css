@@ -142,10 +142,12 @@ table {
 
 .listTitle {
   text-align: left;
+  cursor: pointer;
 }
 
 .listItemYear {
   text-align: center;
+  cursor: pointer;
 }
 
 .listYear {
