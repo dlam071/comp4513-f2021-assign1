@@ -80,6 +80,7 @@ const PlayList = (props) => {
               play={p}
               updateFavorites={props.updateFavorites}
               favorites={props.favorites}
+              updateCurrentPlay={props.updateCurrentPlay}
             />
           ))
 
