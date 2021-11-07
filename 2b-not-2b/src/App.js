@@ -12,11 +12,11 @@ function App() {
   const [plays, setPlays] = useState([]);
   const [filteredPlays, setFilteredPlays] = useState(plays);
   const [favorites, setFavorites] = useState([]);
-  const [filterTitle, setFilterTitle] = useState();
+  const [filterTitle, setFilterTitle] = useState("");
 
   const updateTitleFilter = (value) => {
-    setFilteredPlays(value)
-  }
+    setFilterTitle(value);
+  };
 
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
@@ -52,9 +52,6 @@ function App() {
       );
       setFilterTitle(title);
     }
-    if (beforeInput && afterInput) {
-      playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput && p.likelyDate <= afterInput);
-    }
     if (beforeInput) {
       playsCopy = playsCopy.filter((p) => p.likelyDate >= beforeInput);
     }
@@ -69,12 +66,19 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home
-        plays={filteredPlays}
-        favorites={favorites}
-        saveFilters={saveFilters}
-        updateFavorites={updateFavorites}
-        filterTitle={filterTitle} />} />
+      <Route
+        path="/"
+        element={
+          <Home
+            plays={filteredPlays}
+            favorites={favorites}
+            saveFilters={saveFilters}
+            updateFavorites={updateFavorites}
+            filterTitle={filterTitle}
+            updateTitleFilter={updateTitleFilter}
+          />
+        }
+      />
       <Route
         path="/browse"
         element={
@@ -88,14 +92,8 @@ function App() {
           />
         }
       />
-      <Route
-        path="/details"
-        element={
-          <Details />
-        }
-      />
+      <Route path="/details" element={<Details />} />
     </Routes>
-
   );
 }
 
