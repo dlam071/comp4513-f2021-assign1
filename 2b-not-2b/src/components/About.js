@@ -5,7 +5,7 @@ import "../styles/About.css";
 const About = (props) => {
   return (
       
-      <div id="aboutBox">
+      <div className="aboutBox">
         <ul>
           <li>
             Heart Logos from
@@ -30,7 +30,7 @@ const About = (props) => {
             <a href="link">LINK</a>
           </li>
         </ul>
-        <button className="closeModal" onClick={props.onRequestClose}>Close</button>
+        <button className="buttonSolid buttonThin" onClick={props.onRequestClose}>Close</button>
       </div>
   );
 };
