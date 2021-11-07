@@ -135,10 +135,15 @@ table {
 .listTitle,
 .listYear {
   font-weight: bold;
-  text-decoration: underline;
+
   padding-top: 5px;
   padding-bottom: 5px;
   cursor: pointer;
+}
+
+.listTitle p span,
+.listYear p span {
+  text-decoration: underline;
 }
 
 .listTitle {
@@ -147,12 +152,12 @@ table {
 }
 
 .listItemYear {
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 }
 
 .listYear {
-  text-align: center;
+  text-align: left;
 }
 
 .viewbtn {
