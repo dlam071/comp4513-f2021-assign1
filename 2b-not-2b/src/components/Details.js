@@ -1,16 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
-// import Favorites from "./Favorites";
+import "../styles/Details.css";
+import Favorites from "./Favorites";
+
 
 const Details = (props) => {
   return (
     <section className="playDetails">
       <Header />
-      {/* <Favorites
-        updateFavorites={props.updateFavorites}
+      <Favorites
         favorites={props.favorites}
         plays={props.plays}
-      /> */}
+      />
       <div className="synopsis">
         <h2>Play Title</h2>
         <p>Play Synopsis</p>
@@ -25,8 +27,16 @@ const Details = (props) => {
           <p>Description</p>
         </div>
         <div className="playCharacters">
-        
+          <p>Character Name</p>
         </div>
+        <div className="playText">
+          <p>Text</p>
+        </div>
+      </div>
+      <div className="closeButton">
+        <Link to="/browse">
+          <button className="button">Close</button>
+        </Link>
       </div>
     </section>
   );

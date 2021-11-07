@@ -82,6 +82,7 @@ function App() {
       <Route
         path="/browse"
         element={
+<<<<<<< HEAD
           <PlayBrowser
             plays={filteredPlays}
             favorites={favorites}
@@ -89,6 +90,11 @@ function App() {
             updateFavorites={updateFavorites}
             filterTitle={filterTitle}
             updateTitleFilter={updateTitleFilter}
+=======
+          <Details
+            plays={filteredPlays}
+            favorites={favorites}
+>>>>>>> 2fc7aa0a051b3be3bc8dab675a3cd4215305600b
           />
         }
       />

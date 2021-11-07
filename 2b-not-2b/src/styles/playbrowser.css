@@ -4,7 +4,7 @@
 .playBrowser {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 3fr auto;
   margin: 3px 5%;
 }
@@ -112,10 +112,6 @@ h2 {
 .favoriteHeartOutline svg,
 .favoriteHeartSolid svg {
   vertical-align: middle;
-}
-
-.button svg {
-  transform: scale(0.7);
 }
 
 td > * {
