@@ -38,6 +38,7 @@ function App() {
       .then((data) => {
         setPlays(data);
         setFilteredPlays(data);
+        setCurrentPlay(data[0]);
       })
       .catch((err) => console.error(err));
   }, []);
