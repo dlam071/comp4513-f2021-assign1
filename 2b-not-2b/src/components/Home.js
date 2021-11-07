@@ -42,7 +42,16 @@ const Home = (props) => {
           </Link>
         </form>
       </div>
-      <p id="heroImg">Hero Image Credit</p>
+      <p id="heroImg">
+        Photo by{" "}
+        <a href="https://unsplash.com/@hulkiokantabak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Hulki Okan Tabak
+        </a>{" "}
+        on{" "}
+        <a href="https://unsplash.com/s/photos/shakespeare?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Unsplash
+        </a>
+      </p>
     </section>
   );
 };

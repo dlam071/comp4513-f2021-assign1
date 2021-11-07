@@ -79,3 +79,10 @@
   color: var(--platinum);
   text-shadow: 2px 2px 4px var(--black-shadow);
 }
+
+#heroImg a:link,
+#heroImg a:visited,
+#heroImg a:hover,
+#heroImg a:active {
+  color: var(--platinum);
+}

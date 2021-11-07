@@ -5,7 +5,7 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 3fr auto;
+  grid-template-rows: 10vh 23vh 60vh;
   margin: 3px 5%;
 }
 
@@ -14,8 +14,6 @@ select {
   border-radius: 10px;
   height: 2em;
 }
-
-
 
 .titleDiv {
   width: 50%;
@@ -84,12 +82,12 @@ h2 {
 .playFilters {
   grid-row: 2/3;
   grid-column: 1 / span 4;
-  height: 150px;
 }
 
 .buttonGroup {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
 }
 
 .playList {
@@ -99,6 +97,7 @@ h2 {
 .favorites {
   grid-column-start: 1;
   grid-column-end: 2;
+  position: relative;
 }
 
 .favoriteHeartOutline svg:hover {
@@ -130,7 +129,6 @@ table {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
 }
 
 .listTitle,
@@ -139,6 +137,7 @@ table {
   text-decoration: underline;
   padding-top: 5px;
   padding-bottom: 5px;
+  cursor: pointer;
 }
 
 .listTitle {
@@ -172,4 +171,95 @@ table {
 
 .favItem {
   border-top: 1px solid white;
+}
+
+.playListTable {
+  height: 53vh;
+  overflow: auto;
+  padding-right: 5px;
+}
+
+/* from https://stackoverflow.com/questions/4709390/table-header-to-stay-fixed-at-the-top-when-user-scrolls-it-out-of-view-with-jque */
+.playListTable table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background: var(--platinum);
+}
+
+.favListTable {
+  height: 53vh;
+  overflow: auto;
+  padding-right: 5px;
+}
+
+/* from https://stackoverflow.com/questions/4709390/table-header-to-stay-fixed-at-the-top-when-user-scrolls-it-out-of-view-with-jque */
+.favListTable table th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background: var(--platinum);
+}
+
+.trashIcon {
+  text-align: center;
+  width: 30px;
+}
+
+.collapseFavs {
+  grid-template-columns: 50px 2fr;
+  grid-template-rows: 10vh 23vh 60vh;
+}
+
+.collapseFavs .favorites .hideFavs {
+  display: none;
+}
+
+.tableArea {
+  padding-right: 8px;
+}
+
+.favoriteCollapseButton {
+  position: absolute;
+  height: 50px;
+  background-color: var(--blue-2);
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 10px 0 0 10px;
+}
+
+.favoriteCollapseButton:hover {
+  position: absolute;
+  height: 50px;
+  background-color: var(--blue-1);
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+.favoriteCollapseButton svg {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.favoriteCollapseButton:hover svg {
+  fill: var(--orange-accent);
+  top: 25%;
+  transform: scaleX(-1);
+}
+
+.collapseFavs .favoriteCollapseButton svg {
+  top: 25%;
+  transform: scaleX(-1);
+}
+
+.collapseFavs .favoriteCollapseButton:hover svg {
+  top: 25%;
+  transform: scaleX(1);
 }
