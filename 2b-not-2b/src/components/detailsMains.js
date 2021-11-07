@@ -17,13 +17,13 @@ const DetailsMain = (props) => {
          <p> {props.play.synopsis}</p>
          <button className="button">Read</button>
        </div> 
-       <PlayDetails play={props.play} />
-       <div className="playCharacters">
+       {/* <PlayDetails play={props.play} /> */}
+       {/* <div className="playCharacters"> */}
          {/* <Characters chars={chars} /> */}
          {/* {characters()} */}
 
-       </div>
-       <DisplayPosts chars={props.chars} />
+       {/* </div> */}
+       <DisplayPosts chars={props.chars} play={props.play}/>
      </div>
 
     </div>
