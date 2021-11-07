@@ -1,10 +1,28 @@
 import React from "react";
-
+import "../styles/Details.css";
 const Characters = (props) => {
     console.log(props.chars);
-   return (
-       props.chars.map(p =>  <div><h2>{p.player}</h2> <h3>{p.desc}</h3></div>)
-   )
+    return (
+        <div>
+            <table>
+                <tr>
+                    <th>Character</th>
+                    <th>Description</th>
+                </tr>
+                {props.chars.map(p => {
+                    return (
+
+                        <tr>
+                            <td>{p.player}</td>
+                            <td>{p.desc}</td>
+                        </tr>
+
+                    )
+
+                })}
+            </table>
+        </div>
+    )
 }
 
 export default Characters;

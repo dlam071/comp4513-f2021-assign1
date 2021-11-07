@@ -11,38 +11,42 @@ import Characters from "./Characters.js";
 const Details = (props) => {
   const [info, setInfo] = useState([]);
   const [chars, setChars] = useState([]);
-
+  const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
-    let s = props.play.filename;
-    s = s.substring(0, s.lastIndexOf(".")); //removes the .json extension in the filename
-    const url =
-      "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
-      s;
+    //console.log( props.play)
+    // let filename = props.play.filename;
 
-    fetch(url)
-      .then((resp) => resp.json())
-      .then((data) => {
-        setInfo(data);
-        setChars(data.persona);
-      });
+    let filename = "hamlet.json"
+    if (filename) {
+      setFileExists(true);
+      filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
+      const url =
+        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" + filename;
+
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          setInfo(data);
+          setChars(data.persona);
+        });
+    }
   }, []);
 
-  console.log(chars);
+  const characters = () => {
+    if (fileExists) {
+      return <Characters chars={chars} />
+    }
+  }
 
   return (
-    <div>
+    <section>
       <Header />
-
-      <section className="playDetails">
-        {/* <Favorites
-        favorites={props.favorites}
-        plays={props.plays}
-      /> */}
-
+      <div className="playDetails tabs">
         <h2 className="title">{props.play.title}</h2>
         <div className="synopsis">
-          Synopsis:
+          <h2> Synopsis:</h2>
           <p> {props.play.synopsis}</p>
+          <button className="button">Read</button>
         </div>
         <div className="detailItems">
           <div className="playDetails">
@@ -56,17 +60,10 @@ const Details = (props) => {
                 <img src={gutenberg} title="Gutenberg" className="webIcon" />
               </a>
               <a target="_blank" href={props.play.shakespeareOrg}>
-                <img
-                  src={shakespeareOrg}
-                  title="Shakespeare Org"
-                  className="webIcon"
-                />
+                <img src={shakespeareOrg} title="Shakespeare Org" className="webIcon" />
               </a>
             </div>
             <p>Description: {props.play.desc}</p>
-          </div>
-          <div className="playCharacters">
-            {/* <Characters chars={chars} /> */}
           </div>
           <div className="closeButton">
             <Link to="/browse">
@@ -74,8 +71,13 @@ const Details = (props) => {
             </Link>
           </div>
         </div>
-      </section>
-    </div>
+        <div className="playCharacters">
+          {/* <Characters chars={chars} /> */}
+          {characters()}
+        </div>
+      </div>
+
+    </section>
   );
 };
 
