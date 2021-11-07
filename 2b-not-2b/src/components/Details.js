@@ -11,6 +11,7 @@ import Characters from "./Characters.js";
 const Details = (props) => {
 
   const [info, setInfo] = useState([]);
+  const [chars, setChars] = useState([]);
 
   useEffect(() => {
     let s = props.play.filename;
@@ -20,12 +21,14 @@ const Details = (props) => {
     fetch(url)
       .then(resp => resp.json())
       .then(data => {
-        setInfo(data)
+        setInfo(data);
+        setChars(data.persona);
       })
 
   }, [])
-  console.log(props.play)
 
+  
+  console.log(chars);  
 
   return (
     <section className="playDetails">
@@ -50,7 +53,10 @@ const Details = (props) => {
           <p>Description: {props.play.desc}</p>
         </div>
         <div className="playCharacters">
-          {/* <Characters chars={info.persona} /> */}
+          <Characters chars={chars} />
+          {/* {
+            chars.map(c=><h2> {c.player}</h2>)
+          } */}
         </div>
         <div className="closeButton">
           <Link to="/browse">
