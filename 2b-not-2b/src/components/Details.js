@@ -9,7 +9,7 @@ import Favorites from "./Favorites";
 import Characters from "./Characters.js";
 import DisplayPosts from "./Tabs";
 import PlayDetails from "./PlayDetails";
-import DetailsMain from "./DetailsMains";
+import DetailsMain from "./DetailsMain";
 
 const Details = (props) => {
   const [info, setInfo] = useState([]);
@@ -44,8 +44,9 @@ const Details = (props) => {
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
 
   return (
-    <section className={"playDetails" + favoriteCollapse}>
+    <section className="playDetails">
       <Header />
+      <h2 className="title">{props.play.title}</h2>
       <Favorites
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
@@ -54,7 +55,7 @@ const Details = (props) => {
         setFavoriteCollapse={setFavoriteCollapse} 
       />
       <DetailsMain play={props.play} chars={chars} />
-
+      
     </section>
   );
 };

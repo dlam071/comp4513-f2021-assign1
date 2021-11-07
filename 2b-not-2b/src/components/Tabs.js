@@ -9,7 +9,7 @@ const DisplayPosts = (props) => {
 
 
     return (
-        <Tabs defaultIndex={1}>
+        <Tabs defaultIndex={0}>
             <TabList>
                 <Tab>Details</Tab>
                 <Tab>Characters</Tab>

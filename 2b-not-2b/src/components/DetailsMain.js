@@ -11,7 +11,7 @@ const DetailsMain = (props) => {
         
         <div className="playDetails tabs">
        
-       <h2 className="title">{props.play.title}</h2>
+       {/* <h2 className="title">{props.play.title}</h2> */}
        <div className="synopsis">
          <h2> Synopsis:</h2>
          <p> {props.play.synopsis}</p>
