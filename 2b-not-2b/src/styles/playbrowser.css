@@ -5,7 +5,7 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 10vh 23vh 60vh;
+  grid-template-rows: 10vh 180px calc(85vh - 180px);
   margin: 3px 5%;
 }
 
@@ -176,7 +176,7 @@ table {
 }
 
 .playListTable {
-  height: 53vh;
+  height: calc(77vh - 180px);
   overflow: auto;
   padding-right: 5px;
 }
@@ -191,7 +191,7 @@ table {
 }
 
 .favListTable {
-  height: 53vh;
+  height: calc(77vh - 180px);
   overflow: auto;
   padding-right: 5px;
 }
