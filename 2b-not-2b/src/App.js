@@ -13,10 +13,13 @@ function App() {
   const [filteredPlays, setFilteredPlays] = useState(plays);
   const [favorites, setFavorites] = useState([]);
   const [filterTitle, setFilterTitle] = useState();
+  const [currentPlay, setCurrentPlay] = useState();
 
   const updateTitleFilter = (value) => {
     setFilteredPlays(value)
   }
+
+  const updateCurrentPlay = play => setCurrentPlay(play);
 
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
@@ -85,6 +88,7 @@ function App() {
             updateFavorites={updateFavorites}
             filterTitle={filterTitle}
             updateTitleFilter={updateTitleFilter}
+            updateCurrentPlay={updateCurrentPlay}
           />
         }
       />

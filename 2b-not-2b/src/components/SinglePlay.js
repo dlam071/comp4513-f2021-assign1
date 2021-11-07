@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import Heart from "./Heart";
-import Details from "./Details.js";
 import { Link } from "react-router-dom"
 
 const SinglePlay = (props) => {
@@ -22,7 +21,7 @@ const SinglePlay = (props) => {
       <td className="listItemYear">{props.play.likelyDate}</td>
       <td>
         <Link to="/details">
-        <button className="buttonThin">View</button>
+        <button className="buttonThin" onClick={props.updateCurrentPlay(props.play)}>View</button>
         </Link>
       </td>
       <td>
