@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
-// import Favorites from "./Favorites";
+import "../styles/Details.css";
+import Favorites from "./Favorites";
 import Characters from "./Characters.js";
 
 const Details = (props) => {
@@ -25,11 +27,10 @@ console.log(props.play)
   return (
     <section className="playDetails">
       <Header />
-      {/* <Favorites
-        updateFavorites={props.updateFavorites}
+      <Favorites
         favorites={props.favorites}
         plays={props.plays}
-      /> */}
+      />
       <div className="synopsis">
         <h2>{info.title}</h2>
         <p>Synopsis</p>
@@ -46,6 +47,11 @@ console.log(props.play)
         <div className="playCharacters">
         {/* <Characters chars={info.persona} /> */}
         </div>
+        <div className="closeButton">
+        <Link to="/browse">
+          <button className="button">Close</button>
+        </Link>
+      </div>
       </div>
     </section>
   );
