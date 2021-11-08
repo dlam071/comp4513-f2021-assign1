@@ -47,16 +47,29 @@ const Details = (props) => {
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [readText, setReadText] = useState(false);
 
+  const toggleReadText = () => {
+    if (!readText) {
+      setReadText(true);
+      console.log("true");
+    } else {
+      setReadText(false);
+      console.log("false");
+    }
+  }
+
   const handleClickRead = () => {
     if (!readText) {
       return <DetailsMain 
-                          play={props.play}
-                          chars={chars}
-                          fileExists={fileExists} 
-                          setReadText={setReadText}
-                          />
+                play={props.play}
+                chars={chars}
+                fileExists={fileExists} 
+                toggleReadText={toggleReadText}
+                />
     } else {
-      return <DetailsText play={props.play} />
+      return <DetailsText 
+                play={props.play}
+                toggleReadText={toggleReadText}
+                />
     }
   }
 

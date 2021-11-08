@@ -7,11 +7,14 @@ const DetailsText = (props) => {
 	return (
 		<section className="playText">
 			<div className="textForm">
-				<TextForm />
+				<TextForm
+					toggleReadText={props.toggleReadText}
+				/>
 			</div>
 			<div className="scriptText">
 				<ScriptText 
-					play={props}/>
+					play={props}
+					/>
 			</div>
 		</section>
 	)
