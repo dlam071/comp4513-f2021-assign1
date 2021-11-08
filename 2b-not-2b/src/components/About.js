@@ -17,14 +17,13 @@ const About = (props) => {
       </div>
       <div className="lists">
         <ul classNames="techUsed">
-          <li>React</li>
-          <li>React-DOM</li>
           <li>React-modal</li>
           <li>React-router</li>
           <li>React-router-DOM</li>
           <li>React-tabs</li>
           <li>lodash</li>
           <li>Style-components</li>
+          <li>react-highlight-words</li>
         </ul>
         <ul className="sources">
           <li>

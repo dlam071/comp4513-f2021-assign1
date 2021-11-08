@@ -5,12 +5,12 @@ import Favorites from "./Favorites";
 import DetailsMain from "./DetailsMain";
 import DetailsText from "./DetailsText";
 import Heart from "./Heart";
+import { update } from "lodash";
 
 const Details = (props) => {
   const [loadedDetailsStatus, setLoadedDetailsStatus] = useState(false);
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
-  const [info, setInfo] = useState([]);
   const [fileExists, setFileExists] = useState(false);
 
   const [heartStyle, setHeartStyle] = useState("favoriteHeartOutline");
@@ -27,17 +27,18 @@ const Details = (props) => {
     const saved = localStorage.getItem(key);
     const initial = JSON.parse(saved);
     if (initial) {
-      setInfo(initial);
+      props.updateInfo(initial);
     } else {
       localStorage.setItem(key, JSON.stringify(data));
     }
   };
 
   useEffect(() => {
-    if (!loadedDetailsStatus) {
+    if (!loadedDetailsStatus || true) {
       let filename = props.play.filename;
+      console.log(` fetching: ${props.play.filename}`);
       if (filename) {
-        setFileExists(true);
+        props.updateFileExists(true);
         filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
         const url =
           "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
@@ -48,11 +49,11 @@ const Details = (props) => {
           .then((data) => {
             setText(data.acts);
             setChars(data.persona);
-            setInfo(data);
+            props.updateInfo(data);
             getStoredPlayDetails(`play-${data.short}`, data);
           });
       } else {
-        setFileExists(false);
+        props.updateFileExists(false);
       }
       setLoadedDetailsStatus(true);
     }
@@ -60,34 +61,24 @@ const Details = (props) => {
 
   const [readText, setReadText] = useState(false);
 
-  const toggleReadText = () => {
-    if (!readText) {
-      setReadText(true);
-      console.log("true");
-    } else {
-      setReadText(false);
-      console.log("false");
-    }
-  };
-
   const handleClickRead = () => {
-    if (!readText) {
+    if (!props.readText) {
       return (
         <DetailsMain
           play={props.play}
           chars={chars}
-          fileExists={fileExists}
-          toggleReadText={toggleReadText}
+          fileExists={props.fileExists}
+          toggleReadText={props.toggleReadText}
         />
       );
     } else {
       return (
         <DetailsText
           play={props.play}
-          toggleReadText={toggleReadText}
+          toggleReadText={props.toggleReadText}
           chars={chars}
           text={text}
-          info={info}
+          info={props.info}
         />
       );
     }
@@ -110,8 +101,12 @@ const Details = (props) => {
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
         plays={props.plays}
+        updateCurrentPlay={props.updateCurrentPlay}
         favoriteCollapse={props.favoriteCollapse}
         setFavoriteCollapse={props.setFavoriteCollapse}
+        info={props.info}
+        updateInfo={props.updateInfo}
+        fetchInfo={props.fetchInfo}
       />
       {handleClickRead()}
     </section>

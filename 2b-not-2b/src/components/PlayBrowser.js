@@ -16,6 +16,8 @@ const PlayBrowser = (props) => {
         updateCurrentPlay={props.updateCurrentPlay}
         favoriteCollapse={props.favoriteCollapse}
         setFavoriteCollapse={props.setFavoriteCollapse}
+        info={props.info}
+        updateInfo={props.updateInfo}
       />
       <PlayFilters
         plays={props.plays}

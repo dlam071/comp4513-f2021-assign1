@@ -9,6 +9,7 @@ const DetailsMain = (props) => {
     return (
       <button
         className={props.fileExists ? "button" : "button sadbutton"}
+        title={props.fileExists ? "Read Text" : "No Text Available"}
         onClick={props.fileExists ? props.toggleReadText : null}
       >
         Read&#128214;

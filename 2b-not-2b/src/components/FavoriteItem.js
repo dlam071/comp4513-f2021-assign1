@@ -6,7 +6,11 @@ const FavoriteItem = (props) => {
   const handleDelete = () => {
     props.updateFavorites(props.play);
   };
-  const handleView = () => props.updateCurrentPlay(props.play);
+  const handleView = () => {
+    props.updateCurrentPlay(props.play);
+    props.updateInfo(props.info);
+    props.fetchInfo(props.play);
+  };
   return (
     <tr className={"favItem"}>
       <Link to="/details" className="titleLink" onClick={handleView}>

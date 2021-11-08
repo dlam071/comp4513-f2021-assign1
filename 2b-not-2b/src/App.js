@@ -31,6 +31,50 @@ function App() {
   });
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [resultStatus, setResultStatus] = useState("");
+  const [info, setInfo] = useState([]);
+  const [fileExists, setFileExists] = useState(false);
+  const [readText, setReadText] = useState(false);
+
+  const toggleReadText = () => {
+    if (!readText) {
+      setReadText(true);
+      console.log("true");
+    } else {
+      setReadText(false);
+      console.log("false");
+    }
+  };
+
+  const updateFileExists = (state) => {
+    setFileExists(state);
+  };
+
+  const fetchInfo = (fetchPlay) => {
+    let filename = fetchPlay.filename;
+    console.log(` fetching: ${fetchPlay.filename}`);
+    if (filename) {
+      setFileExists(true);
+      filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
+      const url =
+        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
+        filename;
+
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          setInfo(data);
+        });
+    } else {
+      setReadText(false);
+      setFileExists(false);
+    }
+  };
+
+  const updateInfo = (info) => {
+    setInfo(info);
+    console.log("info is set to");
+    console.log(info);
+  };
 
   const updateCurrentPlay = (play) => {
     setCurrentPlay(play);
@@ -165,6 +209,8 @@ function App() {
             favoriteCollapse={favoriteCollapse}
             setFavoriteCollapse={setFavoriteCollapse}
             resultStatus={resultStatus}
+            info={info}
+            updateInfo={updateInfo}
           />
         }
       />
@@ -175,9 +221,17 @@ function App() {
             plays={filteredPlays}
             favorites={favorites}
             updateFavorites={updateFavorites}
+            updateCurrentPlay={updateCurrentPlay}
             play={currentPlay}
             favoriteCollapse={favoriteCollapse}
             setFavoriteCollapse={setFavoriteCollapse}
+            info={info}
+            updateInfo={updateInfo}
+            fetchInfo={fetchInfo}
+            fileExists={fileExists}
+            updateFileExists={updateFileExists}
+            readText={readText}
+            toggleReadText={toggleReadText}
           />
         }
       />

@@ -23,10 +23,13 @@ const Favorites = (props) => {
               <th></th>
             </tr>
             {props.favorites.map((p) => (
-              <FavoriteItem 
-                play={p} 
+              <FavoriteItem
+                play={p}
                 updateFavorites={props.updateFavorites}
-                updateCurrentPlay={props.updateCurrentPlay} 
+                updateCurrentPlay={props.updateCurrentPlay}
+                updateInfo={props.updateInfo}
+                info={props.info}
+                fetchInfo={props.fetchInfo}
               />
             ))}
           </table>
