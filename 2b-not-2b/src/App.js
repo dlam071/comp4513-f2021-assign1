@@ -141,6 +141,7 @@ function App() {
           <Details
             plays={filteredPlays}
             favorites={favorites}
+            updateFavorites={updateFavorites}
             play={currentPlay}
           />
         }

@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Header from "./Header";
 import "../styles/Details.css";
 import Favorites from "./Favorites";
-import wikipedia from "../images/wikipedia.jpg";
-import gutenberg from "../images/gutenberg.jpg";
-import shakespeareOrg from "../images/shakespeare.jpg";
+// import wikipedia from "../images/wikipedia.jpg";
+// import gutenberg from "../images/gutenberg.jpg";
+// import shakespeareOrg from "../images/shakespeare.jpg";
 import Characters from "./Characters.js";
+import DisplayPosts from "./Tabs";
+import PlayDetails from "./PlayDetails";
+import DetailsMain from "./DetailsMain";
+import DetailsText from "./DetailsText";
 
 const Details = (props) => {
   const [info, setInfo] = useState([]);
@@ -14,9 +18,9 @@ const Details = (props) => {
   const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
     //console.log( props.play)
-    // let filename = props.play.filename;
+    let filename = props.play.filename;
 
-    let filename = "hamlet.json"
+    // let filename = "hamlet.json";
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
@@ -29,6 +33,8 @@ const Details = (props) => {
           setInfo(data);
           setChars(data.persona);
         });
+    } else {
+      setFileExists(false)
     }
   }, []);
 
@@ -38,45 +44,30 @@ const Details = (props) => {
     }
   }
 
-  return (
-    <section>
-      <Header />
-      <div className="playDetails tabs">
-        <h2 className="title">{props.play.title}</h2>
-        <div className="synopsis">
-          <h2> Synopsis:</h2>
-          <p> {props.play.synopsis}</p>
-          <button className="button">Read</button>
-        </div>
-        <div className="detailItems">
-          <div className="playDetails">
-            <p>Composition: {props.play.likelyDate}</p>
-            <p>Genre: {props.play.genre}</p>
-            <div className="webLinks">
-              <a target="_blank" href={props.play.wiki}>
-                <img src={wikipedia} title="Wiki" className="webIcon" />
-              </a>
-              <a target="_blank" href={props.play.gutenberg}>
-                <img src={gutenberg} title="Gutenberg" className="webIcon" />
-              </a>
-              <a target="_blank" href={props.play.shakespeareOrg}>
-                <img src={shakespeareOrg} title="Shakespeare Org" className="webIcon" />
-              </a>
-            </div>
-            <p>Description: {props.play.desc}</p>
-          </div>
-          <div className="closeButton">
-            <Link to="/browse">
-              <button className="button">Close</button>
-            </Link>
-          </div>
-        </div>
-        <div className="playCharacters">
-          {/* <Characters chars={chars} /> */}
-          {characters()}
-        </div>
-      </div>
+  const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
+  const [readText, setReadText] = useState(false);
 
+  const handleClickRead = () => {
+    if (!readText) {
+      return <DetailsMain play={props.play} chars={chars} fileExists={fileExists}/>
+    } else {
+      return <DetailsText play={props.play} />
+    }
+  }
+
+  return (
+    <section className="playDetails">
+      <Header />
+      <h2 className="title">{props.play.title}</h2>
+      <Favorites
+        updateFavorites={props.updateFavorites}
+        favorites={props.favorites}
+        plays={props.plays}
+        favoriteCollapse={favoriteCollapse}
+        setFavoriteCollapse={setFavoriteCollapse} 
+      />
+      {handleClickRead()}
+      
     </section>
   );
 };
