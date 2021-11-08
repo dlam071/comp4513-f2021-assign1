@@ -16,6 +16,7 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [filterTitle, setFilterTitle] = useState("");
   const [currentPlay, setCurrentPlay] = useState(plays[0]);
+  const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
 
   const updateCurrentPlay = (play) => setCurrentPlay(play);
 
@@ -132,6 +133,8 @@ function App() {
             updateTitleFilter={setFilterTitle}
             updateCurrentPlay={updateCurrentPlay}
             sortPlays={sortPlays}
+            favoriteCollapse={favoriteCollapse}
+            setFavoriteCollapse={setFavoriteCollapse}
           />
         }
       />
@@ -143,6 +146,8 @@ function App() {
             favorites={favorites}
             updateFavorites={updateFavorites}
             play={currentPlay}
+            favoriteCollapse={favoriteCollapse}
+            setFavoriteCollapse={setFavoriteCollapse}
           />
         }
       />

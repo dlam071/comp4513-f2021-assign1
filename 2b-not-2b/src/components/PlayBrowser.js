@@ -5,18 +5,16 @@ import PlayFilters from "./PlayFilters";
 import PlayList from "./PlayList";
 import "../styles/playbrowser.css";
 const PlayBrowser = (props) => {
-  const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
-
   return (
     //css and html tags are not set for this im just using it as an example ty and goodbye
-    <section className={"playBrowser " + favoriteCollapse}>
+    <section className={"playBrowser " + props.favoriteCollapse}>
       <Header />
       <Favorites
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
         plays={props.plays}
-        favoriteCollapse={favoriteCollapse}
-        setFavoriteCollapse={setFavoriteCollapse}
+        favoriteCollapse={props.favoriteCollapse}
+        setFavoriteCollapse={props.setFavoriteCollapse}
       />
       <PlayFilters
         plays={props.plays}

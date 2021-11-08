@@ -4,7 +4,7 @@
 .playBrowser {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: 10vh 180px calc(85vh - 180px);
   margin: 3px 5%;
 }
@@ -272,7 +272,9 @@ table {
   transform: scaleX(1);
 }
 
-.titleLink:link, .titleLink:visited, .titleLink:active{
+.titleLink:link,
+.titleLink:visited,
+.titleLink:active {
   color: black;
   text-decoration: none;
 }
