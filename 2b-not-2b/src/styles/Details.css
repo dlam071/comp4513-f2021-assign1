@@ -101,6 +101,10 @@ section.scriptText {
   padding: 10px;
 }
 
+#searchTerm input {
+  width: 98%;
+}
+
 .title {
   grid-column: 1 / span 3;
 }
@@ -253,10 +257,9 @@ section.scriptText {
 }
 
 .sadbutton {
-  background-color: rgb(156, 148, 148); 
+  background-color: rgb(156, 148, 148);
 }
 
 .sadbutton:hover {
   cursor: not-allowed;
 }
-

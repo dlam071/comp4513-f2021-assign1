@@ -89,7 +89,7 @@ const About = (props) => {
           className="buttonSolid buttonThin"
           onClick={props.onRequestClose}
         >
-          Close
+          Close &#10006;
         </button>
       </div>
     </div>

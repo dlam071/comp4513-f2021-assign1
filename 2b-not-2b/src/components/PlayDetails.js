@@ -31,7 +31,7 @@ const PlayDetails = (props) => {
         </div>
         <div className="closeButton">
           <Link to="/browse">
-            <button className="button">Close</button>
+            <button className="button">Close &#10006;</button>
           </Link>
         </div>
       </div>

@@ -5,18 +5,21 @@ const ScriptText = (props) => {
   console.log(props.info.acts);
   let play = props.info;
 
-  const sceneStuff = (act) => {
-    return act.scenes.title;
-  };
-
   return (
     <section className="scriptText">
-      <h1>{play.title}</h1>
+      <h1 className="playTitle">{play.title}</h1>
       {play.acts.map((act) => {
         return (
-          <div>
-            <h2>{act.name}</h2>
-            <Scene act={act} />
+          <div className="act">
+            <h2 className="actName">{act.name}</h2>
+            <Scene
+              act={act}
+              actName={act.name}
+              actForm={props.actForm}
+              sceneForm={props.sceneForm}
+              characterForm={props.characterForm}
+              playSearchWord={props.playSearchWord}
+            />
           </div>
         );
       })}
