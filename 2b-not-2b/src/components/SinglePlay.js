@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Heart from "./Heart";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const SinglePlay = (props) => {
   // This function is to change the heart logo depending on current favorite state
@@ -15,6 +15,10 @@ const SinglePlay = (props) => {
     }
   };
 
+  const handleView = () => {
+    props.updateCurrentPlay(props.play);
+  };
+
   return (
     <tr className="playItem">
       <Link to="/details" className="titleLink">
@@ -23,7 +27,9 @@ const SinglePlay = (props) => {
       <td className="listItemYear">{props.play.likelyDate}</td>
       <td>
         <Link to="/details">
-          <button className="buttonThin" onClick={props.updateCurrentPlay(props.play)}>View</button>
+          <button className="buttonThin" onClick={handleView}>
+            View
+          </button>
         </Link>
       </td>
       <td>
