@@ -4,12 +4,24 @@ import "../styles/Details.css";
 import Favorites from "./Favorites";
 import DetailsMain from "./DetailsMain";
 import DetailsText from "./DetailsText";
+import Heart from "./Heart";
 
 const Details = (props) => {
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
   const [info, setInfo] = useState([]);
   const [fileExists, setFileExists] = useState(false);
+
+  const [heartStyle, setHeartStyle] = useState("favoriteHeartOutline");
+
+  const updateHeartClassName = () => {
+    if (heartStyle === "favoriteHeartOutline") {
+      setHeartStyle("favoriteHeartSolid");
+    } else {
+      setHeartStyle("favoriteHeartOutline");
+    }
+  };
+
   useEffect(() => {
     let filename = props.play.filename;
     if (filename) {
@@ -70,6 +82,13 @@ const Details = (props) => {
     <section className={"playDetails " + props.favoriteCollapse}>
       <Header />
       <section className="title">
+        <Heart
+          play={props.play}
+          updateFavorites={props.updateFavorites}
+          favoriteStatus={heartStyle}
+          favorites={props.favorites}
+          updateHeartClassName={updateHeartClassName}
+        />
         <h2>{props.play.title}</h2>
       </section>
       <Favorites

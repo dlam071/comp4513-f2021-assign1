@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/playbrowser.css";
-import "../styles/favorites.css";
 import FavoriteItem from "./FavoriteItem";
 
 const Favorites = (props) => {
