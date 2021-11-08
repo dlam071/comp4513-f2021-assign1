@@ -21,6 +21,7 @@ const PlayBrowser = (props) => {
         saveFilters={props.saveFilters}
         filterTitle={props.filterTitle}
         updateTitleFilter={props.updateTitleFilter}
+        resultStatus={props.resultStatus}
       />
       <PlayList
         plays={props.plays}

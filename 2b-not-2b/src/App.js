@@ -17,6 +17,7 @@ function App() {
   const [filterTitle, setFilterTitle] = useState("");
   const [currentPlay, setCurrentPlay] = useState(plays[0]);
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
+  const [resultStatus, setResultStatus] = useState("");
 
   const updateCurrentPlay = (play) => setCurrentPlay(play);
 
@@ -68,6 +69,13 @@ function App() {
     setFilteredPlays(playsCopy);
     setSortedPlays(playsCopy);
     setSavedFilteredPlays(playsCopy);
+    if (playsCopy.length > 0) {
+      playsCopy.length === 1
+        ? setResultStatus(`${playsCopy.length} Result`)
+        : setResultStatus(`${playsCopy.length} Results`);
+    } else {
+      setResultStatus("No Results Found");
+    }
   };
 
   const sortPlays = (titleSort, dateSort) => {
@@ -135,6 +143,7 @@ function App() {
             sortPlays={sortPlays}
             favoriteCollapse={favoriteCollapse}
             setFavoriteCollapse={setFavoriteCollapse}
+            resultStatus={resultStatus}
           />
         }
       />

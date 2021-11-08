@@ -84,6 +84,12 @@ h2 {
   grid-column: 1 / span 4;
 }
 
+.filterResults {
+  padding-top: 10px;
+  color: var(--blue-2);
+  font-weight: bold;
+}
+
 .buttonGroup {
   display: flex;
   justify-content: space-between;

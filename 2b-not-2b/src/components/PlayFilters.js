@@ -139,6 +139,7 @@ const PlayFilters = (props) => {
               {bText}
             </button>
           </div>
+          <p className="filterResults">{props.resultStatus}</p>
         </div>
 
         {moreFilters()}

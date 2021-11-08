@@ -28,23 +28,35 @@
 }
 
 .detailItems {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  height: calc(85vh - 50px - 40px);
 }
 
 .title {
   display: flex;
-
   align-items: center;
+  padding-left: 10px;
+}
+
+.title h2 {
+  padding-left: 10px;
+  margin-bottom: 0px;
 }
 
 .synopsis {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
   position: relative;
+  height: 100%;
+}
+
+.synopsis div {
+  padding: 10px;
+}
+
+.synopsis button {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .title {
@@ -60,6 +72,42 @@
 .webLinks {
   display: flex;
   flex-direction: row;
+}
+
+.playCharacters {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+}
+
+.playCharactersTable {
+  padding-right: 8px;
+  position: relative;
+  height: calc(100% - 58px);
+}
+
+.playCharactersTable table th {
+  position: -webkit-sticky;
+  position: sticky;
+  padding-top: 5px;
+  top: 0px;
+  z-index: 1;
+  background: var(--platinum);
+}
+
+.detailsAndChar {
+  height: calc(85vh - 50px);
+}
+.detailsAndChar .react-tabs {
+  height: calc(85vh - 50px);
+}
+
+.react-tabs__tab-list:nth-child(2) {
+  height: calc(85vh - 50px - 40px);
+}
+
+.react-tabs__tab-panel {
+  height: calc(85vh - 50px - 40px);
 }
 
 /*! favorites Styles */

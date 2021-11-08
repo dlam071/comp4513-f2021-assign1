@@ -11,17 +11,18 @@ const DetailsMain = (props) => {
           <div>
             <h2> Synopsis:</h2>
             <p> {props.play.synopsis}</p>
-            <button className="button" onClick={props.toggleReadText}>
-              Read
-            </button>
           </div>
+          <button className="button" onClick={props.toggleReadText}>
+            Read
+          </button>
         </div>
-
-        <DisplayPosts
-          chars={props.chars}
-          play={props.play}
-          fileExists={props.fileExists}
-        />
+        <div className="detailsAndChar">
+          <DisplayPosts
+            chars={props.chars}
+            play={props.play}
+            fileExists={props.fileExists}
+          />
+        </div>
       </div>
     </div>
   );

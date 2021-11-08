@@ -9,7 +9,7 @@ const PlayDetails = (props) => {
   return (
     <div>
       <div className="detailItems">
-        <div className="playDetails">
+        <div className="playDetailsTab">
           <p>Composition: {props.play.likelyDate}</p>
           <p>Genre: {props.play.genre}</p>
           <div className="webLinks">
