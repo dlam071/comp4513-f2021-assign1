@@ -1,40 +1,33 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 import Header from "./Header";
 import "../styles/Details.css";
 import Favorites from "./Favorites";
-// import wikipedia from "../images/wikipedia.jpg";
-// import gutenberg from "../images/gutenberg.jpg";
-// import shakespeareOrg from "../images/shakespeare.jpg";
-import Characters from "./Characters.js";
-import DisplayPosts from "./Tabs";
-import PlayDetails from "./PlayDetails";
 import DetailsMain from "./DetailsMain";
 import DetailsText from "./DetailsText";
 
 const Details = (props) => {
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
+  const [info, setInfo] = useState([]);
   const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
-    //console.log( props.play)
     let filename = props.play.filename;
-
-    // let filename = "hamlet.json";
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
       const url =
-        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" + filename;
+        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
+        filename;
 
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
           setText(data.acts);
           setChars(data.persona);
+          setInfo(data);
         });
     } else {
-      setFileExists(false)
+      setFileExists(false);
     }
   }, []);
 
@@ -49,40 +42,44 @@ const Details = (props) => {
       setReadText(false);
       console.log("false");
     }
-  }
+  };
 
   const handleClickRead = () => {
     if (!readText) {
-      return <DetailsMain 
-                play={props.play}
-                chars={chars}
-                fileExists={fileExists} 
-                toggleReadText={toggleReadText}
-                />
+      return (
+        <DetailsMain
+          play={props.play}
+          chars={chars}
+          fileExists={fileExists}
+          toggleReadText={toggleReadText}
+        />
+      );
     } else {
-      return <DetailsText 
-                play={props.play}
-                toggleReadText={toggleReadText}
-                text={text}
-                />
+      return (
+        <DetailsText
+          play={props.play}
+          toggleReadText={toggleReadText}
+          text={text}
+          info={info}
+        />
+      );
     }
-  }
-
-  
+  };
 
   return (
-    <section className="playDetails">
+    <section className={"playDetails " + props.favoriteCollapse}>
       <Header />
-      <h2 className="title">{props.play.title}</h2>
+      <section className="title">
+        <h2>{props.play.title}</h2>
+      </section>
       <Favorites
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
         plays={props.plays}
-        favoriteCollapse={favoriteCollapse}
-        setFavoriteCollapse={setFavoriteCollapse} 
+        favoriteCollapse={props.favoriteCollapse}
+        setFavoriteCollapse={props.setFavoriteCollapse}
       />
       {handleClickRead()}
-      
     </section>
   );
 };

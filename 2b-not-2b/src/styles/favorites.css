@@ -1,0 +1,86 @@
+.playBrowser .favorites {
+  background-color: var(--platinum);
+  padding: 15px 20px;
+  border-radius: 5px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  position: relative;
+}
+
+.playDetails .favorites {
+  background-color: var(--platinum);
+  padding: 15px 20px;
+  border-radius: 5px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  position: relative;
+}
+
+.collapseFavs .favorites .hideFavs {
+  display: none;
+}
+
+.collapseFavs {
+  grid-template-columns: 50px 3fr;
+}
+
+.collapseFavs .favorites .hideFavs {
+  display: none;
+}
+.collapseFavs .favoriteCollapseButton svg {
+  top: 25%;
+  transform: scaleX(-1);
+}
+
+.collapseFavs .favoriteCollapseButton:hover svg {
+  top: 25%;
+  transform: scaleX(1);
+}
+
+.tableArea {
+  margin-right: 10px;
+  height: 100%;
+}
+
+.favoriteCollapseButton {
+  position: absolute;
+  height: 50px;
+  background-color: var(--blue-2);
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 10px 0 0 10px;
+}
+
+.favoriteCollapseButton:hover {
+  position: absolute;
+  height: 50px;
+  background-color: var(--blue-1);
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+.favoriteCollapseButton svg {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.favoriteCollapseButton:hover svg {
+  fill: var(--orange-accent);
+  top: 25%;
+  transform: scaleX(-1);
+}
+
+.collapseFavs .favoriteCollapseButton svg {
+  top: 25%;
+  transform: scaleX(-1);
+}
+
+.collapseFavs .favoriteCollapseButton:hover svg {
+  top: 25%;
+  transform: scaleX(1);
+}
