@@ -216,3 +216,12 @@
   top: 25%;
   transform: scaleX(1);
 }
+
+.sadbutton {
+  background-color: rgb(156, 148, 148); 
+}
+
+.sadbutton:hover {
+  cursor: not-allowed;
+}
+
