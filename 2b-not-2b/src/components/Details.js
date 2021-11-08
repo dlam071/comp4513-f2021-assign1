@@ -25,7 +25,8 @@ const Details = (props) => {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
       const url =
-        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" + filename;
+        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
+        filename;
 
       fetch(url)
         .then((resp) => resp.json())
@@ -34,15 +35,15 @@ const Details = (props) => {
           setChars(data.persona);
         });
     } else {
-      setFileExists(false)
+      setFileExists(false);
     }
   }, []);
 
   const characters = () => {
     if (fileExists) {
-      return <Characters chars={chars} />
+      return <Characters chars={chars} />;
     }
-  }
+  };
 
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [readText, setReadText] = useState(false);
@@ -55,39 +56,37 @@ const Details = (props) => {
       setReadText(false);
       console.log("false");
     }
-  }
+  };
 
   const handleClickRead = () => {
     if (!readText) {
-      return <DetailsMain 
-                play={props.play}
-                chars={chars}
-                fileExists={fileExists} 
-                toggleReadText={toggleReadText}
-                />
+      return (
+        <DetailsMain
+          play={props.play}
+          chars={chars}
+          fileExists={fileExists}
+          toggleReadText={toggleReadText}
+        />
+      );
     } else {
-      return <DetailsText 
-                play={props.play}
-                toggleReadText={toggleReadText}
-                />
+      return <DetailsText play={props.play} toggleReadText={toggleReadText} />;
     }
-  }
-
-  
+  };
 
   return (
-    <section className="playDetails">
+    <section className={"playDetails " + props.favoriteCollapse}>
       <Header />
-      <h2 className="title">{props.play.title}</h2>
+      <section className="title">
+        <h2>{props.play.title}</h2>
+      </section>
       <Favorites
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
         plays={props.plays}
-        favoriteCollapse={favoriteCollapse}
-        setFavoriteCollapse={setFavoriteCollapse} 
+        favoriteCollapse={props.favoriteCollapse}
+        setFavoriteCollapse={props.setFavoriteCollapse}
       />
       {handleClickRead()}
-      
     </section>
   );
 };
