@@ -15,7 +15,7 @@ function App() {
   const [savedFilteredPlays, setSavedFilteredPlays] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [filterTitle, setFilterTitle] = useState("");
-  const [currentPlay, setCurrentPlay] = useState([]);
+  const [currentPlay, setCurrentPlay] = useState(plays[0]);
 
   const updateCurrentPlay = (play) => setCurrentPlay(play);
 
