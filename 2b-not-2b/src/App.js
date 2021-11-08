@@ -9,17 +9,33 @@ import { Route, Routes } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
 
 function App() {
-  const [plays, setPlays] = useState([]);
+  const [loadedDataStatus, setLoadedStatus] = useState(false);
+  const [plays, setPlays] = useState(() => {
+    const saved = localStorage.getItem("plays");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
   const [filteredPlays, setFilteredPlays] = useState([]);
   const [sortedPlays, setSortedPlays] = useState([]);
   const [savedFilteredPlays, setSavedFilteredPlays] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem("favorites");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
   const [filterTitle, setFilterTitle] = useState("");
-  const [currentPlay, setCurrentPlay] = useState(plays[0]);
+  const [currentPlay, setCurrentPlay] = useState(() => {
+    const saved = localStorage.getItem("curPlay");
+    const initialValue = JSON.parse(saved);
+    return initialValue || plays[0];
+  });
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [resultStatus, setResultStatus] = useState("");
 
-  const updateCurrentPlay = (play) => setCurrentPlay(play);
+  const updateCurrentPlay = (play) => {
+    setCurrentPlay(play);
+    localStorage.setItem("curPlay", JSON.stringify(play));
+  };
 
   const updateFavorites = (fav) => {
     const copyFavs = cloneDeep(favorites);
@@ -32,21 +48,26 @@ function App() {
     }
     setFavorites(copyFavs);
     console.log(copyFavs);
+    localStorage.setItem("favorites", JSON.stringify(copyFavs));
   };
 
   useEffect(() => {
-    const url =
-      "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
-    fetch(url)
-      .then((resp) => resp.json())
-      .then((data) => {
-        setPlays(data);
-        setFilteredPlays(data);
-        setSortedPlays(data);
-        setSavedFilteredPlays(data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+    if (!loadedDataStatus) {
+      const url =
+        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          setPlays(data);
+          localStorage.setItem("plays", JSON.stringify(data));
+          setFilteredPlays(data);
+          setSortedPlays(data);
+          setSavedFilteredPlays(data);
+        })
+        .catch((err) => console.error(err));
+      setLoadedStatus(true);
+    }
+  }, [plays]);
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];

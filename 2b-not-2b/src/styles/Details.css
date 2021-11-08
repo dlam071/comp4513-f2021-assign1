@@ -67,6 +67,13 @@
   width: 35px;
   height: 35px;
   margin: 3px;
+  padding: 2px;
+}
+
+.webIcon:hover {
+  padding: 0px;
+  border: 2px solid var(--orange-accent);
+  background-color: var(--orange-accent);
 }
 
 .webLinks {
@@ -147,6 +154,7 @@
 }
 
 .collapseFavs .favoriteCollapseButton:hover svg {
+  transition: 220ms all ease-in-out;
   top: 25%;
   transform: scaleX(1);
 }
@@ -167,6 +175,7 @@
 }
 
 .favoriteCollapseButton:hover {
+  transition: 220ms all ease-in-out;
   position: absolute;
   height: 50px;
   background-color: var(--blue-1);
@@ -184,6 +193,7 @@
 }
 
 .favoriteCollapseButton:hover svg {
+  transition: 220ms all ease-in-out;
   fill: var(--orange-accent);
   top: 25%;
   transform: scaleX(-1);
@@ -195,6 +205,7 @@
 }
 
 .collapseFavs .favoriteCollapseButton:hover svg {
+  transition: 220ms all ease-in-out;
   top: 25%;
   transform: scaleX(1);
 }

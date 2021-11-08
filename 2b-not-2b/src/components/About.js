@@ -8,34 +8,23 @@ const About = (props) => {
       <div className="assignInfo">
         <h2>Assignment 1</h2>
         <h3>COMP 4513: Randy Connolly</h3>
-        <p>Designed by: Hatoon Al-Nakshabandi, Dylan Borchert, and Darren Lam</p>
+        <p>
+          Designed by: Hatoon Al-Nakshabandi, Dylan Borchert, and Darren Lam
+        </p>
+        <a href="https://github.com/dborc610/comp4513-f2021-assign1">
+          github Repo
+        </a>
       </div>
       <div className="lists">
         <ul classNames="techUsed">
-          <li>
-            React
-          </li>
-          <li>
-            React-DOM
-          </li>
-          <li>
-            React-modal
-          </li>
-          <li>
-            React-router
-          </li>
-          <li>
-            React-router-DOM
-          </li>
-          <li>
-            React-tabs
-          </li>
-          <li>
-            lodash
-          </li>
-          <li>
-            Style-components
-          </li>
+          <li>React</li>
+          <li>React-DOM</li>
+          <li>React-modal</li>
+          <li>React-router</li>
+          <li>React-router-DOM</li>
+          <li>React-tabs</li>
+          <li>lodash</li>
+          <li>Style-components</li>
         </ul>
         <ul className="sources">
           <li>
@@ -62,7 +51,11 @@ const About = (props) => {
               Freepik
             </a>
             from
-            <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">
+            <a
+              target="_blank"
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+            >
               www.flaticon.com
             </a>
           </li>
@@ -88,7 +81,10 @@ const About = (props) => {
         </ul>
       </div>
       <div className="close">
-        <button className="buttonSolid buttonThin" onClick={props.onRequestClose}>
+        <button
+          className="buttonSolid buttonThin"
+          onClick={props.onRequestClose}
+        >
           Close
         </button>
       </div>

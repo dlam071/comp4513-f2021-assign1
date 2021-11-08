@@ -108,10 +108,12 @@ h2 {
 }
 
 .favoriteHeartOutline svg:hover {
+  transition: 220ms all ease-in-out;
   fill: var(--orange-accent);
   cursor: pointer;
 }
 .favoriteHeartSolid svg:hover {
+  transition: 220ms all ease-in-out;
   fill: var(--orange-accent);
   cursor: pointer;
 }
@@ -179,6 +181,7 @@ table {
 }
 
 .favDelete svg:hover {
+  transition: 220ms all ease-in-out;
   fill: var(--orange-accent);
   cursor: pointer;
 }
@@ -246,6 +249,7 @@ table {
 }
 
 .favoriteCollapseButton:hover {
+  transition: 220ms all ease-in-out;
   position: absolute;
   height: 50px;
   background-color: var(--blue-1);
@@ -263,6 +267,7 @@ table {
 }
 
 .favoriteCollapseButton:hover svg {
+  transition: 220ms all ease-in-out;
   fill: var(--orange-accent);
   top: 25%;
   transform: scaleX(-1);
