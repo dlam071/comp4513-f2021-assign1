@@ -49,11 +49,18 @@ const Details = (props) => {
 
   const handleClickRead = () => {
     if (!readText) {
-      return <DetailsMain play={props.play} chars={chars} fileExists={fileExists}/>
+      return <DetailsMain 
+                          play={props.play}
+                          chars={chars}
+                          fileExists={fileExists} 
+                          setReadText={setReadText}
+                          />
     } else {
       return <DetailsText play={props.play} />
     }
   }
+
+  
 
   return (
     <section className="playDetails">

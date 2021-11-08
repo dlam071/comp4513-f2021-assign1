@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TextForm from "./TextForm";
 import ScriptText from "./ScriptText";
+import "../styles/DetailsText.css";
 
 const DetailsText = (props) => {
 	return (
@@ -16,4 +17,4 @@ const DetailsText = (props) => {
 	)
 }
 
-export default Text;
+export default DetailsText;
