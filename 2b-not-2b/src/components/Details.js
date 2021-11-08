@@ -11,7 +11,6 @@ const Details = (props) => {
   const [info, setInfo] = useState([]);
   const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
-
     let filename = props.play.filename;
     if (filename) {
       setFileExists(true);
@@ -32,15 +31,6 @@ const Details = (props) => {
     }
   }, []);
 
-<<<<<<< HEAD
-  const characters = () => {
-    if (fileExists) {
-      return <Characters chars={chars} />;
-    }
-  };
-
-=======
->>>>>>> f9d226dbe4293588d5ec13d50121e138d9fce352
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [readText, setReadText] = useState(false);
 
@@ -56,23 +46,25 @@ const Details = (props) => {
 
   const handleClickRead = () => {
     if (!readText) {
-      return <DetailsMain
-        play={props.play}
-        chars={chars}
-        fileExists={fileExists}
-        toggleReadText={toggleReadText}
-      />
+      return (
+        <DetailsMain
+          play={props.play}
+          chars={chars}
+          fileExists={fileExists}
+          toggleReadText={toggleReadText}
+        />
+      );
     } else {
-      return <DetailsText
-        play={props.play}
-        toggleReadText={toggleReadText}
-        text={text}
-        info={info}
-      />
+      return (
+        <DetailsText
+          play={props.play}
+          toggleReadText={toggleReadText}
+          text={text}
+          info={info}
+        />
+      );
     }
-  }
-
-
+  };
 
   return (
     <section className={"playDetails " + props.favoriteCollapse}>
