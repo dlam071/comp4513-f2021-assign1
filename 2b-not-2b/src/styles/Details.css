@@ -10,7 +10,7 @@
   border-radius: 5px;
 }
 
-.playDetailsMain {
+.playDetailsMain, .playText {
   position: relative;
   display: grid;
   grid-gap: 10px;
@@ -22,12 +22,14 @@
 .title,
 .synopsis,
 .detailItems,
-.playCharacters {
+.playCharacters,
+.textForm,
+.scriptText {
   background-color: var(--platinum);
   border-radius: 5px;
 }
 
-.detailItems {
+.detailItems, .playText {
   position: relative;
   height: calc(85vh - 50px - 40px);
 }
@@ -43,7 +45,7 @@
   margin-bottom: 0px;
 }
 
-.synopsis {
+.synopsis, .textForm {
   position: relative;
   height: 100%;
 }
@@ -58,6 +60,11 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.textForm div {
+  padding: 10px;
+}
+
 
 .title {
   grid-column: 1 / span 3;
@@ -95,7 +102,7 @@
   background: var(--platinum);
 }
 
-.detailsAndChar {
+.detailsAndChar, .scriptText {
   height: calc(85vh - 50px);
 }
 .detailsAndChar .react-tabs {
