@@ -71,6 +71,7 @@ const Details = (props) => {
         <DetailsText
           play={props.play}
           toggleReadText={toggleReadText}
+          chars={chars}
           text={text}
           info={info}
         />

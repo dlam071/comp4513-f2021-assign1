@@ -1,59 +1,84 @@
-import React, { useState} from "react";
-import Characters from "./Characters";
+import React, { useState } from "react";
 
 const TextForm = (props) => {
 
   const [act, setAct] = useState();
+  const [scene, setScene] = useState();
+  const [character, setCharacter] = useState();
 
   const generateActs = () => {
-    console.log(props.text);
-    let acts = props.text.map((n) => n.name);
-    let generatedActs = acts.filter(
-      (item, index) => acts.indexOf(item) === index
-    );
-    return generatedActs.map((n) => (
-      <option defaultValue={acts} onClick={handleActChange}>
+    let acts = props.text.map(n => n.name);
+    return acts.map(n => (
+      <option defaultValue={n} onClick={handleActChange}>
+        {n}
+      </option>
+    ));
+  };
+
+  const generateScenes = () => {
+    if (act) {
+      let chosen = props.text.find(t => act == t.name);
+      let scenes = chosen.scenes.map(n => n.name);
+      return scenes.map(n => (
+        <option defaultValue={n} onClick={handleSceneChange}>
+          {n}
+        </option>
+      ));
+    } else {
+      return null;
+    }
+  };
+
+  const generateCharacters = () => {
+    console.log(props.chars);
+    let characters = props.chars.map(n => n.player);
+    return characters.map(n => (
+      <option defaultValue={n} onClick={handleCharacterChange}>
         {n}
       </option>
     ));
   };
 
   const handleActChange = (e) => setAct(e.target.value);
+  const handleSceneChange = (e) => setScene(e.target.value);
+  const handleCharacterChange = (e) => setCharacter(e.target.value);
 
-    return(
-      <section className="textForm">
-        <p>TextForm</p>
+  return (
+    <section className="textForm">
+      <p>TextForm</p>
 
-        <form className="form">
-          <div className="form">
-            <label id="act">Act</label>
-            <select name="act" /*onClick={handleActChange}*/>
-              <option value="">Select an Act</option>
-              {generateActs()}
-            </select>
+      <form className="form">
+        <div className="form">
+          <label id="act">Act</label>
+          <select name="act" onClick={handleActChange}>
+            <option value="">Select an Act</option>
+            {generateActs()}
+          </select>
 
-            <label id="scene">Scene</label>
-            <select name="scene" /*onClick={handleSceneChange}*/>
-              <option value="">Select a Scene</option>
-            </select>
+          <label id="scene">Scene</label>
+          <select name="scene" onClick={handleSceneChange}>
+            <option value="">Select a Scene</option>
+            {generateScenes()}
+          </select>
 
-            <label id="character">Character</label>
-            <select name="character" /*onClick={handleCharacterChange}*/>
-              <option value="">Select a Character</option>
-            </select>
+          <label id="character">Character</label>
+          <select name="character" onClick={handleCharacterChange}>
+            <option value="">Select a Character</option>
+            {generateCharacters()}
+          </select>
 
-            {/* <label id="searchTerm">Search
+          {/* <label id="searchTerm">Search
             <input
               type="text"
               name="term"
               className="searchTerm"
             />
     </label> */}
-          </div>
-        </form>
-        <button className="button" onClick={props.toggleReadText}>Close</button>
-      </section >
-    );
+        </div>
+      </form>
+      <button className="button" onClick={props.toggleReadText}>Close</button>
+    </section >
+  );
 }
 
 export default TextForm;

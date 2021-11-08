@@ -10,6 +10,7 @@ const DetailsText = (props) => {
 				<TextForm
 					toggleReadText={props.toggleReadText}
 					text={props.text}
+					chars={props.chars}
 				/>
 			</div>
 			<div className="scriptText">
