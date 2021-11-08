@@ -10,6 +10,7 @@ import Characters from "./Characters.js";
 import DisplayPosts from "./Tabs";
 import PlayDetails from "./PlayDetails";
 import DetailsMain from "./DetailsMain";
+import DetailsText from "./DetailsText";
 
 const Details = (props) => {
   const [info, setInfo] = useState([]);
@@ -42,6 +43,15 @@ const Details = (props) => {
   }
 
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
+  const [readText, setReadText] = useState(false);
+
+  const handleClickRead = () => {
+    if (!readText) {
+      return <DetailsMain play={props.play} chars={chars} />
+    } else {
+      return <DetailsText play={props.play} />
+    }
+  }
 
   return (
     <section className="playDetails">
@@ -54,7 +64,7 @@ const Details = (props) => {
         favoriteCollapse={favoriteCollapse}
         setFavoriteCollapse={setFavoriteCollapse} 
       />
-      <DetailsMain play={props.play} chars={chars} />
+      {handleClickRead()}
       
     </section>
   );
