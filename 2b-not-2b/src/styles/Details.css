@@ -19,7 +19,6 @@
   height: calc(85vh - 50px);
 }
 
-
 .title,
 .synopsis,
 .detailItems,
@@ -55,7 +54,7 @@
 
 .synopsis button {
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -109,6 +108,16 @@
 
 .react-tabs__tab-panel {
   height: calc(85vh - 50px - 40px);
+}
+
+.playDetailsTab {
+  padding: 10px;
+}
+
+.closeButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 /*! favorites Styles */
