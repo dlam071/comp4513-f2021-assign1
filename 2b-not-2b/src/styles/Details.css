@@ -10,7 +10,8 @@
   border-radius: 5px;
 }
 
-.playDetailsMain, .playText {
+.playDetailsMain,
+.playText {
   position: relative;
   display: grid;
   grid-gap: 10px;
@@ -29,7 +30,38 @@
   border-radius: 5px;
 }
 
-.detailItems, .playText {
+.playText {
+  position: relative;
+  height: calc(85vh - 50px);
+}
+
+.formArea form div.form {
+  display: flex;
+  flex-direction: column;
+}
+
+div.scriptText {
+  position: relative;
+  height: calc(100% - 21px);
+  padding: 10px;
+}
+
+div.scriptText h1 {
+  padding-bottom: 5px;
+}
+
+section.scriptText {
+  overflow: auto;
+  position: relative;
+  height: calc(85vh - 84px);
+}
+
+.formArea form div.form label {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.detailItems {
   position: relative;
   height: calc(85vh - 50px - 40px);
 }
@@ -45,16 +77,19 @@
   margin-bottom: 0px;
 }
 
-.synopsis, .textForm {
+.synopsis,
+.textForm {
   position: relative;
   height: 100%;
 }
 
-.synopsis div {
+.synopsis div,
+.textForm div {
   padding: 10px;
 }
 
-.synopsis button {
+.synopsis button,
+.textForm button {
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -64,7 +99,6 @@
 .textForm div {
   padding: 10px;
 }
-
 
 .title {
   grid-column: 1 / span 3;
@@ -109,7 +143,7 @@
   background: var(--platinum);
 }
 
-.detailsAndChar, .scriptText {
+.detailsAndChar {
   height: calc(85vh - 50px);
 }
 .detailsAndChar .react-tabs {

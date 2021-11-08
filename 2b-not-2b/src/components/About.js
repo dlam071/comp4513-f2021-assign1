@@ -69,8 +69,12 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            <a target="_blank" href="link">
-              LINK
+            Local storage code setup
+            <a
+              target="_blank"
+              href="https://blog.logrocket.com/using-localstorage-react-hooks/"
+            >
+              from
             </a>
           </li>
           <li>
