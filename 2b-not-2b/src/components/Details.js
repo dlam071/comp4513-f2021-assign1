@@ -18,9 +18,9 @@ const Details = (props) => {
   const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
     //console.log( props.play)
-    // let filename = props.play.filename;
+    let filename = props.play.filename;
 
-    let filename = "hamlet.json"
+    // let filename = "hamlet.json";
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
@@ -33,6 +33,8 @@ const Details = (props) => {
           setInfo(data);
           setChars(data.persona);
         });
+    } else {
+      setFileExists(false)
     }
   }, []);
 
@@ -47,7 +49,7 @@ const Details = (props) => {
 
   const handleClickRead = () => {
     if (!readText) {
-      return <DetailsMain play={props.play} chars={chars} />
+      return <DetailsMain play={props.play} chars={chars} fileExists={fileExists}/>
     } else {
       return <DetailsText play={props.play} />
     }

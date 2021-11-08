@@ -6,24 +6,32 @@ import PlayDetails from "./PlayDetails";
 
 const DisplayPosts = (props) => {
 
+    if (props.fileExists) {
+        return (
+            <Tabs defaultIndex={0}>
+                <TabList>
+                    <Tab>Details</Tab>
+                    <Tab>Characters</Tab>
+                </TabList>
+                <TabList>
+                    <TabPanel> <PlayDetails play={props.play} /></TabPanel>
+                    <TabPanel> <Characters chars={props.chars} /></TabPanel>
+                </TabList>
+            </Tabs>
+        );
+    } else {
+        return (
+            <Tabs defaultIndex={0}>
+                <TabList>
+                    <Tab>Details</Tab>
+                </TabList>
+                <TabList>
+                    <TabPanel> <PlayDetails play={props.play} /></TabPanel>
+                </TabList>
+            </Tabs>
+        )
+    }
 
-
-    return (
-        <Tabs defaultIndex={0}>
-            <TabList>
-                <Tab>Details</Tab>
-                <Tab>Characters</Tab>
-            </TabList>
-            <TabList>
-                {/* <TabPanel>details details</TabPanel> */}
-               <TabPanel> <PlayDetails play={props.play} /></TabPanel>
-
-                {/* <TabPanel>characters details</TabPanel> */}
-                <TabPanel> <Characters chars={props.chars} /></TabPanel>
-                {/* <TabPanel> <Characters chars={props.chars} /></TabPanel>  */}
-            </TabList>
-        </Tabs>
-    );
 }
 
 export default DisplayPosts;
