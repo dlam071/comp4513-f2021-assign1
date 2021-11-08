@@ -17,9 +17,9 @@ const Details = (props) => {
   const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
     //console.log( props.play)
-    // let filename = props.play.filename;
+    let filename = props.play.filename;
 
-    let filename = "hamlet.json"
+    // let filename = "hamlet.json";
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
@@ -32,6 +32,8 @@ const Details = (props) => {
           setInfo(data);
           setChars(data.persona);
         });
+    } else {
+      setFileExists(false)
     }
   }, []);
 
@@ -54,7 +56,7 @@ const Details = (props) => {
         favoriteCollapse={favoriteCollapse}
         setFavoriteCollapse={setFavoriteCollapse} 
       />
-      <DetailsMain play={props.play} chars={chars} />
+      <DetailsMain play={props.play} chars={chars} fileExists={fileExists}/>
       
     </section>
   );
