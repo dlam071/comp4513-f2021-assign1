@@ -27,10 +27,15 @@
   border-radius: 5px;
 }
 
-.title,
 .detailItems {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+
   align-items: center;
 }
 
