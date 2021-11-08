@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Characters from "./Characters";
 
 const TextForm = (props) => {
 
@@ -9,7 +8,7 @@ const TextForm = (props) => {
 
   const generateActs = () => {
     let acts = props.text.map(n => n.name);
-    return acts.map((n) => (
+    return acts.map(n => (
       <option defaultValue={n} onClick={handleActChange}>
         {n}
       </option>
@@ -20,7 +19,7 @@ const TextForm = (props) => {
     if (act) {
       let chosen = props.text.find(t => act == t.name);
       let scenes = chosen.scenes.map(n => n.name);
-      return scenes.map((n) => (
+      return scenes.map(n => (
         <option defaultValue={n} onClick={handleSceneChange}>
           {n}
         </option>
@@ -30,10 +29,19 @@ const TextForm = (props) => {
     }
   };
 
-  const handleActChange = (e) => {
-    setAct(e.target.value);
-  }
+  const generateCharacters = () => {
+    console.log(props.chars);
+    let characters = props.chars.map(n => n.player);
+    return characters.map(n => (
+      <option defaultValue={n} onClick={handleCharacterChange}>
+        {n}
+      </option>
+    ));
+  };
+
+  const handleActChange = (e) => setAct(e.target.value);
   const handleSceneChange = (e) => setScene(e.target.value);
+  const handleCharacterChange = (e) => setCharacter(e.target.value);
 
   return (
     <section className="textForm">
@@ -48,14 +56,15 @@ const TextForm = (props) => {
           </select>
 
           <label id="scene">Scene</label>
-          <select name="scene" /*onClick={handleSceneChange}*/>
+          <select name="scene" onClick={handleSceneChange}>
             <option value="">Select a Scene</option>
             {generateScenes()}
           </select>
 
           <label id="character">Character</label>
-          <select name="character" /*onClick={handleCharacterChange}*/>
+          <select name="character" onClick={handleCharacterChange}>
             <option value="">Select a Character</option>
+            {generateCharacters()}
           </select>
 
           {/* <label id="searchTerm">Search
