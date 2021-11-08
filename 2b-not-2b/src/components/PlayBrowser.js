@@ -13,6 +13,7 @@ const PlayBrowser = (props) => {
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
         plays={props.plays}
+        updateCurrentPlay={props.updateCurrentPlay}
         favoriteCollapse={props.favoriteCollapse}
         setFavoriteCollapse={props.setFavoriteCollapse}
       />

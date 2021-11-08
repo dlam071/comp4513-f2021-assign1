@@ -21,7 +21,7 @@ const SinglePlay = (props) => {
 
   return (
     <tr className="playItem">
-      <Link to="/details" className="titleLink">
+      <Link to="/details" className="titleLink" onClick={handleView}>
         <td>{props.play.title}</td>
       </Link>
       <td className="listItemYear">{props.play.likelyDate}</td>

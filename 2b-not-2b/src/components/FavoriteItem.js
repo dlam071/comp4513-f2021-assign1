@@ -1,13 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/playbrowser.css";
 
 const FavoriteItem = (props) => {
   const handleDelete = () => {
     props.updateFavorites(props.play);
   };
+  const handleView = () => props.updateCurrentPlay(props.play);
   return (
     <tr className={"favItem"}>
-      <td>{props.play.title}</td>
+      <Link to="/details" className="titleLink" onClick={handleView}>
+        <td>{props.play.title}</td>
+      </Link>
       <td className="trashIcon">
         <div onClick={handleDelete} className={"favDelete"}>
           <svg
