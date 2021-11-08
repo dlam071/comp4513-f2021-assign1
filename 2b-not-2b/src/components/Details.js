@@ -13,7 +13,7 @@ import DetailsMain from "./DetailsMain";
 import DetailsText from "./DetailsText";
 
 const Details = (props) => {
-  const [info, setInfo] = useState([]);
+  const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
   const [fileExists, setFileExists] = useState(false);
   useEffect(() => {
@@ -30,19 +30,13 @@ const Details = (props) => {
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
-          setInfo(data);
+          setText(data.acts);
           setChars(data.persona);
         });
     } else {
       setFileExists(false)
     }
   }, []);
-
-  const characters = () => {
-    if (fileExists) {
-      return <Characters chars={chars} />
-    }
-  }
 
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [readText, setReadText] = useState(false);
@@ -69,6 +63,7 @@ const Details = (props) => {
       return <DetailsText 
                 play={props.play}
                 toggleReadText={toggleReadText}
+                text={text}
                 />
     }
   }

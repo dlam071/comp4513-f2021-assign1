@@ -9,11 +9,13 @@ const DetailsText = (props) => {
 			<div className="textForm">
 				<TextForm
 					toggleReadText={props.toggleReadText}
+					text={props.text}
 				/>
 			</div>
 			<div className="scriptText">
 				<ScriptText 
 					play={props}
+					text={props.text}
 					/>
 			</div>
 		</section>
