@@ -77,7 +77,7 @@ const TextForm = (props) => {
           </div>
         </form>
         <button className="button" onClick={props.toggleReadText}>
-          Back
+          Back &#128216;
         </button>
       </div>
     </section>

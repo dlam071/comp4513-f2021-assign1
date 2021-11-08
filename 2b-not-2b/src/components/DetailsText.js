@@ -14,7 +14,6 @@ const DetailsText = (props) => {
         />
       </div>
       <div className="scriptText">
-        <h1>{props.info.title}</h1>
         <ScriptText play={props} info={props.info} />
       </div>
     </section>

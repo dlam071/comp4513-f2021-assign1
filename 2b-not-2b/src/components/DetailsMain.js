@@ -32,7 +32,7 @@ const DetailsMain = (props) => {
             {file()}
           </div>
           <button className="button" onClick={props.toggleReadText}>
-            Read
+            Read &#128214;
           </button>
         </div>
         <div className="detailsAndChar">
