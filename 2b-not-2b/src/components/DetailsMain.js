@@ -2,19 +2,19 @@ import React from "react";
 import Characters from "./Characters.js";
 import DisplayPosts from "./Tabs";
 import PlayDetails from "./PlayDetails";
+import "../styles/Details.css";
 
 const DetailsMain = (props) => {
   const file = () => {
-    if (props.fileExists) {
-      return (
-        <button className="button" onClick={props.toggleReadText}>
-          Read
-        </button>
-      );
-    } else {
-      //this will toggle the class to be gray and sad and not allowed woo
-      return <button className="button sadbutton">Read</button>;
-    }
+    console.log(props.fileExists ? null : ".sadbutton");
+    return (
+      <button
+        className={props.fileExists ? "button" : "button sadbutton"}
+        onClick={props.fileExists ? props.toggleReadText : null}
+      >
+        Read
+      </button>
+    );
 
     // .sadbutton {
     //   background-color: grey;
