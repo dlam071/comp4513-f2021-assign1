@@ -12,7 +12,7 @@ const ScriptText = (props) => {
 
 
     return (
-        <section className="">
+        <section className="scriptText">
             <h1>{play.title}</h1>
             {
                 play.acts.map(act => {
