@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
 
 function App() {
-  const [loadedDataStatus, setLoadedStatus] = useState(false);
+  const [loadedDataStatus, setLoadedDataStatus] = useState(false);
   const [plays, setPlays] = useState(() => {
     const saved = localStorage.getItem("plays");
     const initialValue = JSON.parse(saved);
@@ -65,7 +65,7 @@ function App() {
           setSavedFilteredPlays(data);
         })
         .catch((err) => console.error(err));
-      setLoadedStatus(true);
+      setLoadedDataStatus(true);
     }
   }, [plays]);
 
