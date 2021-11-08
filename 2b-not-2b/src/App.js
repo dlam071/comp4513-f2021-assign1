@@ -10,10 +10,12 @@ import * as cloneDeep from "lodash/cloneDeep";
 
 function App() {
   const [plays, setPlays] = useState([]);
-  const [filteredPlays, setFilteredPlays] = useState(plays);
+  const [filteredPlays, setFilteredPlays] = useState([]);
+  const [sortedPlays, setSortedPlays] = useState([]);
+  const [savedFilteredPlays, setSavedFilteredPlays] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [filterTitle, setFilterTitle] = useState("");
-  const [currentPlay, setCurrentPlay] = useState();
+  const [currentPlay, setCurrentPlay] = useState([]);
 
   const updateCurrentPlay = (play) => setCurrentPlay(play);
 
@@ -38,7 +40,8 @@ function App() {
       .then((data) => {
         setPlays(data);
         setFilteredPlays(data);
-        setCurrentPlay(data[0]);
+        setSortedPlays(data);
+        setSavedFilteredPlays(data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -62,6 +65,44 @@ function App() {
       playsCopy = playsCopy.filter((p) => p.genre === genre);
     }
     setFilteredPlays(playsCopy);
+    setSortedPlays(playsCopy);
+    setSavedFilteredPlays(playsCopy);
+  };
+
+  const sortPlays = (titleSort, dateSort) => {
+    console.log(`Title: ${titleSort} \n Year: ${dateSort}`);
+    let copySortedPlays = [...sortedPlays];
+    if (titleSort > 0) {
+      console.log("Sorting title");
+      copySortedPlays.sort((a, b) => {
+        if (titleSort === 1) {
+          if (a.title > b.title) return 1;
+          else return -1;
+        } else if (titleSort === 2) {
+          if (a.title < b.title) return 1;
+          else return -1;
+        } else {
+          return 0;
+        }
+      });
+    } else if (dateSort > 0) {
+      console.log("Sorting Date");
+      copySortedPlays.sort((a, b) => {
+        if (dateSort === 1) {
+          if (a.likelyDate > b.likelyDate) return 1;
+          else return -1;
+        } else if (dateSort === 2) {
+          if (a.likelyDate < b.likelyDate) return 1;
+          else return -1;
+        } else {
+          return 0;
+        }
+      });
+    } else {
+      console.log("NO Sorting");
+      copySortedPlays = [...savedFilteredPlays];
+    }
+    setFilteredPlays(copySortedPlays);
   };
 
   return (
@@ -90,6 +131,7 @@ function App() {
             filterTitle={filterTitle}
             updateTitleFilter={setFilterTitle}
             updateCurrentPlay={updateCurrentPlay}
+            sortPlays={sortPlays}
           />
         }
       />

@@ -29,6 +29,7 @@ const PlayBrowser = (props) => {
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
         updateCurrentPlay={props.updateCurrentPlay}
+        sortPlays={props.sortPlays}
       />
     </section>
   );

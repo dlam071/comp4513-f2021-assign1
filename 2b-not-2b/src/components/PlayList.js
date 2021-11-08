@@ -5,6 +5,19 @@ import "../styles/template.css";
 import SinglePlay from "./SinglePlay.js";
 
 const PlayList = (props) => {
+  const defaultHeading = (heading) => {
+    return (
+      <p>
+        <span>{heading}</span>
+      </p>
+    );
+  };
+
+  const [titleHeading, setTitleHeading] = useState(defaultHeading("Title"));
+  const [dateHeading, setDateHeading] = useState(defaultHeading("Year"));
+  const [clickedTitle, setClickedTitle] = useState(0);
+  const [clickedDate, setClickedDate] = useState(0);
+
   const arrowUp = (heading) => {
     return (
       <p>
@@ -12,6 +25,7 @@ const PlayList = (props) => {
       </p>
     );
   };
+
   const arrowDown = (heading) => {
     return (
       <p>
@@ -20,94 +34,48 @@ const PlayList = (props) => {
     );
   };
 
-  const [clickedTitle, setClickedTitle] = useState(0);
-  const [clickedDate, setClickedDate] = useState(0);
-  const [sortedPlays, setSortedPlays] = useState(props.plays); //sort up in app
-
-  const checkArrow = (heading) => {
-    if (heading === "Title") {
-      switch (clickedTitle) {
-        case 0:
-          return (
-            <p>
-              <span>Title</span>
-            </p>
-          );
-        case 1:
-          return arrowUp("Title");
-        case 2:
-          return arrowDown("Title");
-        default:
-          break;
-      }
-    } else if (heading === "Year") {
-      switch (clickedDate) {
-        case 0:
-          return (
-            <p>
-              <span>Year</span>
-            </p>
-          );
-        case 1:
-          return arrowUp("Year");
-        case 2:
-          return arrowDown("Year");
-        default:
-          break;
-      }
-    }
-  };
-  // const sortTitle = () => {
-  //   let sortedByTitle = [...props.plays];
-  //   clickedTitle
-  //     ? setTitle(sortedByTitle)
-  //     : setTitle(
-  //         sortedByTitle.sort((a, b) => {
-  //           if (a.title > b.title) return 1;
-  //           else return -1;
-  //         })
-  //       );
-  // };
-
-  // const sortDate = () => {
-  //   let sortedByDate = [...props.plays];
-  //   clickedDate
-  //     ? setDate(sortedByDate)
-  //     : setDate(
-  //         sortedByDate.sort((a, b) => {
-  //           if (a.likelyDate > b.likelyDate) return 1;
-  //           else return -1;
-  //         })
-  //       );
-  // };
-
   const handleTitleClick = () => {
+    setClickedDate(0);
+    setDateHeading(defaultHeading("Year"));
     switch (clickedTitle) {
       case 0:
         setClickedTitle(1);
+        setTitleHeading(arrowDown("Title"));
+        props.sortPlays(1, 0);
         break;
       case 1:
         setClickedTitle(2);
+        setTitleHeading(arrowUp("Title"));
+        props.sortPlays(2, 0);
         break;
       case 2:
         setClickedTitle(0);
+        setTitleHeading(defaultHeading("Title"));
+        props.sortPlays(0, 0);
         break;
       default:
         break;
     }
-    // clickedTitle ? setClickedTitle(false) : setClickedTitle(true);
   };
 
   const handleDateClick = () => {
+    setClickedTitle(0);
+    setTitleHeading(defaultHeading("Title"));
     switch (clickedDate) {
       case 0:
         setClickedDate(1);
+        setDateHeading(arrowDown("Year"));
+        props.sortPlays(0, 1);
         break;
       case 1:
         setClickedDate(2);
+        setDateHeading(arrowUp("Year"));
+        props.sortPlays(0, 2);
         break;
       case 2:
         setClickedDate(0);
+        setDateHeading(defaultHeading("Year"));
+        props.sortPlays(0, 0);
         break;
       default:
         break;
@@ -121,10 +89,10 @@ const PlayList = (props) => {
         <table>
           <tr className="listHeader">
             <th className="listTitle" onClick={handleTitleClick}>
-              {checkArrow("Title")}
+              {titleHeading}
             </th>
             <th className="listYear" onClick={handleDateClick}>
-              {checkArrow("Year")}
+              {dateHeading}
             </th>
             <th className="viewbtn"> </th>
             <th className="favbtn"> </th>
