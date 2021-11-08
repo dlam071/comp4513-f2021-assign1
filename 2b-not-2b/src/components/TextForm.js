@@ -9,68 +9,26 @@ const TextForm = (props) => {
 
   const generateActs = () => {
     let acts = props.text.map(n => n.name);
-    let generatedActs = acts.filter(
-      (item, index) => acts.indexOf(item) === index
-    );
-    return generatedActs.map((n) => (
-      <option defaultValue={acts} onClick={handleActChange}>
+    return acts.map((n) => (
+      <option defaultValue={n} onClick={handleActChange}>
         {n}
       </option>
     ));
   };
 
   const generateScenes = () => {
-    console.log("woo")
-    if(act) {
+    if (act) {
       let chosen = props.text.find(t => act == t.name);
-    console.log( chosen);
-      console.log(props.text[act])
       let scenes = chosen.scenes.map(n => n.name);
-      let generatedActs = scenes.filter(
-        (item, index) => scenes.indexOf(item) === index
-      );
-      return generatedActs.map((n) => (
-        <option defaultValue={scenes} onClick={handleSceneChange}>
+      return scenes.map((n) => (
+        <option defaultValue={n} onClick={handleSceneChange}>
           {n}
         </option>
       ));
-
     } else {
       return null;
     }
-
   };
-
-  // const generateScenes = () => {
-  //   console.log(props.scenes);
-
-  //   let scenes = props.text.map(a => {
-  //     return a.scenes.map(s => {
-  //       console.log(s.name);
-  //       return s.name;
-  //     });
-  //   })
-
-  //   return (
-  //     scenes.map(p => {
-  //       return (<option defaultValue={p} onClick={handleSceneChange}>
-  //         {p}
-  //       </option>
-  //       )
-  //     }))
-
-
-
-  //   // let scenes = act.scenes.map(n => n.name);
-  //   // let generatedScenes = scenes.filter(
-  //   //   (item, index) => scenes.indexOf(item) === index
-  //   // );
-  //   // return generatedScenes.map(n => (
-  //   //   <option defaultValue={scenes} onClick={handleSceneChange}>
-  //   //     {scenes}
-  //   //   </option>
-  //   // ));
-  // };
 
   const handleActChange = (e) => {
     setAct(e.target.value);
