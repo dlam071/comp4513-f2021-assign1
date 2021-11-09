@@ -10,7 +10,7 @@ import * as cloneDeep from "lodash/cloneDeep";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 function App() {
-  const [loadedDataStatus, setLoadedDataStatus] = useState(false);
+  const [loadedDataStatus, setLoadedDataStatus] = useState("loading");
   const [plays, setPlays] = useState(() => {
     const saved = localStorage.getItem("plays");
     const initialValue = JSON.parse(saved);
@@ -105,7 +105,8 @@ function App() {
   };
 
   useEffect(() => {
-    if (!loadedDataStatus) {
+    if (loadedDataStatus === "loading") {
+      setLoadedDataStatus("loading");
       const url =
         "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
       fetch(url)
@@ -116,9 +117,9 @@ function App() {
           setFilteredPlays(data);
           setSortedPlays(data);
           setSavedFilteredPlays(data);
+          setLoadedDataStatus("");
         })
         .catch((err) => console.error(err));
-      setLoadedDataStatus(true);
     }
   }, [plays]);
 
@@ -221,6 +222,7 @@ function App() {
                 info={info}
                 updateInfo={updateInfo}
                 fetchInfo={fetchInfo}
+                loadedDataStatus={loadedDataStatus}
               />
             }
           />

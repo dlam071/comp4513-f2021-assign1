@@ -3,6 +3,7 @@ import { useState } from "react";
 import "../styles/playbrowser.css";
 import "../styles/template.css";
 import SinglePlay from "./SinglePlay.js";
+import loadingAnimation from "../images/loading.gif";
 
 const PlayList = (props) => {
   const defaultHeading = (heading) => {
@@ -83,9 +84,12 @@ const PlayList = (props) => {
   };
 
   return (
-    <section className="playList">
+    <section className={"playList"}>
       <h2>List/Matches</h2>
-      <div className="playListTable">
+      <div className={"is" + props.loadedDataStatus}>
+        <img src={loadingAnimation} className="loadingAnimation" />
+      </div>
+      <div className={"playListTable " + props.loadedDataStatus}>
         <table>
           <tr className="listHeader">
             <th className="listTitle" onClick={handleTitleClick}>
@@ -105,6 +109,7 @@ const PlayList = (props) => {
               favorites={props.favorites}
               info={props.info}
               updateInfo={props.updateInfo}
+              fetchInfo={props.fetchInfo}
             />
           ))}
         </table>
