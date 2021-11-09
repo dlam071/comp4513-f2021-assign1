@@ -5,8 +5,10 @@ import PlayBrowser from "./components/PlayBrowser.js";
 import PlayDetails from "./components/PlayDetails.js";
 import Details from "./components/Details.js";
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Switch } from "switch";
 
 function App() {
   const [loadedDataStatus, setLoadedDataStatus] = useState(false);
@@ -45,10 +47,8 @@ function App() {
   const toggleReadText = () => {
     if (!readText) {
       setReadText(true);
-      console.log("true");
     } else {
       setReadText(false);
-      console.log("false");
     }
   };
 
@@ -58,7 +58,6 @@ function App() {
 
   const fetchInfo = (fetchPlay) => {
     let filename = fetchPlay.filename;
-    console.log(` fetching: ${fetchPlay.filename}`);
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
@@ -103,7 +102,6 @@ function App() {
       copyFavs.splice(index, 1);
     }
     setFavorites(copyFavs);
-    console.log(copyFavs);
     localStorage.setItem("favorites", JSON.stringify(copyFavs));
   };
 
@@ -127,7 +125,6 @@ function App() {
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
-    console.log("title");
     if (title) {
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
@@ -156,10 +153,8 @@ function App() {
   };
 
   const sortPlays = (titleSort, dateSort) => {
-    console.log(`Title: ${titleSort} \n Year: ${dateSort}`);
     let copySortedPlays = [...sortedPlays];
     if (titleSort > 0) {
-      console.log("Sorting title");
       copySortedPlays.sort((a, b) => {
         if (titleSort === 1) {
           if (a.title > b.title) return 1;
@@ -172,7 +167,6 @@ function App() {
         }
       });
     } else if (dateSort > 0) {
-      console.log("Sorting Date");
       copySortedPlays.sort((a, b) => {
         if (dateSort === 1) {
           if (a.likelyDate > b.likelyDate) return 1;
@@ -185,73 +179,79 @@ function App() {
         }
       });
     } else {
-      console.log("NO Sorting");
       copySortedPlays = [...savedFilteredPlays];
     }
     setFilteredPlays(copySortedPlays);
   };
 
+  const location = useLocation();
+  console.log("location", location);
+
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Home
-            plays={filteredPlays}
-            favorites={favorites}
-            saveFilters={saveFilters}
-            updateFavorites={updateFavorites}
-            filterTitle={filterTitle}
-            updateTitleFilter={setFilterTitle}
+    <TransitionGroup>
+      <CSSTransition key={location.key} timeout={1000} classNames="fade">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                plays={filteredPlays}
+                favorites={favorites}
+                saveFilters={saveFilters}
+                updateFavorites={updateFavorites}
+                filterTitle={filterTitle}
+                updateTitleFilter={setFilterTitle}
+              />
+            }
           />
-        }
-      />
-      <Route
-        path="/browse"
-        element={
-          <PlayBrowser
-            plays={filteredPlays}
-            favorites={favorites}
-            saveFilters={saveFilters}
-            updateFavorites={updateFavorites}
-            filterTitle={filterTitle}
-            updateTitleFilter={setFilterTitle}
-            updateCurrentPlay={updateCurrentPlay}
-            sortPlays={sortPlays}
-            favoriteCollapse={favoriteCollapse}
-            setFavoriteCollapse={setFavoriteCollapse}
-            resultStatus={resultStatus}
-            info={info}
-            updateInfo={updateInfo}
+          <Route
+            path="/browse"
+            element={
+              <PlayBrowser
+                plays={filteredPlays}
+                favorites={favorites}
+                saveFilters={saveFilters}
+                updateFavorites={updateFavorites}
+                filterTitle={filterTitle}
+                updateTitleFilter={setFilterTitle}
+                updateCurrentPlay={updateCurrentPlay}
+                sortPlays={sortPlays}
+                favoriteCollapse={favoriteCollapse}
+                setFavoriteCollapse={setFavoriteCollapse}
+                resultStatus={resultStatus}
+                info={info}
+                updateInfo={updateInfo}
+              />
+            }
           />
-        }
-      />
-      <Route
-        path="/details"
-        element={
-          <Details
-            plays={filteredPlays}
-            favorites={favorites}
-            updateFavorites={updateFavorites}
-            updateCurrentPlay={updateCurrentPlay}
-            play={currentPlay}
-            favoriteCollapse={favoriteCollapse}
-            setFavoriteCollapse={setFavoriteCollapse}
-            info={info}
-            updateInfo={updateInfo}
-            fetchInfo={fetchInfo}
-            fileExists={fileExists}
-            updateFileExists={updateFileExists}
-            readText={readText}
-            toggleReadText={toggleReadText}
-            text={text}
-            chars={chars}
-            updateText={updateText}
-            updateChars={updateChars}
+          <Route
+            path="/details"
+            element={
+              <Details
+                plays={filteredPlays}
+                favorites={favorites}
+                updateFavorites={updateFavorites}
+                updateCurrentPlay={updateCurrentPlay}
+                play={currentPlay}
+                favoriteCollapse={favoriteCollapse}
+                setFavoriteCollapse={setFavoriteCollapse}
+                info={info}
+                updateInfo={updateInfo}
+                fetchInfo={fetchInfo}
+                fileExists={fileExists}
+                updateFileExists={updateFileExists}
+                readText={readText}
+                toggleReadText={toggleReadText}
+                text={text}
+                chars={chars}
+                updateText={updateText}
+                updateChars={updateChars}
+              />
+            }
           />
-        }
-      />
-    </Routes>
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
   );
 }
 

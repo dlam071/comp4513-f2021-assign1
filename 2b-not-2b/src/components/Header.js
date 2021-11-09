@@ -22,7 +22,6 @@ const Header = (props) => {
   };
 
   const handleClick = () => {
-    console.log("about here");
     setModal();
   };
 

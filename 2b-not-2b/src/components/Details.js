@@ -33,7 +33,6 @@ const Details = (props) => {
   useEffect(() => {
     if (!loadedDetailsStatus) {
       let filename = props.play.filename;
-      console.log(` fetching: ${props.play.filename}`);
       if (filename) {
         props.updateFileExists(true);
         filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename

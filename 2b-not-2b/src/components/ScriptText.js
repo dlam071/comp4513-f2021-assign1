@@ -2,7 +2,6 @@ import React from "react";
 import Scene from "./Scene";
 
 const ScriptText = (props) => {
-  console.log(props.info.acts);
   let play = props.info;
 
   return (

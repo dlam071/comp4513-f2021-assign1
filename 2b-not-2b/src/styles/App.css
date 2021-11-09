@@ -8,3 +8,23 @@
 main {
   margin: 3px 5%;
 }
+
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity linear 250ms;
+}
+
+.fade-exit {
+    opacity: 0;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.75;    
+    transition: opacity linear 750ms;
+}
