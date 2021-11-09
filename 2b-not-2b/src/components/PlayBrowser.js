@@ -36,7 +36,6 @@ const PlayBrowser = (props) => {
         info={props.info}
         updateInfo={props.updateInfo}
         loadedDataStatus={props.loadedDataStatus}
-        fetchInfo={props.fetchInfo}
       />
     </section>
   );

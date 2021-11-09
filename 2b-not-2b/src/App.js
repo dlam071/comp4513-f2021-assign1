@@ -55,40 +55,20 @@ function App() {
     setFileExists(state);
   };
 
-  const fetchInfo = (fetchPlay) => {
-    let filename = fetchPlay.filename;
-    if (filename) {
-      setFileExists(true);
-      filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
-      const url =
-        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
-        filename;
-
-      fetch(url)
-        .then((resp) => resp.json())
-        .then((data) => {
-          setText(data.acts);
-
-          setChars(data.persona);
-
-          setInfo(data);
-        });
-    } else {
-      setReadText(false);
-      setFileExists(false);
-    }
-  };
-
   const updateInfo = (info) => {
     setInfo(info);
     setText(info.acts);
     setChars(info.persona);
+    console.warn("Update Info:");
+    console.log(info);
   };
 
   const updateCurrentPlay = (play) => {
     setCurrentPlay(play);
-    fetchInfo(play);
+    // (play);
     localStorage.setItem("curPlay", JSON.stringify(play));
+    console.warn("Update Cur Play:");
+    console.log(play);
   };
 
   const updateFavorites = (fav) => {
@@ -123,7 +103,7 @@ function App() {
         })
         .catch((err) => console.error(err));
     }
-  }, [plays]);
+  }, [currentPlay]);
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
@@ -223,7 +203,7 @@ function App() {
                 resultStatus={resultStatus}
                 info={info}
                 updateInfo={updateInfo}
-                fetchInfo={fetchInfo}
+                // ={}
                 loadedDataStatus={loadedDataStatus}
               />
             }
@@ -241,7 +221,7 @@ function App() {
                 setFavoriteCollapse={setFavoriteCollapse}
                 info={info}
                 updateInfo={updateInfo}
-                fetchInfo={fetchInfo}
+                // ={}
                 fileExists={fileExists}
                 updateFileExists={updateFileExists}
                 readText={readText}

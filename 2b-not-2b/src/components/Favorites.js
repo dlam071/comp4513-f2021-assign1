@@ -23,19 +23,15 @@ const Favorites = (props) => {
               <th className="listTitle">Title</th>
               <th></th>
             </tr>
-            <TransitionGroup> 
+            <TransitionGroup>
               {props.favorites.map((p) => (
-                <CSSTransition
-                  key={p.title}
-                  timeout={500}
-                  classNames="fade">
+                <CSSTransition key={p.title} timeout={500} classNames="fade">
                   <FavoriteItem
                     play={p}
                     updateFavorites={props.updateFavorites}
                     updateCurrentPlay={props.updateCurrentPlay}
                     updateInfo={props.updateInfo}
                     info={props.info}
-                    fetchInfo={props.fetchInfo}
                   />
                 </CSSTransition>
               ))}

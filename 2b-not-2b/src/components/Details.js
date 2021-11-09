@@ -31,28 +31,29 @@ const Details = (props) => {
   };
 
   useEffect(() => {
-    if (!loadedDetailsStatus) {
-      let filename = props.play.filename;
-      if (filename) {
-        props.updateFileExists(true);
-        filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
-        const url =
-          "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
-          filename;
+    console.error("details fetch");
+    let filename = props.play.filename;
+    if (filename) {
+      console.log("file found");
+      props.updateFileExists(true);
+      filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
+      const url =
+        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
+        filename;
 
-        fetch(url)
-          .then((resp) => resp.json())
-          .then((data) => {
-            props.updateText(data.acts);
-            props.updateChars(data.persona);
-            props.updateInfo(data);
-            getStoredPlayDetails(`play-${data.short}`, data);
-          });
-      } else {
-        props.updateFileExists(false);
-      }
-      setLoadedDetailsStatus(true);
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          props.updateText(data.acts);
+          props.updateChars(data.persona);
+          props.updateInfo(data);
+          getStoredPlayDetails(`play-${data.short}`, data);
+        });
+    } else {
+      console.log("file NOT found");
+      props.updateFileExists(false);
     }
+    setLoadedDetailsStatus(true);
   }, []);
 
   const handleClickRead = () => {
@@ -100,7 +101,6 @@ const Details = (props) => {
         setFavoriteCollapse={props.setFavoriteCollapse}
         info={props.info}
         updateInfo={props.updateInfo}
-        fetchInfo={props.fetchInfo}
       />
       {handleClickRead()}
     </section>
