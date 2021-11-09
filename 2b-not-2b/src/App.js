@@ -5,8 +5,10 @@ import PlayBrowser from "./components/PlayBrowser.js";
 import PlayDetails from "./components/PlayDetails.js";
 import Details from "./components/Details.js";
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Switch } from "switch";
 
 function App() {
   const [loadedDataStatus, setLoadedDataStatus] = useState(false);
@@ -179,63 +181,75 @@ function App() {
     setFilteredPlays(copySortedPlays);
   };
 
+  const location = useLocation();
+  console.log("location", location);
+
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Home
-            plays={filteredPlays}
-            favorites={favorites}
-            saveFilters={saveFilters}
-            updateFavorites={updateFavorites}
-            filterTitle={filterTitle}
-            updateTitleFilter={setFilterTitle}
+    <TransitionGroup>
+      <CSSTransition
+        key={location.key}
+        timeout={1000}
+        classNames="fade"
+      >
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                plays={filteredPlays}
+                favorites={favorites}
+                saveFilters={saveFilters}
+                updateFavorites={updateFavorites}
+                filterTitle={filterTitle}
+                updateTitleFilter={setFilterTitle}
+              />
+            }
           />
-        }
-      />
-      <Route
-        path="/browse"
-        element={
-          <PlayBrowser
-            plays={filteredPlays}
-            favorites={favorites}
-            saveFilters={saveFilters}
-            updateFavorites={updateFavorites}
-            filterTitle={filterTitle}
-            updateTitleFilter={setFilterTitle}
-            updateCurrentPlay={updateCurrentPlay}
-            sortPlays={sortPlays}
-            favoriteCollapse={favoriteCollapse}
-            setFavoriteCollapse={setFavoriteCollapse}
-            resultStatus={resultStatus}
-            info={info}
-            updateInfo={updateInfo}
+          <Route
+            path="/browse"
+            element={
+              <PlayBrowser
+                plays={filteredPlays}
+                favorites={favorites}
+                saveFilters={saveFilters}
+                updateFavorites={updateFavorites}
+                filterTitle={filterTitle}
+                updateTitleFilter={setFilterTitle}
+                updateCurrentPlay={updateCurrentPlay}
+                sortPlays={sortPlays}
+                favoriteCollapse={favoriteCollapse}
+                setFavoriteCollapse={setFavoriteCollapse}
+                resultStatus={resultStatus}
+                info={info}
+                updateInfo={updateInfo}
+              />
+            }
           />
-        }
-      />
-      <Route
-        path="/details"
-        element={
-          <Details
-            plays={filteredPlays}
-            favorites={favorites}
-            updateFavorites={updateFavorites}
-            updateCurrentPlay={updateCurrentPlay}
-            play={currentPlay}
-            favoriteCollapse={favoriteCollapse}
-            setFavoriteCollapse={setFavoriteCollapse}
-            info={info}
-            updateInfo={updateInfo}
-            fetchInfo={fetchInfo}
-            fileExists={fileExists}
-            updateFileExists={updateFileExists}
-            readText={readText}
-            toggleReadText={toggleReadText}
+          <Route
+            path="/details"
+            element={
+              <Details
+                plays={filteredPlays}
+                favorites={favorites}
+                updateFavorites={updateFavorites}
+                updateCurrentPlay={updateCurrentPlay}
+                play={currentPlay}
+                favoriteCollapse={favoriteCollapse}
+                setFavoriteCollapse={setFavoriteCollapse}
+                info={info}
+                updateInfo={updateInfo}
+                fetchInfo={fetchInfo}
+                fileExists={fileExists}
+                updateFileExists={updateFileExists}
+                readText={readText}
+                toggleReadText={toggleReadText}
+              />
+            }
           />
-        }
-      />
-    </Routes>
+
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
   );
 }
 
