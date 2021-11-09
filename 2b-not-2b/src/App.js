@@ -38,10 +38,8 @@ function App() {
   const toggleReadText = () => {
     if (!readText) {
       setReadText(true);
-      console.log("true");
     } else {
       setReadText(false);
-      console.log("false");
     }
   };
 
@@ -51,7 +49,6 @@ function App() {
 
   const fetchInfo = (fetchPlay) => {
     let filename = fetchPlay.filename;
-    console.log(` fetching: ${fetchPlay.filename}`);
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
@@ -72,8 +69,6 @@ function App() {
 
   const updateInfo = (info) => {
     setInfo(info);
-    console.log("info is set to");
-    console.log(info);
   };
 
   const updateCurrentPlay = (play) => {
@@ -91,7 +86,6 @@ function App() {
       copyFavs.splice(index, 1);
     }
     setFavorites(copyFavs);
-    console.log(copyFavs);
     localStorage.setItem("favorites", JSON.stringify(copyFavs));
   };
 
@@ -115,7 +109,6 @@ function App() {
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
-    console.log("title");
     if (title) {
       playsCopy = playsCopy.filter((p) =>
         p.title.toLowerCase().includes(title.toLowerCase())
@@ -144,10 +137,8 @@ function App() {
   };
 
   const sortPlays = (titleSort, dateSort) => {
-    console.log(`Title: ${titleSort} \n Year: ${dateSort}`);
     let copySortedPlays = [...sortedPlays];
     if (titleSort > 0) {
-      console.log("Sorting title");
       copySortedPlays.sort((a, b) => {
         if (titleSort === 1) {
           if (a.title > b.title) return 1;
@@ -160,7 +151,6 @@ function App() {
         }
       });
     } else if (dateSort > 0) {
-      console.log("Sorting Date");
       copySortedPlays.sort((a, b) => {
         if (dateSort === 1) {
           if (a.likelyDate > b.likelyDate) return 1;
@@ -173,7 +163,6 @@ function App() {
         }
       });
     } else {
-      console.log("NO Sorting");
       copySortedPlays = [...savedFilteredPlays];
     }
     setFilteredPlays(copySortedPlays);

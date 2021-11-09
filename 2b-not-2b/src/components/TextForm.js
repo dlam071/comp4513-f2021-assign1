@@ -25,7 +25,6 @@ const TextForm = (props) => {
   };
 
   const generateCharacters = () => {
-    console.log(props.chars);
     let characters = props.chars.map((n) => n.player);
     return characters.map((n) => (
       <option defaultValue={n} onClick={props.handleCharacterChange}>

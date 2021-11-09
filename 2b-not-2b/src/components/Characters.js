@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/Details.css";
 
 const Characters = (props) => {
-  console.log(props.chars);
   return (
     <div className="playCharacters">
       <div className="playCharactersTable">
