@@ -4,6 +4,8 @@ import Favorites from "./Favorites";
 import PlayFilters from "./PlayFilters";
 import PlayList from "./PlayList";
 import "../styles/playbrowser.css";
+import loadingAimation from "../images/loading.gif";
+
 const PlayBrowser = (props) => {
   return (
     //css and html tags are not set for this im just using it as an example ty and goodbye
@@ -35,6 +37,7 @@ const PlayBrowser = (props) => {
         info={props.info}
         updateInfo={props.updateInfo}
       />
+      <img src={loadingAimation}  className={} height="50px" />
     </section>
   );
 };

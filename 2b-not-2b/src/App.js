@@ -188,10 +188,7 @@ function App() {
 
   return (
     <TransitionGroup>
-      <CSSTransition 
-        key={location.key} 
-        timeout={300} 
-        classNames="fade">
+      <CSSTransition key={location.key} timeout={300} classNames="fade">
         <Routes>
           <Route
             path="/"
@@ -223,6 +220,7 @@ function App() {
                 resultStatus={resultStatus}
                 info={info}
                 updateInfo={updateInfo}
+                fetchInfo={fetchInfo}
               />
             }
           />

@@ -77,8 +77,12 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            <a target="_blank" href="link">
-              LINK
+            Loading Animation from
+            <a
+              target="_blank"
+              href="https://monophy.com/gifs/book-page-flip-turn-lMa32EDsr7NrDwg1no"
+            >
+              from
             </a>
           </li>
         </ul>
