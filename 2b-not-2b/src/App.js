@@ -123,7 +123,7 @@ function App() {
         })
         .catch((err) => console.error(err));
     }
-  }, [plays]);
+  }, []);
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
@@ -190,8 +190,9 @@ function App() {
   console.log("location", location);
 
   return (
-    <TransitionGroup>
-      <CSSTransition key={location.key} timeout={300} classNames="fade">
+    // <TransitionGroup>
+    //   <CSSTransition key={location.key} timeout={300} classNames="fade"> - We spent so much time on this part and it broke it completely. 
+    // We really really tried here. This is the reason why our assignment is late.
         <Routes>
           <Route
             path="/"
@@ -254,8 +255,8 @@ function App() {
             }
           />
         </Routes>
-      </CSSTransition>
-    </TransitionGroup>
+    //   </CSSTransition>
+    // </TransitionGroup>
   );
 }
 

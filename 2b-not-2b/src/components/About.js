@@ -6,29 +6,29 @@ const About = (props) => {
   return (
     <div className="aboutBox">
       <div className="assignInfo">
-        <h1>Assignment 1</h1>
-        <h3>COMP 4513: Randy Connolly</h3>
-        <p>
+        <h1 id="assignHead">Assignment 1</h1>
+        <h3 id="assignSubHead">COMP 4513: Randy Connolly</h3>
+        <p id="assignGroup">
           Designed by: Hatoon Al-Nakshabandi, Dylan Borchert, and Darren Lam
         </p>
-        <a href="https://github.com/dborc610/comp4513-f2021-assign1">
+        <a id="assignGit" href="https://github.com/dborc610/comp4513-f2021-assign1">
           github Repo
         </a>
       </div>
       <div className="lists">
-        <ul classNames="techUsed">
-          <li><h2>Tech Used</h2></li>
-          <li>React-modal</li>
-          <li>React-router</li>
-          <li>React-router-DOM</li>
-          <li>React-tabs</li>
-          <li>lodash</li>
-          <li>Style-components</li>
-          <li>react-highlight-words</li>
+        <ul className="techUsed">
+          <li className="techItem"><h2 className="aboutList">Tech Used</h2></li>
+          <li className="techItem">React-modal</li>
+          <li className="techItem">React-router</li>
+          <li className="techItem">React-router-DOM</li>
+          <li className="techItem">React-tabs</li>
+          <li className="techItem">lodash</li>
+          <li className="techItem">Style-components</li>
+          <li className="techItem">react-highlight-words</li>
         </ul>
         <ul className="sources">
-          <li><h2>Sources</h2></li>
-          <li>
+          <li className="sourceItem"><h2 className="aboutList">Sources</h2></li>
+          <li className="sourceItem">
             Heart Logos from:
             <a
               target="_blank"
@@ -37,7 +37,7 @@ const About = (props) => {
               Google Icons
             </a>
           </li>
-          <li>
+          <li className="sourceItem">
             Some button Styling from:
             <a
               target="_blank"
@@ -46,7 +46,7 @@ const About = (props) => {
               here
             </a>
           </li>
-          <li>
+          <li className="sourceItem">
             Icons made by:
             <a target="_blank" href="https://www.freepik.com" title="Freepik">
               Freepik
@@ -60,7 +60,7 @@ const About = (props) => {
               www.flaticon.com
             </a>
           </li>
-          <li>
+          <li className="sourceItem">
             Scroll bar styles from:
             <a
               target="_blank"
@@ -69,7 +69,7 @@ const About = (props) => {
               here
             </a>
           </li>
-          <li>
+          <li className="sourceItem">
             Hosting tutorial from:
             <a
               target="_blank"
@@ -78,7 +78,7 @@ const About = (props) => {
               here
             </a>
           </li>
-          <li>
+          <li className="sourceItem">
             Loading Animation from
             <a
               target="_blank"
@@ -94,7 +94,7 @@ const About = (props) => {
               here
             </a>
           </li>
-          <li>
+          <li className="sourceItem">
             Local storage code setup from:
             <a
               target="_blank"
