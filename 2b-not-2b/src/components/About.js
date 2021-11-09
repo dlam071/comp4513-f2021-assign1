@@ -27,7 +27,7 @@ const About = (props) => {
         </ul>
         <ul className="sources">
           <li>
-            Heart Logos from
+            Heart Logos from:
             <a
               target="_blank"
               href="https://fonts.google.com/icons?selected=Material+Icons+Outlined:assignment_returned&icon.query=heart"
@@ -36,16 +36,16 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            Some button Styling
+            Some button Styling from:
             <a
               target="_blank"
               href="https://moderncss.dev/css-button-styling-guide/"
             >
-              from
+              here
             </a>
           </li>
           <li>
-            Icons made by
+            Icons made by:
             <a target="_blank" href="https://www.freepik.com" title="Freepik">
               Freepik
             </a>
@@ -59,28 +59,42 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            Scroll bar styles from
+            Scroll bar styles from:
             <a
               target="_blank"
               href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp"
             >
-              here
+            here
             </a>
           </li>
           <li>
-            Local storage code setup
+            Hosting tutorial from: 
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=aUW5GAFhu6s"
+            >
+            here
+            </a>
+          </li>
+          <li>
+            React Tabs Implemetation from: 
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=tBaBl7gpYhs"
+            >
+            here
+            </a>
+          </li>
+          <li>
+            Local storage code setup from:
             <a
               target="_blank"
               href="https://blog.logrocket.com/using-localstorage-react-hooks/"
             >
-              from
+             here
             </a>
           </li>
-          <li>
-            <a target="_blank" href="link">
-              LINK
-            </a>
-          </li>
+    
         </ul>
       </div>
       <div className="close">
