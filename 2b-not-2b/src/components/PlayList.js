@@ -103,6 +103,8 @@ const PlayList = (props) => {
               updateCurrentPlay={props.updateCurrentPlay}
               updateFavorites={props.updateFavorites}
               favorites={props.favorites}
+              info={props.info}
+              updateInfo={props.updateInfo}
             />
           ))}
         </table>
