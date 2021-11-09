@@ -18,7 +18,7 @@ const DetailsMain = (props) => {
   };
 
   return (
-    <div>
+    <div className="outer">
       <div className="playDetailsMain tabs">
         <div className="synopsis">
           <div>
