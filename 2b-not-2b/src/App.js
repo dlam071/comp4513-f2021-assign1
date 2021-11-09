@@ -35,6 +35,13 @@ function App() {
   const [fileExists, setFileExists] = useState(false);
   const [readText, setReadText] = useState(false);
 
+  const [text, setText] = useState([]);
+  const [chars, setChars] = useState([]);
+
+  const updateText = (value) => setText(value);
+
+  const updateChars = (value) => setChars(value);
+
   const toggleReadText = () => {
     if (!readText) {
       setReadText(true);
@@ -62,6 +69,10 @@ function App() {
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
+          setText(data.acts);
+
+          setChars(data.persona);
+
           setInfo(data);
         });
     } else {
@@ -72,12 +83,13 @@ function App() {
 
   const updateInfo = (info) => {
     setInfo(info);
-    console.log("info is set to");
-    console.log(info);
+    setText(info.acts);
+    setChars(info.persona);
   };
 
   const updateCurrentPlay = (play) => {
     setCurrentPlay(play);
+    fetchInfo(play);
     localStorage.setItem("curPlay", JSON.stringify(play));
   };
 
@@ -232,6 +244,10 @@ function App() {
             updateFileExists={updateFileExists}
             readText={readText}
             toggleReadText={toggleReadText}
+            text={text}
+            chars={chars}
+            updateText={updateText}
+            updateChars={updateChars}
           />
         }
       />
