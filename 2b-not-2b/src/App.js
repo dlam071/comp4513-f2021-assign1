@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Switch } from "switch";
 
 function App() {
   const [loadedDataStatus, setLoadedDataStatus] = useState(false);
