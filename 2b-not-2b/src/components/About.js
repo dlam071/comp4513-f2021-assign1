@@ -66,25 +66,32 @@ const About = (props) => {
               target="_blank"
               href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp"
             >
-            here
+              here
             </a>
           </li>
           <li>
-            Hosting tutorial from: 
+            Hosting tutorial from:
             <a
               target="_blank"
               href="https://www.youtube.com/watch?v=aUW5GAFhu6s"
             >
-            here
+              here
             </a>
           </li>
           <li>
-            React Tabs Implemetation from: 
+            Loading Animation from
+            <a
+              target="_blank"
+              href="https://monophy.com/gifs/book-page-flip-turn-lMa32EDsr7NrDwg1no"
+            >
+              from
+            </a>
+            React Tabs Implemetation from:
             <a
               target="_blank"
               href="https://www.youtube.com/watch?v=tBaBl7gpYhs"
             >
-            here
+              here
             </a>
           </li>
           <li>
@@ -93,10 +100,9 @@ const About = (props) => {
               target="_blank"
               href="https://blog.logrocket.com/using-localstorage-react-hooks/"
             >
-             here
+              here
             </a>
           </li>
-    
         </ul>
       </div>
       <div className="close">

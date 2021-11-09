@@ -4,6 +4,7 @@ import Favorites from "./Favorites";
 import PlayFilters from "./PlayFilters";
 import PlayList from "./PlayList";
 import "../styles/playbrowser.css";
+
 const PlayBrowser = (props) => {
   return (
     //css and html tags are not set for this im just using it as an example ty and goodbye
@@ -34,6 +35,8 @@ const PlayBrowser = (props) => {
         sortPlays={props.sortPlays}
         info={props.info}
         updateInfo={props.updateInfo}
+        loadedDataStatus={props.loadedDataStatus}
+        fetchInfo={props.fetchInfo}
       />
     </section>
   );
