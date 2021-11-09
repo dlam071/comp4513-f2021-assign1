@@ -291,7 +291,7 @@ table {
 }
 
 
-.fade-enter {
+/* .fade-enter {
     opacity: 0;
 }
 
@@ -307,4 +307,4 @@ table {
 .fade-exit-active {
     opacity: 0.75;    
     transition: opacity linear 750ms;
-}
+} */
