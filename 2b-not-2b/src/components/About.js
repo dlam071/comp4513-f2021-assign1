@@ -27,7 +27,7 @@ const About = (props) => {
         </ul>
         <ul className="sources">
           <li>
-            Heart Logos from
+            Heart Logos from:
             <a
               target="_blank"
               href="https://fonts.google.com/icons?selected=Material+Icons+Outlined:assignment_returned&icon.query=heart"
@@ -36,16 +36,16 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            Some button Styling
+            Some button Styling from:
             <a
               target="_blank"
               href="https://moderncss.dev/css-button-styling-guide/"
             >
-              from
+              here
             </a>
           </li>
           <li>
-            Icons made by
+            Icons made by:
             <a target="_blank" href="https://www.freepik.com" title="Freepik">
               Freepik
             </a>
@@ -59,7 +59,7 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            Scroll bar styles from
+            Scroll bar styles from:
             <a
               target="_blank"
               href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp"
@@ -68,12 +68,12 @@ const About = (props) => {
             </a>
           </li>
           <li>
-            Local storage code setup
+            Hosting tutorial from:
             <a
               target="_blank"
-              href="https://blog.logrocket.com/using-localstorage-react-hooks/"
+              href="https://www.youtube.com/watch?v=aUW5GAFhu6s"
             >
-              from
+              here
             </a>
           </li>
           <li>
@@ -83,6 +83,22 @@ const About = (props) => {
               href="https://monophy.com/gifs/book-page-flip-turn-lMa32EDsr7NrDwg1no"
             >
               from
+            </a>
+            React Tabs Implemetation from:
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=tBaBl7gpYhs"
+            >
+              here
+            </a>
+          </li>
+          <li>
+            Local storage code setup from:
+            <a
+              target="_blank"
+              href="https://blog.logrocket.com/using-localstorage-react-hooks/"
+            >
+              here
             </a>
           </li>
         </ul>

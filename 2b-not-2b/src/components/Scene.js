@@ -6,9 +6,6 @@ import Highlighter from "react-highlight-words";
 const Scene = (props) => {
   const findHighLight = (speech, scene) => {
     if (true) {
-      // (props.actName === props.actForm || !props.actForm) &&
-      // (scene.name === props.sceneForm || !props.sceneForm) &&
-      // (speech.speaker === props.characterForm || !props.characterForm)
       return (
         <Highlighter
           searchWords={props.playSearchWord}
