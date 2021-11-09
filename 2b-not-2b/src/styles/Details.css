@@ -106,7 +106,7 @@ section.scriptText {
 }
 
 .title {
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 4;
 }
 
 .webIcon {

@@ -6,7 +6,7 @@ const About = (props) => {
   return (
     <div className="aboutBox">
       <div className="assignInfo">
-        <h2>Assignment 1</h2>
+        <h1>Assignment 1</h1>
         <h3>COMP 4513: Randy Connolly</h3>
         <p>
           Designed by: Hatoon Al-Nakshabandi, Dylan Borchert, and Darren Lam
@@ -17,6 +17,7 @@ const About = (props) => {
       </div>
       <div className="lists">
         <ul classNames="techUsed">
+          <li><h2>Tech Used</h2></li>
           <li>React-modal</li>
           <li>React-router</li>
           <li>React-router-DOM</li>
@@ -26,6 +27,7 @@ const About = (props) => {
           <li>react-highlight-words</li>
         </ul>
         <ul className="sources">
+          <li><h2>Sources</h2></li>
           <li>
             Heart Logos from:
             <a
