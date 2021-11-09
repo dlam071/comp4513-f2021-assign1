@@ -17,6 +17,8 @@ const SinglePlay = (props) => {
 
   const handleView = () => {
     props.updateCurrentPlay(props.play);
+    props.updateInfo(props.info);
+    props.fetchInfo(props.play);
   };
 
   return (

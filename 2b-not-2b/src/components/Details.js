@@ -9,9 +9,6 @@ import { update } from "lodash";
 
 const Details = (props) => {
   const [loadedDetailsStatus, setLoadedDetailsStatus] = useState(false);
-  const [text, setText] = useState([]);
-  const [chars, setChars] = useState([]);
-  const [fileExists, setFileExists] = useState(false);
 
   const [heartStyle, setHeartStyle] = useState("favoriteHeartOutline");
 
@@ -34,7 +31,7 @@ const Details = (props) => {
   };
 
   useEffect(() => {
-    if (!loadedDetailsStatus || true) {
+    if (!loadedDetailsStatus) {
       let filename = props.play.filename;
       if (filename) {
         props.updateFileExists(true);
@@ -46,8 +43,8 @@ const Details = (props) => {
         fetch(url)
           .then((resp) => resp.json())
           .then((data) => {
-            setText(data.acts);
-            setChars(data.persona);
+            props.updateText(data.acts);
+            props.updateChars(data.persona);
             props.updateInfo(data);
             getStoredPlayDetails(`play-${data.short}`, data);
           });
@@ -58,14 +55,12 @@ const Details = (props) => {
     }
   }, []);
 
-  const [readText, setReadText] = useState(false);
-
   const handleClickRead = () => {
     if (!props.readText) {
       return (
         <DetailsMain
           play={props.play}
-          chars={chars}
+          chars={props.chars}
           fileExists={props.fileExists}
           toggleReadText={props.toggleReadText}
         />
@@ -75,8 +70,8 @@ const Details = (props) => {
         <DetailsText
           play={props.play}
           toggleReadText={props.toggleReadText}
-          chars={chars}
-          text={text}
+          chars={props.chars}
+          text={props.text}
           info={props.info}
         />
       );
