@@ -96,9 +96,11 @@ function App() {
     const favorite = copyFavs.find((p) => p.id === fav.id);
     if (!favorite) {
       copyFavs.push(fav);
+      console.log("added!");
     } else {
       const index = copyFavs.indexOf(favorite);
       copyFavs.splice(index, 1);
+      console.log("removed!");
     }
     setFavorites(copyFavs);
     localStorage.setItem("favorites", JSON.stringify(copyFavs));

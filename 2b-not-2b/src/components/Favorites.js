@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/playbrowser.css";
 import FavoriteItem from "./FavoriteItem";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const Favorites = (props) => {
   const updateFavoriteCollapse = () => {
@@ -22,16 +23,25 @@ const Favorites = (props) => {
               <th className="listTitle">Title</th>
               <th></th>
             </tr>
+            <TransitionGroup>
             {props.favorites.map((p) => (
-              <FavoriteItem
-                play={p}
-                updateFavorites={props.updateFavorites}
-                updateCurrentPlay={props.updateCurrentPlay}
-                updateInfo={props.updateInfo}
-                info={props.info}
-                fetchInfo={props.fetchInfo}
-              />
+
+              <CSSTransition
+                key={p.title}
+                timeout={600}
+                classNames="fade">
+
+                <FavoriteItem
+                  play={p}
+                  updateFavorites={props.updateFavorites}
+                  updateCurrentPlay={props.updateCurrentPlay}
+                  updateInfo={props.updateInfo}
+                  info={props.info}
+                  fetchInfo={props.fetchInfo}
+                />
+              </CSSTransition>
             ))}
+            </TransitionGroup>
           </table>
         </div>
       </div>
