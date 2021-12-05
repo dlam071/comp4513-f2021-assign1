@@ -36,4 +36,4 @@ const playSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Play', playSchema);
+module.exports = mongoose.model('Play', playSchema, 'plays');
