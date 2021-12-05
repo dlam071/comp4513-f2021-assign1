@@ -3,7 +3,7 @@ require('dotenv').config();
 const connect = () => {
     const opt = {
         useUnifiedTopology: true,
-        useNewUrlParser: true, 
+        useNewUrlParser: true,
         dbName: '2b-not-2b'
     };
 

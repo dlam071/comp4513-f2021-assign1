@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 //use route handlers
 const listRouter = require('./handlers/listRouter.js');
 listRouter.handleAllPlays(app, Play);
+listRouter.handlePlayByID(app, Play);
 
 //create connection to database
 require('./handlers/dataConnector.js').connect();
