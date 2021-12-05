@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 //use route handlers
 const userRouter = require('./handlers/userRouter.js');
 userRouter.handleUserByID(app, User);
-userRouter.handleAllUsers(app, User);
 
 //create connection to database
 require('./handlers/dataConnector.js').connect();

@@ -4,7 +4,7 @@ const playSchema = new mongoose.Schema({
     id: String, 
     filename: String,
     title: String, 
-    likelyD: Number,
+    likelyDate: Number,
     genre: String,
     wiki: String, 
     gutenberg: String, 

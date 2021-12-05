@@ -12,20 +12,6 @@ handleUserByID = (app, User) => {
         });
 }
 
-const handleAllUsers = (app, User) => {
-    app.route('/api/user/list')
-        .get((req, resp) => {
-            User.find({}, (err, data) => {
-                if (err) {
-                    resp.json({ message: 'Unable to connect to users' });
-                } else {
-                    resp.json(data);
-                }
-            })
-        })
-}
-
-
 module.exports = {
-    handleUserByID, handleAllUsers
+    handleUserByID
 };
