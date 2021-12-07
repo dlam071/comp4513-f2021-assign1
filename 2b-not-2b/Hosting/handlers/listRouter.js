@@ -2,7 +2,7 @@
 const handleAllPlays = (app, Play) => {
     app.route('/api/list')
         .get((req, resp) => {
-            Play.find({}, (err, data) => {
+            Play.find({},"-playText", (err, data) => {
                 if (err) {
                     resp.json({ message: 'Unable to connect to plays' });
                 } else {
