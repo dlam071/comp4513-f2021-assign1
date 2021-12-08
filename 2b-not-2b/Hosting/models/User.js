@@ -20,4 +20,11 @@ const userSchema = new mongoose.Schema({
     email: String
 });
 
+userSchema.methods.isValidPassword = async function(formPassword) {
+    const user = this;
+    const has = user.password;
+    const compare = await bcrypt.compare(formPassword, hash);
+    return compare;
+}
+
 module.exports = mongoose.model('User', userSchema, 'users');

@@ -3,6 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
+const session = require('express-session');
+const flash = require('express-flas');
+const passport = require('passport');
+const helper = require('./handlers/helpers.js');
+require('./handlers/dataConnector.js')
+require('./handlers/auth.js')
 
 //get our data model
 const User = require("./models/User.js");
@@ -26,4 +32,39 @@ require("./handlers/dataConnector.js").connect();
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log("Server running at port= " + port);
+});
+
+//view engine setup
+app.set('views', './views');
+app.set('view engine', 'ejs');
+app.use(passport.initialize());
+app.use(passport.session());
+ap.use(flash());
+
+
+// app.get('/', (req, res) => {
+//     res.render('home.ejs',
+//         { data1: 'hello', data2: 'world' });
+// });
+
+app.get('/', helper.ensureAuthenticated, (req, res) => {
+    res.render('home.ejs',
+        { user:req.user });
+});
+
+app.get('/login', (req,res) => {
+    res.render('login.ejs', {message: req.flash('error')});
+});
+
+app.post('/login', async (req, resp, next) => {
+    passport.authenticate('localLogin',
+                           {successRedirect: '/',
+                            failureRedirect: '/login',
+                            failureFlash: true })(req, resp, next);
+});
+
+app.get('/logoout', (req, resp) => {
+    req.logout();
+    req.flash('info', 'You were logged out');
+    resp.render('login', {message: req.flash('info')} );
 });
