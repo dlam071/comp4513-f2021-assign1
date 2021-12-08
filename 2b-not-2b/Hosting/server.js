@@ -24,3 +24,12 @@ const port = process.env.port;
 app.listen(port, () => {
     console.log("Server running at port= " + port);
 });
+
+//view engine setup
+app.set('views', './views');
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+    res.render('home.ejs',
+        { data1: 'hello', data2: 'world' });
+});
