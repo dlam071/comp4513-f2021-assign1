@@ -109,8 +109,8 @@ function App() {
   useEffect(() => {
     if (loadedDataStatus === "loading") {
       setLoadedDataStatus("loading");
-      const url =
-        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
+      // const url = "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/list.php";
+      const url = "/api/list";
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
@@ -191,70 +191,70 @@ function App() {
 
   return (
     // <TransitionGroup>
-    //   <CSSTransition key={location.key} timeout={300} classNames="fade"> - We spent so much time on this part and it broke it completely. 
+    //   <CSSTransition key={location.key} timeout={300} classNames="fade"> - We spent so much time on this part and it broke it completely.
     // We really really tried here. This is the reason why our assignment is late.
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                plays={filteredPlays}
-                favorites={favorites}
-                saveFilters={saveFilters}
-                updateFavorites={updateFavorites}
-                filterTitle={filterTitle}
-                updateTitleFilter={setFilterTitle}
-              />
-            }
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Home
+            plays={filteredPlays}
+            favorites={favorites}
+            saveFilters={saveFilters}
+            updateFavorites={updateFavorites}
+            filterTitle={filterTitle}
+            updateTitleFilter={setFilterTitle}
           />
-          <Route
-            path="/browse"
-            element={
-              <PlayBrowser
-                plays={filteredPlays}
-                favorites={favorites}
-                saveFilters={saveFilters}
-                updateFavorites={updateFavorites}
-                filterTitle={filterTitle}
-                updateTitleFilter={setFilterTitle}
-                updateCurrentPlay={updateCurrentPlay}
-                sortPlays={sortPlays}
-                favoriteCollapse={favoriteCollapse}
-                setFavoriteCollapse={setFavoriteCollapse}
-                resultStatus={resultStatus}
-                info={info}
-                updateInfo={updateInfo}
-                fetchInfo={fetchInfo}
-                loadedDataStatus={loadedDataStatus}
-              />
-            }
+        }
+      />
+      <Route
+        path="/browse"
+        element={
+          <PlayBrowser
+            plays={filteredPlays}
+            favorites={favorites}
+            saveFilters={saveFilters}
+            updateFavorites={updateFavorites}
+            filterTitle={filterTitle}
+            updateTitleFilter={setFilterTitle}
+            updateCurrentPlay={updateCurrentPlay}
+            sortPlays={sortPlays}
+            favoriteCollapse={favoriteCollapse}
+            setFavoriteCollapse={setFavoriteCollapse}
+            resultStatus={resultStatus}
+            info={info}
+            updateInfo={updateInfo}
+            fetchInfo={fetchInfo}
+            loadedDataStatus={loadedDataStatus}
           />
-          <Route
-            path="/details"
-            element={
-              <Details
-                plays={filteredPlays}
-                favorites={favorites}
-                updateFavorites={updateFavorites}
-                updateCurrentPlay={updateCurrentPlay}
-                play={currentPlay}
-                favoriteCollapse={favoriteCollapse}
-                setFavoriteCollapse={setFavoriteCollapse}
-                info={info}
-                updateInfo={updateInfo}
-                fetchInfo={fetchInfo}
-                fileExists={fileExists}
-                updateFileExists={updateFileExists}
-                readText={readText}
-                toggleReadText={toggleReadText}
-                text={text}
-                chars={chars}
-                updateText={updateText}
-                updateChars={updateChars}
-              />
-            }
+        }
+      />
+      <Route
+        path="/details"
+        element={
+          <Details
+            plays={filteredPlays}
+            favorites={favorites}
+            updateFavorites={updateFavorites}
+            updateCurrentPlay={updateCurrentPlay}
+            play={currentPlay}
+            favoriteCollapse={favoriteCollapse}
+            setFavoriteCollapse={setFavoriteCollapse}
+            info={info}
+            updateInfo={updateInfo}
+            fetchInfo={fetchInfo}
+            fileExists={fileExists}
+            updateFileExists={updateFileExists}
+            readText={readText}
+            toggleReadText={toggleReadText}
+            text={text}
+            chars={chars}
+            updateText={updateText}
+            updateChars={updateChars}
           />
-        </Routes>
+        }
+      />
+    </Routes>
     //   </CSSTransition>
     // </TransitionGroup>
   );
