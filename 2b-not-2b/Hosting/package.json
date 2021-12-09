@@ -5,7 +5,9 @@
   "main": "list-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node list-server.js"
+    "start": "node server.js",
+    "project": "cd ../Development/ && npm run build && cd ../Hosting/ && node server.js",
+    "build": "cd ../Development/ && npm run build"
   },
   "author": "",
   "license": "ISC",
