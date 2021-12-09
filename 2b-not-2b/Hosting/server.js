@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const session = require('express-session');
-const flash = require('express-flas');
+const flash = require('express-flash');
 const passport = require('passport');
 const helper = require('./handlers/helpers.js');
 require('./handlers/dataConnector.js')
@@ -39,7 +39,7 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(passport.initialize());
 app.use(passport.session());
-ap.use(flash());
+app.use(flash());
 
 
 // app.get('/', (req, res) => {
