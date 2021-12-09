@@ -15,6 +15,22 @@ const SinglePlay = (props) => {
     }
   };
 
+  const hasText = () => {
+    if (props.play.filename) {
+      return (
+        <button className="buttonThin singleViewButton" onClick={handleView}>
+          <span>View &#128214;</span>
+        </button>
+      );
+    } else {
+      return (
+        <button className="buttonThin singleViewButton" onClick={handleView}>
+          <span>View</span>
+        </button>
+      );
+    }
+  };
+
   const handleView = () => {
     props.updateCurrentPlay(props.play);
     props.updateInfo(props.info);
@@ -28,11 +44,7 @@ const SinglePlay = (props) => {
       </Link>
       <td className="listItemYear">{props.play.likelyDate}</td>
       <td>
-        <Link to="/details">
-          <button className="buttonThin" onClick={handleView}>
-            View
-          </button>
-        </Link>
+        <Link to="/details">{hasText()}</Link>
       </td>
       <td>
         <Heart
