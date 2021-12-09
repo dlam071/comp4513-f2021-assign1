@@ -3,10 +3,10 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const session = require('express-session');
-const flash = require('express-flas');
+const flash = require('express-flash');
 const passport = require('passport');
 const helper = require('./handlers/helpers.js');
-require('./handlers/dataConnector.js')
+require('./handlers/dataConnector.js').connect();
 require('./handlers/auth.js')
 
 //get our data model
@@ -26,17 +26,19 @@ listRouter.handlePlayByID(app, Play);
 //create connection to database
 require('./handlers/dataConnector.js').connect();
 
-const port = process.env.port;
-app.listen(port, () => {
-    console.log("Server running at port= " + port);
-});
-
 //view engine setup
 app.set('views', './views');
 app.set('view engine', 'ejs');
+app.use(
+        session({
+            secret: process.env.SECRET,
+            resave: true,
+            saveUninitialized: true
+        })
+);
 app.use(passport.initialize());
 app.use(passport.session());
-ap.use(flash());
+app.use(flash());
 
 
 // app.get('/', (req, res) => {
@@ -60,8 +62,13 @@ app.post('/login', async (req, resp, next) => {
                             failureFlash: true })(req, resp, next);
 });
 
-app.get('/logoout', (req, resp) => {
+app.get('/logout', (req, resp) => {
     req.logout();
     req.flash('info', 'You were logged out');
     resp.render('login', {message: req.flash('info')} );
+});
+
+const port = process.env.port;
+app.listen(port, () => {
+    console.log("Server running at port= " + port);
 });
