@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const cookieParser = require('cookie-parser')
 const path = require("path");
 const app = express();
 const session = require('express-session');
@@ -29,14 +30,10 @@ listRouter.handlePlayByID(app, Play);
 //create connection to database
 require("./handlers/dataConnector.js").connect();
 
-const port = process.env.PORT;
-app.listen(port, () => {
-  console.log("Server running at port= " + port);
-});
-
 //view engine setup
 app.set('views', './views');
 app.set('view engine', 'ejs');
+app.use(cookieParser('RandysD*ng'))
 app.use(
         session({
             secret: process.env.SECRET,
@@ -75,6 +72,8 @@ app.get('/logout', (req, resp) => {
     req.flash('info', 'You were logged out');
     resp.render('login', {message: req.flash('info')} );
 });
+
+console.log()
 
 const port = process.env.port;
 app.listen(port, () => {

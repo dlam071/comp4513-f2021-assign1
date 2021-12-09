@@ -4,11 +4,11 @@ const UserModel = require('../models/User.js');
 // maps the passport fields to the names of fields in database
 const localOpt = {
   usernameField: 'email',
-  passwordField: 'password'
+  passwordField: 'password_bcrypt'
 };
 // define strategy for validating login
 const strategy = new LocalStrategy(localOpt, async (email,
-  password, done) => {
+  password_bcrypt, done) => {
   try {
     // Find the user in the DB associated with this email 
     const userChosen = await UserModel.findOne({ email: email });
@@ -19,7 +19,7 @@ const strategy = new LocalStrategy(localOpt, async (email,
     }
     // Validate password and make sure it matches the bcrypt digest 
     //stored in the database. If they match, return a value of true.
-    const validate = await userChosen.isValidPassword(password);
+    const validate = await userChosen.isValidPassword(password_bcrypt);
     if (!validate) {
       return done(null, false, { message: 'Wrong Password' });
     }
