@@ -25,9 +25,6 @@ userRouter.handleUserByID(app, User);
 listRouter.handleAllPlays(app, Play);
 listRouter.handlePlayByID(app, Play);
 
-//create connection to database
-require("./handlers/dataConnector.js").connect();
-
 //view engine setup
 app.set("views", "./views");
 app.set("view engine", "ejs");
@@ -42,11 +39,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-// app.get('/', (req, res) => {
-//     res.render('home.ejs',
-//         { data1: 'hello', data2: 'world' });
-// });
 
 app.get("/", helper.ensureAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../Development/build/index.html"));
@@ -69,7 +61,7 @@ app.get("/login", (req, res) => {
 
 app.post("/login", async (req, resp, next) => {
   passport.authenticate("localLogin", {
-    successRedirect: "/",
+    successReturnToOrRedirect: "/",
     failureRedirect: "/login",
     failureFlash: true,
   })(req, resp, next);
