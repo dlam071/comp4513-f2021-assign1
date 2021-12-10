@@ -60,9 +60,7 @@ function App() {
     if (filename) {
       setFileExists(true);
       filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
-      const url =
-        "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
-        filename;
+      const url = "/api/play/" + filename;
 
       fetch(url)
         .then((resp) => resp.json())
