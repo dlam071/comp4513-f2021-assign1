@@ -32,20 +32,21 @@ const Header = (props) => {
     }
   };
 
-  const profiledeets = () => {
-    if(props.user) {
-      return <p>{props.user[0].id}</p>;
+  const profile = () => {
+    if (props.user) {
+      return (
+        <div>
+          <h1></h1>
+          <p>{props.user[0].id}</p>
+        </div>
+      )
     }
   }
 
   const handleClick = () => {
     setModal();
   };
-  console.log(props);
-  // console.log(props.user.details.firstName);
-  if(props.user) {
-    console.log(props.user.id);
-  }
+
   return (
     <nav className="header" id="appHeader">
       <div>
@@ -74,9 +75,9 @@ const Header = (props) => {
       <div>
         <Button type="primary" className="buttonThin buttonSolid" onClick={showDrawer}> Profile </Button>
         <Drawer title="Profile" placement="top" closable={true} onClose={onClose} visible={visible}>
-         
-         {profiledeets()}
-          
+
+          {profile()}
+
         </Drawer>
       </div>
 
