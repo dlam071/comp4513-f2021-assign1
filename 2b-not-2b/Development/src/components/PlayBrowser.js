@@ -9,7 +9,7 @@ const PlayBrowser = (props) => {
   return (
     //css and html tags are not set for this im just using it as an example ty and goodbye
     <section className={"playBrowser " + props.favoriteCollapse}>
-      <Header />
+      <Header user={props.user}/>
       <Favorites
         updateFavorites={props.updateFavorites}
         favorites={props.favorites}
