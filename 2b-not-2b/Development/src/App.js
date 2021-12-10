@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { createContext } from "react";
 
 function App() {
   const [loadedDataStatus, setLoadedDataStatus] = useState("loading");
@@ -38,6 +39,9 @@ function App() {
 
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
+
+  const [user, setUser] = userState([]);
+
 
   const updateText = (value) => setText(value);
 
@@ -79,6 +83,30 @@ function App() {
     }
   };
 
+  const context = createContext(null);
+
+  // const userProvider = (apiUser) => {
+  //   fetchUser(apiUser);
+
+  //   return (
+  //     <context.Provider value={user}>
+  //       {apiUser}
+  //     </context.Provider>
+  //   );
+  // };
+
+
+  const fetchUser = (fetchedUser) => {
+    // let userID = fetchedUser.id;
+    const url = "/api/user/1";
+    
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUser(data);
+      })
+  }
+  
   const updateInfo = (info) => {
     setInfo(info);
     setText(info.acts);
