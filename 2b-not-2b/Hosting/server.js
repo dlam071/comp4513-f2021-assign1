@@ -19,16 +19,15 @@ const Play = require("./models/List.js");
 app.use(express.urlencoded({ extended: true }));
 
 //use route handlers
-const userRouter = require("./handlers/userRouter.js");
-const listRouter = require("./handlers/listRouter.js");
-userRouter.handleUserByID(app, User);
-listRouter.handleAllPlays(app, Play);
-listRouter.handlePlayByID(app, Play);
+const router = require("./handlers/router.js");
+router.handleUserByID(app, User);
+router.handleAllPlays(app, Play);
+router.handlePlayByID(app, Play);
 
 //view engine setup
 app.set("views", "./views");
 app.set("view engine", "ejs");
-app.use(cookieParser("RandysD*ng"));
+app.use(cookieParser("MatthewsHair"));
 app.use(
   session({
     secret: process.env.SECRET,
