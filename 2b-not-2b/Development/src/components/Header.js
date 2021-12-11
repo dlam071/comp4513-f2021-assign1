@@ -1,6 +1,5 @@
-import 'antd/dist/antd.css';
-import Modal from "react-modal";
 import "../styles/playbrowser.css";
+import 'antd/dist/antd.css';
 import About from "./About.js";
 import Profile from "./Profile.js";
 import "../styles/About.css";
@@ -8,28 +7,28 @@ import icon from "../images/theatre.png";
 import { Link } from "react-router-dom";
 import { Drawer, Button } from 'antd';
 import React, { useState, useEffect } from "react";
-Modal.setAppElement(document.getElementById("#appHeader"));
 
 const Header = (props) => {
   const [user, setUser] = useState();
+  const [visible, setVisible] = useState(false);
+  const [visibleAbout, setVisibleAbout] = useState(false);
+
   useEffect(() => {
-      const curUrl = "/currentUser";
-      fetch(curUrl)
+    const curUrl = "/currentUser";
+    fetch(curUrl)
       .then((resp) => resp.json())
-      .then((currentUserId)=> {
+      .then((currentUserId) => {
         const url = "/api/user/" + currentUserId[0].id;
         fetch(url)
-        .then((resp) => resp.json())
-        .then((data) => {
-          setUser(data[0]);
-        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            setUser(data[0]);
+          })
       })
 
   })
 
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [visible, setVisible] = useState(false);
-  const setModal = () => setIsOpen(!isOpen);
+
 
   const showDrawer = () => {
     setVisible(true);
@@ -39,30 +38,38 @@ const Header = (props) => {
     setVisible(false);
   }
 
-  const setShadow = () => {
-    if (isOpen) {
-      return "blurbox";
-    } else {
-      return "";
-    }
-  };
+  const showAboutDrawer = () => {
+    setVisibleAbout(true);
+  }
 
+  const onAboutClose = () => {
+    setVisibleAbout(false);
+  }
+
+  //tried to make this a seperate component but it keeps breaking our code with a "minimized error" which doesn't make sense
   const profile = () => {
     if (user) {
       return (
         <div>
-          <h1></h1>
-          <p>id: {user.id}</p>
-          <p>{user.details.firstname} {user.details.lastname}</p>
-          <p>{user.details.city}, {user.details.country}</p>
+          <div>
+            <h1>{user.details.firstname} {user.details.lastname}</h1>
+            <p>{user.details.city}, {user.details.country}</p>
+            <p>Email: {user.email}</p>
+            <p>
+              <h3>Membership info: </h3>
+              <ul>
+                <li>Date joined: {user.membership.date_joined}</li>
+                <li>Last Updated: {user.membership.last_update}</li>
+                <li>Likes: {user.membership.likes}</li>
+              </ul>
+            </p>
+            <img src={user.picture.large} />
+          </div>
         </div>
       )
     }
   }
 
-  const handleClick = () => {
-    setModal();
-  };
 
   return (
     <nav className="header" id="appHeader">
@@ -71,30 +78,17 @@ const Header = (props) => {
           <img src={icon} height="50" alt="back to home" title="Back to Home" />
         </Link>
       </div>
+
       <div>
-        {/* <button className="buttonThin buttonSolid">
-        Profile
-      </button> */}
-      </div>
-      <div className={setShadow()} onClick={handleClick}></div>
-      <button className="buttonThin buttonSolid" onClick={handleClick}>
-        About
-      </button>
-      {isOpen ? (
-        <About onRequestClose={setModal} contentLabel="About Modal" />
-      ) : null}
-      <div>
-        <Button type="primary" className="buttonThin buttonSolid" onClick={showDrawer}> About </Button>
-        <Drawer title="About" placement="top" closable={true} onClose={onClose} visible={visible}>
-          <p>this is here !!!</p>
+        <Button type="primary" className="buttonThin buttonSolid" onClick={showAboutDrawer}> About </Button>
+        <Drawer title="About" placement="top" closable={true} onClose={onAboutClose} visible={visibleAbout}>
+          <About />
         </Drawer>
       </div>
       <div>
         <Button type="primary" className="buttonThin buttonSolid" onClick={showDrawer}> Profile </Button>
-        <Drawer title="Profile" placement="top" closable={true} onClose={onClose} visible={visible}>
-
+        <Drawer title="Profile" placement="right" closable={true} onClose={onClose} visible={visible}>
           {profile()}
-
         </Drawer>
       </div>
 
