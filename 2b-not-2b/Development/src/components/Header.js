@@ -54,14 +54,8 @@ const Header = (props) => {
             <h1>{user.details.firstname} {user.details.lastname}</h1>
             <p>{user.details.city}, {user.details.country}</p>
             <p>Email: {user.email}</p>
-            <p>
-              <h3>Membership info: </h3>
-              <ul>
-                <li>Date joined: {user.membership.date_joined}</li>
-                <li>Last Updated: {user.membership.last_update}</li>
-                <li>Likes: {user.membership.likes}</li>
-              </ul>
-            </p>
+            <p>Date joined: {user.membership.date_joined}</p>
+            <p>Likes: {user.membership.likes}</p>
             <img src={user.picture.large} />
           </div>
         </div>
