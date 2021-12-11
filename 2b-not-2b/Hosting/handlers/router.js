@@ -6,13 +6,6 @@ const session = require("express-session");
 const flash = require("express-flash");
 
 const passInit = (app) => {
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(flash());
-};
-
-//get user by id
-handleUserByID = (app, User) => {
   app.use(cookieParser("MatthewsHair"));
   app.use(
     session({
@@ -21,6 +14,13 @@ handleUserByID = (app, User) => {
       saveUninitialized: true,
     })
   );
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(flash());
+};
+
+//get user by id
+handleUserByID = (app, User) => {
   passInit(app);
   app.get("/api/user/:id", helper.ensureAuthenticated, (req, resp) => {
     User.find(

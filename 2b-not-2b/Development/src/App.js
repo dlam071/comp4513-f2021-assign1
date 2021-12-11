@@ -39,7 +39,10 @@ function App() {
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
 
-  const updateText = (value) => setText(value);
+  const updateText = (value) => {
+    console.log("update text:" + value);
+    setText(value);
+  };
 
   const updateChars = (value) => setChars(value);
 
@@ -162,8 +165,8 @@ function App() {
     setFilteredPlays(copySortedPlays);
   };
 
-  const location = useLocation();
-  console.log("location", location);
+  // const location = useLocation();
+  // console.log("location", location);
 
   return (
     // <TransitionGroup>

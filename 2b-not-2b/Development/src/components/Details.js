@@ -41,9 +41,10 @@ const Details = (props) => {
       fetch(url)
         .then((resp) => resp.json())
         .then((data) => {
+          console.log(data[0].playText);
           props.updateText(data[0].playText.acts);
           props.updateChars(data[0].playText.persona);
-          props.updateInfo(data);
+          props.updateInfo(data[0]);
           getStoredPlayDetails(`play-${data[0].playText.short}`, data);
         });
     } else {
