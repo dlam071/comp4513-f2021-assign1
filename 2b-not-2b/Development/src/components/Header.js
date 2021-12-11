@@ -90,6 +90,11 @@ const Header = (props) => {
           {profile()}
         </Drawer>
       </div>
+      <div>
+        <button className="buttonThin buttonSolid">
+          <a href="/logout">Logout</a>
+        </button>
+      </div>
 
 
     </nav>
