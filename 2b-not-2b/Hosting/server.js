@@ -75,6 +75,16 @@ app.get("/logout", (req, resp) => {
 
 console.log();
 
+app.get('/currentUser', (req, res) => {
+  User.find({ id: req.user.id }, "id", (err, data) => {
+    if (err) {
+      res.json({ message: 'User not found D:' });
+    } else {
+      res.send(data);
+    }
+  })
+});
+
 const port = process.env.port;
 app.listen(port, () => {
   console.log("Server running at port= " + port);
