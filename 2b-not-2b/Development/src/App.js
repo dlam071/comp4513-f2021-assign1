@@ -32,7 +32,7 @@ function App() {
   });
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [resultStatus, setResultStatus] = useState("");
-  const [info, setInfo] = useState([]);
+  const [info, setInfo] = useState();
   const [fileExists, setFileExists] = useState(false);
   const [readText, setReadText] = useState(false);
 
@@ -40,7 +40,6 @@ function App() {
   const [chars, setChars] = useState([]);
 
   const updateText = (value) => {
-    console.log("update text:" + value);
     setText(value);
   };
 
@@ -60,6 +59,7 @@ function App() {
   };
 
   const updateInfo = (info) => {
+    console.warn(info);
     setInfo(info);
     setText(info.acts);
     setChars(info.persona);
@@ -102,7 +102,7 @@ function App() {
         })
         .catch((err) => console.error(err));
     }
-  }, []);
+  }, [text]);
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];

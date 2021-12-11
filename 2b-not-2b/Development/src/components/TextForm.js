@@ -11,7 +11,7 @@ const TextForm = (props) => {
       ));
     } else {
       console.log(props.text);
-      return null;
+      return <p>error rendering text</p>;
     }
   };
 
@@ -40,7 +40,7 @@ const TextForm = (props) => {
       ));
     } else {
       console.log(props.characters);
-      return null;
+      return <p>error rendering text</p>;
     }
   };
 

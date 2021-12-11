@@ -35,8 +35,9 @@ const Details = (props) => {
     let filename = props.play.filename;
     if (filename) {
       props.updateFileExists(true);
-      filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
-      //const url ="https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +filename;
+      // const url =
+      //   "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
+      //   props.play.id;
       const url = "/api/play/" + props.play.id;
       fetch(url)
         .then((resp) => resp.json())
@@ -44,8 +45,8 @@ const Details = (props) => {
           console.log(data[0].playText);
           props.updateText(data[0].playText.acts);
           props.updateChars(data[0].playText.persona);
-          props.updateInfo(data[0]);
-          getStoredPlayDetails(`play-${data[0].playText.short}`, data);
+          props.updateInfo(data[0].playText);
+          // getStoredPlayDetails(`play-${props.play.id})`, data);
         });
     } else {
       props.updateFileExists(false);
