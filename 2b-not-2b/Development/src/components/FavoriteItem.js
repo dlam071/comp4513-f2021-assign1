@@ -7,11 +7,10 @@ const FavoriteItem = (props) => {
     props.updateFavorites(props.play);
   };
   const handleView = () => {
-    console.log(props.info);
-    console.log(props.play);
     props.updateCurrentPlay(props.play);
     props.updateInfo(props.info);
-    if (!props.fileExists) props.toggleReadText();
+
+    if (!props.play.filename) props.toggleReadText();
   };
   return (
     <tr className={"favItem"}>

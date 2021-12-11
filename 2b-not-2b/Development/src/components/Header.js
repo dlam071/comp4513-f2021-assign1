@@ -56,14 +56,8 @@ const Header = (props) => {
               {user.details.city}, {user.details.country}
             </p>
             <p>Email: {user.email}</p>
-            <p>
-              <h3>Membership info: </h3>
-              <ul>
-                <li>Date joined: {user.membership.date_joined}</li>
-                <li>Last Updated: {user.membership.last_update}</li>
-                <li>Likes: {user.membership.likes}</li>
-              </ul>
-            </p>
+            <p>Date joined: {user.membership.date_joined}</p>
+            <p>Likes: {user.membership.likes}</p>
             <img src={user.picture.large} />
           </div>
         </div>
@@ -94,6 +88,7 @@ const Header = (props) => {
           closable={true}
           onClose={onAboutClose}
           visible={visibleAbout}
+          size="large"
         >
           <About />
         </Drawer>
@@ -116,6 +111,11 @@ const Header = (props) => {
         >
           {profile()}
         </Drawer>
+      </div>
+      <div>
+        <button className="buttonThin buttonSolid">
+          <a href="/logout">Logout</a>
+        </button>
       </div>
     </nav>
   );
