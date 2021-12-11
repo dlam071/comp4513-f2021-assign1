@@ -32,14 +32,16 @@ function App() {
   });
   const [favoriteCollapse, setFavoriteCollapse] = useState("expandFavs");
   const [resultStatus, setResultStatus] = useState("");
-  const [info, setInfo] = useState([]);
+  const [info, setInfo] = useState();
   const [fileExists, setFileExists] = useState(false);
   const [readText, setReadText] = useState(false);
 
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
 
-  const updateText = (value) => setText(value);
+  const updateText = (value) => {
+    setText(value);
+  };
 
   const updateChars = (value) => setChars(value);
 
@@ -57,6 +59,7 @@ function App() {
   };
 
   const updateInfo = (info) => {
+    console.warn(info);
     setInfo(info);
     setText(info.acts);
     setChars(info.persona);
@@ -99,7 +102,7 @@ function App() {
         })
         .catch((err) => console.error(err));
     }
-  }, []);
+  }, [text]);
 
   const saveFilters = (title, beforeInput, afterInput, genre) => {
     let playsCopy = [...plays];
@@ -162,8 +165,8 @@ function App() {
     setFilteredPlays(copySortedPlays);
   };
 
-  const location = useLocation();
-  console.log("location", location);
+  // const location = useLocation();
+  // console.log("location", location);
 
   return (
     // <TransitionGroup>

@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.71e5d82d.chunk.css",
+    "main.js": "/static/js/main.ba76df3f.chunk.js",
+    "main.js.map": "/static/js/main.ba76df3f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0d5683f1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0d5683f1.js.map",
+    "static/css/2.2ee0be11.chunk.css": "/static/css/2.2ee0be11.chunk.css",
+    "static/js/2.366799d1.chunk.js": "/static/js/2.366799d1.chunk.js",
+    "static/js/2.366799d1.chunk.js.map": "/static/js/2.366799d1.chunk.js.map",
+    "static/js/3.4898538f.chunk.js": "/static/js/3.4898538f.chunk.js",
+    "static/js/3.4898538f.chunk.js.map": "/static/js/3.4898538f.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.2ee0be11.chunk.css.map": "/static/css/2.2ee0be11.chunk.css.map",
+    "static/css/main.71e5d82d.chunk.css.map": "/static/css/main.71e5d82d.chunk.css.map",
+    "static/js/2.366799d1.chunk.js.LICENSE.txt": "/static/js/2.366799d1.chunk.js.LICENSE.txt",
+    "static/media/gutenberg.adf02b7d.jpg": "/static/media/gutenberg.adf02b7d.jpg",
+    "static/media/Home.css": "/static/media/hero-image.56bf3f85.jpg",
+    "static/media/loading.27044e74.gif": "/static/media/loading.27044e74.gif",
+    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg",
+    "static/media/shakespeare.05a2bba5.jpg": "/static/media/shakespeare.05a2bba5.jpg",
+    "static/media/theatre.75f92c21.png": "/static/media/theatre.75f92c21.png",
+    "static/media/wikipedia.8685c815.jpg": "/static/media/wikipedia.8685c815.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d5683f1.js",
+    "static/css/2.2ee0be11.chunk.css",
+    "static/js/2.366799d1.chunk.js",
+    "static/css/main.71e5d82d.chunk.css",
+    "static/js/main.ba76df3f.chunk.js"
+  ]
+}
