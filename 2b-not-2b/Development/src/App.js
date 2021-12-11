@@ -1,13 +1,10 @@
-import logo from "./logo.svg";
 import "./styles/App.css";
 import Home from "./components/Home.js";
 import PlayBrowser from "./components/PlayBrowser.js";
-import PlayDetails from "./components/PlayDetails.js";
 import Details from "./components/Details.js";
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import * as cloneDeep from "lodash/cloneDeep";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { createContext } from "react";
 
 function App() {
@@ -78,20 +75,6 @@ function App() {
       setFileExists(false);
     }
   };
-
-  const context = createContext(null);
-
-  // const userProvider = (apiUser) => {
-  //   fetchUser(apiUser);
-
-  //   return (
-  //     <context.Provider value={user}>
-  //       {apiUser}
-  //     </context.Provider>
-  //   );
-  // };
-
-  // const fetchUser = (fetchedUser) => {
 
   const updateInfo = (info) => {
     setInfo(info);
@@ -199,9 +182,6 @@ function App() {
     }
     setFilteredPlays(copySortedPlays);
   };
-
-  const location = useLocation();
-  // console.log("location", location);
 
   return (
     // <TransitionGroup>
