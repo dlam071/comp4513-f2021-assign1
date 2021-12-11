@@ -7,6 +7,8 @@ const FavoriteItem = (props) => {
     props.updateFavorites(props.play);
   };
   const handleView = () => {
+    console.log(props.info);
+    console.log(props.play);
     props.updateCurrentPlay(props.play);
     props.updateInfo(props.info);
     props.fetchInfo(props.play);

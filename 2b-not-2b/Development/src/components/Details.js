@@ -77,9 +77,8 @@ const Details = (props) => {
       );
     }
   };
-console.log(props.play.title);
+  // console.log(props.play.title);
   return (
-
     <section className={"playDetails " + props.favoriteCollapse}>
       <Header />
       <section className="title">
@@ -91,7 +90,7 @@ console.log(props.play.title);
           updateHeartClassName={updateHeartClassName}
         />
         <h2>{props.play.title}</h2>
-        {console.log(props.play.title)}
+        {/* {console.log(props.play.title)} */}
       </section>
       <Favorites
         updateFavorites={props.updateFavorites}

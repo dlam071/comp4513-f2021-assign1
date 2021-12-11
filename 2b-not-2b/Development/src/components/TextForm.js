@@ -2,12 +2,17 @@ import React, { useState } from "react";
 
 const TextForm = (props) => {
   const generateActs = () => {
-    let acts = props.text.map((n) => n.name);
-    return acts.map((n) => (
-      <option defaultValue={n} onClick={props.handleActChange}>
-        {n}
-      </option>
-    ));
+    if (props.text) {
+      let acts = props.text.map((n) => n.name);
+      return acts.map((n) => (
+        <option defaultValue={n} onClick={props.handleActChange}>
+          {n}
+        </option>
+      ));
+    } else {
+      console.log(props.text);
+      return null;
+    }
   };
 
   const generateScenes = () => {
@@ -20,17 +25,23 @@ const TextForm = (props) => {
         </option>
       ));
     } else {
+      console.log(props.actForm);
       return null;
     }
   };
 
   const generateCharacters = () => {
-    let characters = props.chars.map((n) => n.player);
-    return characters.map((n) => (
-      <option defaultValue={n} onClick={props.handleCharacterChange}>
-        {n}
-      </option>
-    ));
+    if (props.characters) {
+      let characters = props.chars.map((n) => n.player);
+      return characters.map((n) => (
+        <option defaultValue={n} onClick={props.handleCharacterChange}>
+          {n}
+        </option>
+      ));
+    } else {
+      console.log(props.characters);
+      return null;
+    }
   };
 
   return (

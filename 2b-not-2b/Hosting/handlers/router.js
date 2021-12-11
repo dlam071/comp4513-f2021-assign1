@@ -1,4 +1,4 @@
-const helper = require('./helpers.js');
+const helper = require("./helpers.js");
 const passport = require("passport");
 const express = require("express");
 const cookieParser = require("cookie-parser");
@@ -9,7 +9,7 @@ const passInit = (app) => {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(flash());
-}
+};
 
 //get user by id
 handleUserByID = (app, User) => {
@@ -22,16 +22,20 @@ handleUserByID = (app, User) => {
     })
   );
   passInit(app);
-  app.get('/api/user/:id', helper.ensureAuthenticated, (req, resp) => {
-    User.find({ id: req.params.id }, "id details picture membership email", (err, data) => {
-      if (data) {
-        resp.json(data);
-      } else {
-        resp.json({ message: 'User not found :(' });
+  app.get("/api/user/:id", helper.ensureAuthenticated, (req, resp) => {
+    User.find(
+      { id: req.params.id },
+      "id details picture membership email",
+      (err, data) => {
+        if (data) {
+          resp.json(data);
+        } else {
+          resp.json({ message: "User not found :(" });
+        }
       }
-    })
+    );
   });
-}
+};
 
 //return all plays
 const handleAllPlays = (app, Play) => {
@@ -53,8 +57,11 @@ handlePlayByID = (app, Play) => {
   app.get("/api/play/:id", helper.ensureAuthenticated, (req, resp) => {
     Play.find({ id: req.params.id }, (err, data) => {
       if (err) {
+        console.log("play not found");
         resp.json({ message: "Play not found :(" });
       } else {
+        console.log("called play");
+        console.log(data);
         resp.json(data);
       }
     });
@@ -64,5 +71,5 @@ handlePlayByID = (app, Play) => {
 module.exports = {
   handleAllPlays,
   handlePlayByID,
-  handleUserByID
+  handleUserByID,
 };
