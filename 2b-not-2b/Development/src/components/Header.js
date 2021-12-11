@@ -11,22 +11,20 @@ import React, { useState, useEffect } from "react";
 Modal.setAppElement(document.getElementById("#appHeader"));
 
 const Header = (props) => {
-  const [user, setUser] = useState({});
-  const [id, setId] = useState();
+  const [user, setUser] = useState();
   useEffect(() => {
       const curUrl = "/currentUser";
       fetch(curUrl)
       .then((resp) => resp.json())
-      .then((data)=> {
-        setId(data[0].id);
+      .then((currentUserId)=> {
+        const url = "/api/user/" + currentUserId[0].id;
+        fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          setUser(data[0]);
+        })
       })
 
-      const url = "/api/user/" + id;
-      fetch(url)
-      .then((resp) => resp.json())
-      .then((data) => {
-        setUser(data[0]);
-      })
   })
 
   const [isOpen, setIsOpen] = React.useState(false);
