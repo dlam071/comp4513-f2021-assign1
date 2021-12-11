@@ -40,8 +40,8 @@ app.use(passport.session());
 app.use(flash());
 
 app.get("/", helper.ensureAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, "../Development/build/index.html"));
-  app.use("/", express.static(path.join(__dirname, "../Development/build")));
+  res.sendFile(path.join(__dirname, "./build/index.html"));
+  app.use("/", express.static(path.join(__dirname, "./build")));
 });
 
 app.get("/browse", helper.ensureAuthenticated, (req, res) => {
@@ -71,8 +71,6 @@ app.get("/logout", (req, resp) => {
   req.flash("info", "You were logged out");
   resp.render("login", { message: req.flash("info") });
 });
-
-console.log();
 
 app.get("/currentUser", helper.ensureAuthenticated, (req, res) => {
   User.find({ id: req.user.id }, "id", (err, data) => {
