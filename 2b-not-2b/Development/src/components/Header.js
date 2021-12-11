@@ -1,7 +1,6 @@
 import "../styles/playbrowser.css";
 import 'antd/dist/antd.css';
 import About from "./About.js";
-import Profile from "./Profile.js";
 import "../styles/About.css";
 import icon from "../images/theatre.png";
 import { Link } from "react-router-dom";
