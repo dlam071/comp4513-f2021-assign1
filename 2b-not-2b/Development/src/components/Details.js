@@ -42,7 +42,7 @@ const Details = (props) => {
           props.updateText(data[0].playText.acts);
           props.updateChars(data[0].playText.persona);
           props.updateInfo(data);
-          getStoredPlayDetails(`play-${data[0].playText.short}`, data);
+          // getStoredPlayDetails(`play-${data[0].playText.short}`, data);
         });
     } else {
       props.updateFileExists(false);
