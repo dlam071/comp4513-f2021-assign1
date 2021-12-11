@@ -12,15 +12,20 @@ Modal.setAppElement(document.getElementById("#appHeader"));
 
 const Header = (props) => {
   const [user, setUser] = useState({});
+  const [id, setId] = useState();
   useEffect(() => {
-      // let userID = fetchedUser.id;
-      const url = "/api/user/1";
-      // console.log("here?")
+      const curUrl = "/currentUser";
+      fetch(curUrl)
+      .then((resp) => resp.json())
+      .then((data)=> {
+        setId(data[0].id);
+      })
+
+      const url = "/api/user/" + id;
       fetch(url)
       .then((resp) => resp.json())
       .then((data) => {
         setUser(data[0]);
-        // console.log(data)
       })
   })
 
