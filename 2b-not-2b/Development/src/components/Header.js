@@ -74,7 +74,7 @@ const Header = (props) => {
 
       <div>
         <Button type="primary" className="buttonThin buttonSolid" onClick={showAboutDrawer}> About </Button>
-        <Drawer title="About" placement="top" closable={true} onClose={onAboutClose} visible={visibleAbout}>
+        <Drawer title="About" placement="top" closable={true} onClose={onAboutClose} visible={visibleAbout} size='large'>
           <About />
         </Drawer>
       </div>

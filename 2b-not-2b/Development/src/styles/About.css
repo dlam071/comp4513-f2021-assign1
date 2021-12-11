@@ -6,7 +6,7 @@
   display: grid;
   grid-template-rows: 2fr 5fr 1fr;
   background-color: var(--platinum);
-  height: 50%;
+  height: 90%;
   width: 50%;
   top: 50%;
   transform: translateY(-50%);
