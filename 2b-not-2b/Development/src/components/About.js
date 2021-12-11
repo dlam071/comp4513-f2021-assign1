@@ -104,21 +104,17 @@ const About = (props) => {
             </a>
           </li>
         </ul>
-        <ul>
+
+      </div>
+
+
+      <div className="lists">
+        <ul className="sources">
+          <li><h2 className="aboutList">API Links</h2></li>
           <li>List all plays... <a href="http://localhost:8080/api/list">here!</a></li>
           <li>List play by ID... <a href="http://localhost:8080/api/play/antony_and_cleopatra">here!</a></li>
           <li>List user by ID <a href="http://localhost:8080/api/user/1">here!</a></li>
-
         </ul>
-
-      </div>
-      <div className="close">
-        <button
-          className="buttonSolid buttonThin"
-          onClick={props.onRequestClose}
-        >
-          Close &#10006;
-        </button>
       </div>
     </div>
   );
