@@ -1,3 +1,7 @@
+// const passport = require("passport");
+// const express = 
+// const app = express();
+
 function ensureAuthenticated (req, resp, next) {
   if (req.isAuthenticated()) {
     return next();

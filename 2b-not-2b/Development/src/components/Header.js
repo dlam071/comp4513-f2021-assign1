@@ -1,5 +1,4 @@
 import 'antd/dist/antd.css';
-import React, { useState } from "react";
 import Modal from "react-modal";
 import "../styles/playbrowser.css";
 import About from "./About.js";
@@ -8,10 +7,23 @@ import "../styles/About.css";
 import icon from "../images/theatre.png";
 import { Link } from "react-router-dom";
 import { Drawer, Button } from 'antd';
-
+import React, { useState, useEffect } from "react";
 Modal.setAppElement(document.getElementById("#appHeader"));
 
 const Header = (props) => {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+      // let userID = fetchedUser.id;
+      const url = "/api/user/1";
+      // console.log("here?")
+      fetch(url)
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUser(data[0]);
+        // console.log(data)
+      })
+  })
+
   const [isOpen, setIsOpen] = React.useState(false);
   const [visible, setVisible] = useState(false);
   const setModal = () => setIsOpen(!isOpen);
@@ -33,11 +45,13 @@ const Header = (props) => {
   };
 
   const profile = () => {
-    if (props.user) {
+    if (user) {
       return (
         <div>
           <h1></h1>
-          <p>{props.user[0].id}</p>
+          <p>{user.id}</p>
+          {/* <p>{user.details.firstname}</p> */}
+          <p>{JSON.stringify(user.details)}</p>
         </div>
       )
     }

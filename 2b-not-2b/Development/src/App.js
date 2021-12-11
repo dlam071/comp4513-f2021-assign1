@@ -40,7 +40,7 @@ function App() {
   const [text, setText] = useState([]);
   const [chars, setChars] = useState([]);
 
-  const [user, setUser] = useState({});
+ 
 
 
   const updateText = (value) => setText(value);
@@ -96,21 +96,7 @@ function App() {
 
   
   // const fetchUser = (fetchedUser) => {
-    const fetchUser = () => {
-      // let userID = fetchedUser.id;
-      const url = "/api/user/1";
-      // console.log("here?")
-      fetch(url)
-      .then((resp) => resp.json())
-      .then((data) => {
-        setUser(data);
-        // console.log(data)
-      })
-    }
     
-    const runFetch = () =>{
-      fetchUser();
-    }
  
     
     const updateInfo = (info) => {
@@ -157,7 +143,6 @@ function App() {
           })
           .catch((err) => console.error(err));
       }
-      runFetch();
     }, []);
 
     const saveFilters = (title, beforeInput, afterInput, genre) => {
@@ -246,7 +231,6 @@ function App() {
           path="/browse"
           element={
             <PlayBrowser
-              user={user}
               plays={filteredPlays}
               favorites={favorites}
               saveFilters={saveFilters}
