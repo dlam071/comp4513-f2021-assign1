@@ -31,29 +31,28 @@ const Details = (props) => {
   };
 
   useEffect(() => {
-    if (!loadedDetailsStatus) {
-      let filename = props.play.filename;
-      if (filename) {
-        props.updateFileExists(true);
-        filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
-        const url =
-          "https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +
-          filename;
-
-        fetch(url)
-          .then((resp) => resp.json())
-          .then((data) => {
-            props.updateText(data.acts);
-            props.updateChars(data.persona);
-            props.updateInfo(data);
-            getStoredPlayDetails(`play-${data.short}`, data);
-          });
-      } else {
-        props.updateFileExists(false);
-      }
-      setLoadedDetailsStatus(true);
+    // if (!loadedDetailsStatus) {
+    let filename = props.play.filename;
+    if (filename) {
+      props.updateFileExists(true);
+      filename = filename.substring(0, filename.lastIndexOf(".")); //removes the .json extension in the filename
+      //const url ="https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +filename;
+      const url = "/api/play/" + props.play.id;
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          props.updateText(data[0].playText.acts);
+          props.updateChars(data[0].playText.persona);
+          props.updateInfo(data);
+          getStoredPlayDetails(`play-${data[0].playText.short}`, data);
+        });
+    } else {
+      props.updateFileExists(false);
     }
-  }, []);
+    // setLoadedDetailsStatus(true);
+    // }
+    console.log("show text");
+  }, [props.play, props.readText]);
 
   const handleClickRead = () => {
     if (!props.readText) {
@@ -101,7 +100,7 @@ const Details = (props) => {
         setFavoriteCollapse={props.setFavoriteCollapse}
         info={props.info}
         updateInfo={props.updateInfo}
-        fetchInfo={props.fetchInfo}
+        fileExists={props.fileExists}
       />
       {handleClickRead()}
     </section>

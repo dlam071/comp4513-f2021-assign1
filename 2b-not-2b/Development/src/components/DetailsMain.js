@@ -5,12 +5,16 @@ import PlayDetails from "./PlayDetails";
 import "../styles/Details.css";
 
 const DetailsMain = (props) => {
+  const readClickHelper = () => {
+    if (props.fileExists) props.toggleReadText();
+  };
+
   const file = () => {
     return (
       <button
         className={props.fileExists ? "button" : "button sadbutton"}
         title={props.fileExists ? "Read Text" : "No Text Available"}
-        onClick={props.fileExists ? props.toggleReadText : null}
+        onClick={readClickHelper}
       >
         Read&#128214;
       </button>

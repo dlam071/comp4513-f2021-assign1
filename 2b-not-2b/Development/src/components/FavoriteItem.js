@@ -11,7 +11,7 @@ const FavoriteItem = (props) => {
     console.log(props.play);
     props.updateCurrentPlay(props.play);
     props.updateInfo(props.info);
-    props.fetchInfo(props.play);
+    if (!props.fileExists) props.toggleReadText();
   };
   return (
     <tr className={"favItem"}>

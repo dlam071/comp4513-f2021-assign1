@@ -11,19 +11,20 @@ const Header = (props) => {
   const [user, setUser] = useState();
   const [visible, setVisible] = useState(false);
   const [visibleAbout, setVisibleAbout] = useState(false);
-
   useEffect(() => {
-    const curUrl = "/currentUser";
-    fetch(curUrl)
-      .then((resp) => resp.json())
-      .then((currentUserId) => {
-        const url = "/api/user/" + currentUserId[0].id;
-        fetch(url)
-          .then((resp) => resp.json())
-          .then((data) => {
-            setUser(data[0]);
-          });
-      });
+    if (!user) {
+      const curUrl = "/currentUser";
+      fetch(curUrl)
+        .then((resp) => resp.json())
+        .then((currentUserId) => {
+          const url = "/api/user/" + currentUserId[0].id;
+          fetch(url)
+            .then((resp) => resp.json())
+            .then((data) => {
+              setUser(data[0]);
+            });
+        });
+    }
   }, []);
 
   const showDrawer = () => {
@@ -79,7 +80,7 @@ const Header = (props) => {
       </div>
 
       <div>
-        {/* <Button
+        <Button
           type="primary"
           className="buttonThin buttonSolid"
           onClick={showAboutDrawer}
@@ -95,10 +96,10 @@ const Header = (props) => {
           visible={visibleAbout}
         >
           <About />
-        </Drawer> */}
+        </Drawer>
       </div>
       <div>
-        {/* <Button
+        <Button
           type="primary"
           className="buttonThin buttonSolid"
           onClick={showDrawer}
@@ -114,7 +115,7 @@ const Header = (props) => {
           visible={visible}
         >
           {profile()}
-        </Drawer> */}
+        </Drawer>
       </div>
     </nav>
   );

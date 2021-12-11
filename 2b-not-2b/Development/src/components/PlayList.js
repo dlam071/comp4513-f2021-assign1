@@ -109,7 +109,6 @@ const PlayList = (props) => {
               favorites={props.favorites}
               info={props.info}
               updateInfo={props.updateInfo}
-              fetchInfo={props.fetchInfo}
             />
           ))}
         </table>

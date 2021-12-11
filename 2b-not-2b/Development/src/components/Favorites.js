@@ -30,7 +30,7 @@ const Favorites = (props) => {
                 updateCurrentPlay={props.updateCurrentPlay}
                 updateInfo={props.updateInfo}
                 info={props.info}
-                fetchInfo={props.fetchInfo}
+                fileExists={props.fileExists}
               />
             ))}
           </table>

@@ -61,7 +61,6 @@ handlePlayByID = (app, Play) => {
         resp.json({ message: "Play not found :(" });
       } else {
         console.log("called play");
-        console.log(data);
         resp.json(data);
       }
     });
