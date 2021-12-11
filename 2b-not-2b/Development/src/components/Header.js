@@ -11,7 +11,7 @@ import React, { useState, useEffect } from "react";
 Modal.setAppElement(document.getElementById("#appHeader"));
 
 const Header = (props) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   useEffect(() => {
       // let userID = fetchedUser.id;
       const url = "/api/user/1";
@@ -49,9 +49,9 @@ const Header = (props) => {
       return (
         <div>
           <h1></h1>
-          <p>{user.id}</p>
-          {/* <p>{user.details.firstname}</p> */}
-          <p>{JSON.stringify(user.details)}</p>
+          <p>id: {user.id}</p>
+          <p>{user.details.firstname} {user.details.lastname}</p>
+          <p>{user.details.city}, {user.details.country}</p>
         </div>
       )
     }
