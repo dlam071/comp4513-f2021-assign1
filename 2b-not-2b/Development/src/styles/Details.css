@@ -31,6 +31,7 @@
 }
 
 .playText {
+  grid-column: 2 / span 3;
   position: relative;
   height: calc(85vh - 50px);
 }
@@ -42,7 +43,7 @@
 
 div.scriptText {
   position: relative;
-  height: calc(100% - 21px);
+  height: 100%;
   padding: 10px;
 }
 
@@ -67,6 +68,7 @@ section.scriptText {
 }
 
 .title {
+  grid-column: 1 / span 4;
   display: flex;
   align-items: center;
   padding-left: 10px;
@@ -176,6 +178,7 @@ section.scriptText {
 
 /*! favorites Styles */
 .playDetails .favorites {
+  grid-column: 1 / span 2;
   background-color: var(--platinum);
   padding: 15px 20px;
   border-radius: 5px;
@@ -277,5 +280,5 @@ section.scriptText {
 }
 
 .outer {
-  grid-column: 2 /span 3;
+  grid-column: 2 / span 3;
 }
