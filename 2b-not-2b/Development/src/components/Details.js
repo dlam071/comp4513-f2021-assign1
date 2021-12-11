@@ -31,25 +31,23 @@ const Details = (props) => {
   };
 
   useEffect(() => {
-    if (!loadedDetailsStatus) {
-      let filename = props.play.filename;
-      if (filename) {
-        props.updateFileExists(true);
-        //const url ="https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +filename;
-        const url = "/api/play/" + props.play.id;
-        fetch(url)
-          .then((resp) => resp.json())
-          .then((data) => {
-            props.updateText(data[0].playText.acts);
-            props.updateChars(data[0].playText.persona);
-            props.updateInfo(data);
-            getStoredPlayDetails(`play-${data[0].playText.short}`, data);
-          });
-      } else {
-        props.updateFileExists(false);
-      }
-      setLoadedDetailsStatus(true);
+    let filename = props.play.filename;
+    if (filename) {
+      props.updateFileExists(true);
+      //const url ="https://www.randyconnolly.com//funwebdev/3rd/api/shakespeare/play.php?name=" +filename;
+      const url = "/api/play/" + props.play.id;
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((data) => {
+          props.updateText(data[0].playText.acts);
+          props.updateChars(data[0].playText.persona);
+          props.updateInfo(data);
+          getStoredPlayDetails(`play-${data[0].playText.short}`, data);
+        });
+    } else {
+      props.updateFileExists(false);
     }
+    setLoadedDetailsStatus(true);
     console.log("show text");
   }, [props.play, props.readText]);
 
