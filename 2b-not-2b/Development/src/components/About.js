@@ -25,11 +25,15 @@ const About = (props) => {
           <li className="techItem">lodash</li>
           <li className="techItem">Style-components</li>
           <li className="techItem">react-highlight-words</li>
+          <li className="techItem">Node</li>
+          <li className="techItem">EJS</li>
+          <li className="techItem">Heroku</li>
+
         </ul>
         <ul className="sources">
           <li className="sourceItem"><h2 className="aboutList">Sources</h2></li>
           <li className="sourceItem">
-            Heart Logos from:
+            Heart logos from:
             <a
               target="_blank"
               rel="noreferrer"
@@ -39,7 +43,7 @@ const About = (props) => {
             </a>
           </li>
           <li className="sourceItem">
-            Some button Styling from:
+            Some button styling from:
             <a
               target="_blank"
               rel="noreferrer"
@@ -84,7 +88,7 @@ const About = (props) => {
             </a>
           </li>
           <li className="sourceItem">
-            Loading Animation from
+            Loading animation from
             <a
               target="_blank"
               rel="noreferrer"
@@ -92,7 +96,7 @@ const About = (props) => {
             >
               from
             </a>
-            React Tabs Implemetation from:
+            React tabs implemetation from:
             <a
               target="_blank"
               rel="noreferrer"
@@ -112,11 +116,21 @@ const About = (props) => {
             </a>
           </li>
           <li className="sourceItem">
-           About and profile Drawers from:
+           About and profile drawers from:
             <a
               target="_blank"
               rel="noreferrer"
               href="https://ant.design/components/drawer/"
+            >
+              here
+            </a>
+          </li>
+          <li className="sourceItem">
+           About and profile avatars from:
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://ant.design/components/avatar/"
             >
               here
             </a>
