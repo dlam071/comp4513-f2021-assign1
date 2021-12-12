@@ -127,9 +127,9 @@ const About = (props) => {
       <div className="lists">
         <ul className="sources">
           <li><h2 className="aboutList">API Links</h2></li>
-          <li>List all plays... <a target="_blank" rel="noreferrer" href="http://localhost:8080/api/list">here!</a></li>
-          <li>List play by ID... <a target="_blank" rel="noreferrer" href="http://localhost:8080/api/play/antony_and_cleopatra">here!</a></li>
-          <li>List user by ID <a target="_blank" rel="noreferrer" href="http://localhost:8080/api/user/1">here!</a></li>
+          <li>List all plays... <a target="_blank" rel="noreferrer" href="/api/list">here!</a></li>
+          <li>List play by ID... <a target="_blank" rel="noreferrer" href="/api/play/antony_and_cleopatra">here!</a></li>
+          <li>List user by ID <a target="_blank" rel="noreferrer" href="/api/user/1">here!</a></li>
         </ul>
       </div>
     </div>

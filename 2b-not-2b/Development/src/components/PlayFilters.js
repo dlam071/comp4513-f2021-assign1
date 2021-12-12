@@ -123,7 +123,7 @@ const PlayFilters = (props) => {
                 onClick={reseFilters}
                 value="Reset"
                 type="reset"
-                className="buttonThin"
+                className="buttonThin extraSpace"
               >
                 Clear
               </button>
