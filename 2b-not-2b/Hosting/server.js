@@ -44,9 +44,15 @@ app.get("/", helper.ensureAuthenticated, (req, res) => {
   app.use("/", express.static(path.join(__dirname, "./build")));
 });
 
-app.get("/browse", helper.ensureAuthenticated, (req, res) => {});
+app.get("/browse", helper.ensureAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "./build/index.html"));
+  app.use("/", express.static(path.join(__dirname, "./build")));
+});
 
-app.get("/details", helper.ensureAuthenticated, (req, res) => {});
+app.get("/details", helper.ensureAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "./build/index.html"));
+  app.use("/", express.static(path.join(__dirname, "./build")));
+});
 
 app.get("/login", (req, res) => {
   res.render("login.ejs", { message: req.flash("error") });
