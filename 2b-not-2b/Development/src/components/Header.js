@@ -113,9 +113,11 @@ const Header = (props) => {
         </Drawer>
       </div>
       <div>
-        <button className="buttonThin buttonSolid">
-          <a href="/logout">Logout</a>
-        </button>
+        <a href="/logout">
+          <button className="buttonThin buttonSolid">
+            Logout
+          </button>
+        </a>
       </div>
     </nav>
   );
