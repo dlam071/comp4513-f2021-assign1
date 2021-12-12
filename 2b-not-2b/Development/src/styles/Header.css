@@ -1,0 +1,34 @@
+.profile {
+  display: grid;
+  align-content: center;
+  grid-gap: 3px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 4fr 1fr;
+}
+.pImage {
+  margin: 0% 20%;
+}
+
+.profileButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 6vw;
+}
+
+.infoButton svg{
+  transform: scale(1.5);
+}
+
+
+.infoButton svg:hover {
+  transition: 220ms all ease-in-out;
+  fill: var(--orange-accent);
+  cursor: pointer;
+}
+
+
+.ant-avatar > img {
+  cursor: pointer;
+}

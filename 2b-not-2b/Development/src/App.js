@@ -61,8 +61,10 @@ function App() {
   const updateInfo = (info) => {
     console.warn(info);
     setInfo(info);
+    if(info) {
     setText(info.acts);
     setChars(info.persona);
+    }
   };
 
   const updateCurrentPlay = (play) => {
