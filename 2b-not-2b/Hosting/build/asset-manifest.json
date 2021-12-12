@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.1f06423d.chunk.css",
-    "main.js": "/static/js/main.7f699ff4.chunk.js",
-    "main.js.map": "/static/js/main.7f699ff4.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.a61bd354.js",
-    "runtime-main.js.map": "/static/js/runtime-main.a61bd354.js.map",
+    "main.css": "/static/css/main.a2737fb5.chunk.css",
+    "main.js": "/static/js/main.44b34920.chunk.js",
+    "main.js.map": "/static/js/main.44b34920.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8c5d1e9a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8c5d1e9a.js.map",
     "static/css/2.2ee0be11.chunk.css": "/static/css/2.2ee0be11.chunk.css",
-    "static/js/2.89c6555d.chunk.js": "/static/js/2.89c6555d.chunk.js",
-    "static/js/2.89c6555d.chunk.js.map": "/static/js/2.89c6555d.chunk.js.map",
-    "static/js/3.859aefa9.chunk.js": "/static/js/3.859aefa9.chunk.js",
-    "static/js/3.859aefa9.chunk.js.map": "/static/js/3.859aefa9.chunk.js.map",
+    "static/js/2.cb3a17fa.chunk.js": "/static/js/2.cb3a17fa.chunk.js",
+    "static/js/2.cb3a17fa.chunk.js.map": "/static/js/2.cb3a17fa.chunk.js.map",
+    "static/js/3.d501d623.chunk.js": "/static/js/3.d501d623.chunk.js",
+    "static/js/3.d501d623.chunk.js.map": "/static/js/3.d501d623.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.2ee0be11.chunk.css.map": "/static/css/2.2ee0be11.chunk.css.map",
-    "static/css/main.1f06423d.chunk.css.map": "/static/css/main.1f06423d.chunk.css.map",
-    "static/js/2.89c6555d.chunk.js.LICENSE.txt": "/static/js/2.89c6555d.chunk.js.LICENSE.txt",
+    "static/css/main.a2737fb5.chunk.css.map": "/static/css/main.a2737fb5.chunk.css.map",
+    "static/js/2.cb3a17fa.chunk.js.LICENSE.txt": "/static/js/2.cb3a17fa.chunk.js.LICENSE.txt",
     "static/media/gutenberg.adf02b7d.jpg": "/static/media/gutenberg.adf02b7d.jpg",
     "static/media/Home.css": "/static/media/hero-image.56bf3f85.jpg",
     "static/media/loading.27044e74.gif": "/static/media/loading.27044e74.gif",
@@ -23,10 +23,10 @@
     "static/media/wikipedia.8685c815.jpg": "/static/media/wikipedia.8685c815.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a61bd354.js",
+    "static/js/runtime-main.8c5d1e9a.js",
     "static/css/2.2ee0be11.chunk.css",
-    "static/js/2.89c6555d.chunk.js",
-    "static/css/main.1f06423d.chunk.css",
-    "static/js/main.7f699ff4.chunk.js"
+    "static/js/2.cb3a17fa.chunk.js",
+    "static/css/main.a2737fb5.chunk.css",
+    "static/js/main.44b34920.chunk.js"
   ]
 }
