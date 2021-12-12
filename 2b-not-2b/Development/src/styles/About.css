@@ -6,17 +6,13 @@ html {
 }
 
 .aboutBox {
-  position: absolute;
+  position: relative;
   display: grid;
   grid-template-rows: 2fr 5fr 1fr;
-  background-color: var(--platinum);
-  height: 90%;
+  height: 80%;
   width: 50%;
-  top: calc(50% + 25px);
-  transform: translateY(-50%);
   left: 24%;
   right: auto;
-  padding: 20px 45px;
   border-radius: 5px;
   z-index: 10;
 }
@@ -34,7 +30,7 @@ html {
 .lists {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #assignHead {
