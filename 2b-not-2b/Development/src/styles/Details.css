@@ -4,7 +4,6 @@
 mark {
   background-color: yellow;
   padding: 0;
-
 }
 
 .playDetails {
@@ -75,6 +74,10 @@ section.scriptText {
 
 .react-tabs__tab {
   color: white;
+}
+
+.react-tabs__tab--selected {
+  color: black;
 }
 
 .title {
