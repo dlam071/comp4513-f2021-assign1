@@ -121,6 +121,16 @@ const About = (props) => {
               here
             </a>
           </li>
+          <li className="sourceItem">
+           About and profile Avatars from:
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://ant.design/components/avatar/"
+            >
+              here
+            </a>
+          </li>
         </ul>
 
       </div>
